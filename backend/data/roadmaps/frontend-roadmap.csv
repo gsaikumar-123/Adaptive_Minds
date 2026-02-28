@@ -1,0 +1,29 @@
+Module Name,Module Contents
+Web and Internet Foundations,How the internet works; HTTP concepts; Domain names; Web hosting basics; DNS resolution; Browser internals and rendering behavior
+HTML Fundamentals,HTML syntax basics; Writing semantic markup; Forms and validation techniques; Accessibility principles; Search engine optimization basics
+CSS Styling Essentials,Core CSS syntax; Layout creation techniques; Responsive design principles
+JavaScript Foundations,JavaScript language basics; DOM manipulation; Fetch API and AJAX requests
+Version Control and Collaboration,"Using Git for source control; Repository hosting with GitHub, GitLab, and Bitbucket"
+Package Management,Managing dependencies with npm; yarn; pnpm
+Frontend Frameworks and Libraries,Choosing a framework; React; Vue.js; Angular; Svelte; SolidJS; Qwik
+CSS Writing and Architecture,Utility-first styling with Tailwind CSS; BEM methodology; Scalable CSS architecture
+CSS Preprocessing and Tooling,Using Sass; PostCSS workflows
+Build Tools and Automation,Module bundlers such as Vite; Webpack; Rollup; Parcel; esbuild; SWC
+Code Quality Tools,Linting with ESLint; Code formatting with Prettier
+Testing Frontend Applications,Unit testing with Jest and Vitest; End-to-end testing with Playwright and Cypress
+Web Security Fundamentals,Authentication strategies; CORS; HTTPS; Content security policies; OWASP security risks
+Web Components,Custom elements; HTML templates; Shadow DOM
+Type Safety and TypeScript,TypeScript language basics; Type checking in frontend projects
+Server-Side Rendering and Routing,SSR concepts; Framework-specific SSR approaches; Routing strategies
+Popular SSR and Meta-Frameworks,Next.js; Nuxt.js; SvelteKit; Astro; React Router
+GraphQL and API Clients,GraphQL concepts; Apollo client; Relay Modern
+Static Site Generation,Static site generators; VuePress; Eleventy; Astro; Next.js
+Progressive Web Applications,PWA fundamentals; Offline capabilities; Installation behavior
+Mobile Application Development,Building mobile apps with React Native; Flutter; Ionic
+Desktop Application Development,Desktop apps using Electron; Tauri; Flutter
+Web Performance Optimization,PRPL pattern; RAIL model; Performance metrics; Using Lighthouse; Browser DevTools
+Storage and Performance Practices,Client-side storage; Performance best practices
+Real-Time and Background APIs,WebSockets; Server-sent events; Service workers
+Browser Device APIs,Location access; Notifications; Device orientation; Payments; Credential management
+Authentication and Identity,JWT authentication; OAuth flows; Single sign-on; Basic and session-based authentication
+Continued Learning Paths,Connections to TypeScript; Node.js; Fullstack development tracks

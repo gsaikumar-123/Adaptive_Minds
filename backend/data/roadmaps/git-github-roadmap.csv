@@ -1,0 +1,39 @@
+Module Name,Module Contents
+Version Control Foundations,Meaning of version control; Why version control is important; Comparing Git with other version control systems
+Getting Started with Git,Installing Git locally; Understanding repositories; Initial configuration; Local and global settings
+Creating and Managing Repositories,"Initializing repositories; Repository structure; Understanding working directory, staging area, and commits"
+Basic Git Workflow,Tracking file changes; Staging files; Committing changes; Ignoring files with ignore rules; Viewing commit history
+Branching Fundamentals,Purpose of branches; Creating new branches; Renaming and deleting branches; Switching between branches
+Merging and Integration,Basic merge concepts; Fast-forward merges; Non-fast-forward merges; Handling merge conflicts
+Collaboration Basics,Working with remote repositories; Pushing changes; Pulling updates; Fetching without merging
+GitHub Platform Introduction,Creating a GitHub account; Navigating the GitHub interface; Setting up user profiles
+Repositories on GitHub,Creating repositories; Public versus private repositories; Profile README usage
+Working with Remotes,Adding and managing remotes; Synchronizing local and remote repositories
+Forking and Cloning,Difference between forks and clones; Cloning repositories; Fork-based contribution workflows
+Issues and Task Tracking,Creating issues; Labeling issues; Assignments; Using saved replies
+Pull Requests Fundamentals,Creating pull requests; Pull requests from forks; Reviewing changes; Using collaborators
+Pull Request Communication,Commenting on pull requests; Mentions and reactions; Discussion best practices
+Merge Strategies,Choosing merge strategies; Squash merges; Rebase merges; Cherry-picking commits
+Git and GitHub Best Practices,Writing clear commit messages; Branch naming conventions; Pull request guidelines; Code review practices
+Documentation with GitHub,Writing documentation using Markdown; Creating project README files; Using GitHub Wikis
+Maintaining a Clean History,Rebasing commits; Squashing commits; Organizing commit history
+Working in Teams,Using GitHub organizations; Managing collaborators and members; Team-based permissions
+Project Management with GitHub,Using GitHub Projects; Kanban boards; Roadmaps; Workflow automation
+GitHub Discussions,Starting discussions; Community collaboration; Knowledge sharing
+Intermediate Git Concepts,Understanding commit history; Linear versus non-linear history; HEAD and detached HEAD states
+Exploring Commit History,Using log commands; Filtering and formatting logs
+Undoing Changes Safely,Reverting commits; Resetting changes with different reset modes
+Viewing Differences,Comparing commits; Comparing branches; Viewing staged and unstaged changes
+Rewriting Commit History,Amending commits; Interactive rebasing; Filtering history; Force pushing responsibly
+Tagging and Releases,Creating and managing tags; Pushing tags; Checking out tags; Creating releases
+Git Hooks,Purpose of hooks; Client-side and server-side hooks; Common hook examples
+Using Submodules,What submodules are; Adding submodules; Updating submodules; Use cases
+Patch and Workflow Tools,Creating and applying patches; Understanding GitHub workflows
+GitHub Command Line Tools,Installing GitHub CLI; Managing repositories; Issues and pull requests via CLI
+Automation with GitHub Actions,Workflow files; YAML syntax; Triggers and runners; Secrets and environment variables; Caching and artifacts
+Advanced Git Techniques,Using reflog; Bisecting commits; Working with multiple worktrees; Git attributes; Large file storage
+GitHub APIs and Integrations,REST API usage; GraphQL API basics; Building GitHub apps; OAuth apps; Webhooks
+Additional GitHub Features,GitHub Pages; Hosting static sites; Custom domains; Static site generators
+Developer Productivity Tools,GitHub Gists; GitHub Packages; Codespaces
+Learning and Education Resources,GitHub Education programs; Student developer tools; Classroom features
+Professional Growth and Next Steps,"Using Copilot responsibly; Sponsors program; Continuing learning with frontend, backend, DevOps, and full-stack paths"

@@ -1,0 +1,45 @@
+Module Name,Module Contents
+JavaScript Prerequisites for React,"Core JavaScript basics; ES6+ syntax; Understanding functions, arrays, objects, and modules before learning React"
+Tooling and Build Basics,Using CLI tools; Vite for modern frontend builds
+React Fundamentals Overview,What React is; Why React is used; Component-based architecture
+Functional Components,Using functional components; Why class components are discouraged; Understanding legacy code
+JSX and Rendering Syntax,JSX syntax rules; Embedding expressions; Rendering elements
+Component Core Concepts,Props vs state; Conditional rendering; Composition patterns
+Rendering and Lifecycle Concepts,Rendering behavior; Component lifecycle phases
+"Lists, Keys, and Rendering Collections",Rendering lists; Importance of keys
+Events and User Interaction,Handling events; Synthetic events
+Refs and Direct DOM Access,Using refs; When direct DOM access is required
+Render Props and Reusability,Sharing logic with render props
+Higher Order Components,Enhancing components using HOCs
+Hooks Introduction,Why hooks exist; Rules of hooks
+Basic React Hooks,useState; useEffect
+Common React Hooks,useCallback; useRef; useReducer; useMemo; useContext
+Creating Custom Hooks,Extracting reusable logic into custom hooks
+Hooks Best Practices,Performance considerations; Dependency management
+React Performance Optimization,React.memo; useMemo and useCallback optimization; Code splitting; Lazy loading; Profiling components
+Suspense and Concurrent Features,Suspense for code splitting; Concurrent rendering; useTransition; useDeferredValue; Streaming SSR
+Routing Fundamentals,Client-side routing concepts
+React Routing Libraries,React Router; TanStack Router
+State Management Basics,Local vs global state
+Context API,Sharing state with Context
+External State Libraries,Zustand; Jotai; MobX
+Styling in React,Writing CSS in React applications
+CSS Approaches,CSS Modules; Tailwind CSS; Panda CSS
+Component Libraries,Chakra UI; Material UI; Shadcn UI
+Headless UI Libraries,Radix UI; React Aria; Ark UI
+API Communication Basics,Making API calls from React
+REST API Integration,Axios; RTK Query; SWR
+GraphQL Integration,Apollo; Relay; urql
+Server State Management,React Query and caching strategies
+Testing Fundamentals,Why testing matters in React
+Testing Tools,Vitest; Jest; React Testing Library; Cypress; Playwright
+Frameworks Built on React,Next.js; Astro; React Router frameworks
+Forms Management,Handling forms in React
+Form Libraries,React Hook Form; Formik
+Type Safety with React,Using TypeScript with React
+Schema Validation,Zod for runtime validation
+Advanced Animation Techniques,Framer Motion; React Spring; GSAP
+Advanced React Features,Suspense; Portals; Error Boundaries
+Server APIs and Integration,Using server APIs with React frameworks
+Mobile Development with React,Building mobile apps using React Native
+Learning Continuation Paths,Frontend; TypeScript; Full-stack and mobile development

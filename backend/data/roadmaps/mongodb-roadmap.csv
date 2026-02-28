@@ -1,0 +1,40 @@
+Module Name,Module Contents
+MongoDB Fundamentals,Introduction to MongoDB; Differences between SQL and NoSQL databases; Core use cases for MongoDB; Overview of MongoDB Atlas
+MongoDB Ecosystem Awareness,Understanding where MongoDB fits in backend and Node.js development; Related ecosystem tools
+Data Modeling Concepts,Document-based data modeling; Embedded documents and arrays; Choosing between embedding and referencing
+MongoDB Data Types,BSON vs JSON; Numeric types; Strings; Objects; Arrays; Binary data; ObjectId; Boolean; Date; Null; Regular expressions; Symbols; Integer and long types; Decimal types; Timestamps; Min and Max keys
+MongoDB Terminology,"Core MongoDB terms such as databases, collections, documents, and fields"
+Collections and Basic Operations,Creating collections; Inserting documents; Querying documents; Updating records; Deleting documents
+Document Counting and Validation,Counting documents; Validating collection structure
+Bulk Operations,Using bulk write operations for performance
+Read and Write Concerns,Consistency and durability concepts; Read concern levels; Write concern levels
+Cursor Management,Using cursors to iterate query results
+Retryable Operations,Retryable reads and writes for reliability
+Query Operators Overview,Using operators to filter and shape query results
+Projection Operators,Including and excluding fields; Slicing arrays
+Comparison Operators,Equality and range comparisons
+Array Query Operators,Matching array contents; Size and element matching
+Element Query Operators,Checking field existence and type; Pattern matching
+Logical Query Operators,Combining conditions using logical expressions
+Indexing Fundamentals,Purpose of indexes; Improving query performance
+Index Types,Single-field indexes; Compound indexes; Text indexes; Expiring indexes; Geospatial indexes; Atlas search indexes
+Query Performance Optimization,Analyzing queries; Improving execution efficiency
+Aggregation Framework Basics,Using aggregation pipelines to transform data
+Aggregation Operators,"Filtering, grouping, sorting, projecting, skipping, limiting, unwinding, joining, and summing data"
+Aggregation Pipelines,Understanding pipeline stages and execution flow
+Transactions,Using multi-document transactions safely
+Developer Tooling,MongoDB language drivers; Development connectors
+Integration Connectors,"Connecting MongoDB with Kafka, Spark, and Elasticsearch"
+Backup and Recovery,Backing up data with mongodump; Restoring data with mongorestore
+Scaling MongoDB Systems,Replica sets for high availability; Sharded clusters for horizontal scaling
+Configuration and Tuning,Tuning MongoDB configuration; Index and query optimization
+Security Fundamentals,Securing MongoDB deployments
+Access Control,Role-based access control; Authentication methods
+Authentication Mechanisms,X.509 certificates; Kerberos authentication; LDAP proxy authentication
+Auditing,MongoDB audit logging
+Encryption Basics,Data protection concepts
+Encryption at Rest,Encrypting stored data
+Queryable Encryption,Searching encrypted data
+Client-Side Field Encryption,Encrypting sensitive fields on the client
+Transport Security,TLS and SSL encryption for data in transit
+Learning Continuation Paths,"Related backend, Node.js, and frontend learning roadmaps"

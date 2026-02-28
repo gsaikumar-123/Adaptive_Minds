@@ -1,0 +1,26 @@
+Module Name,Module Contents
+Linux Fundamentals and Navigation,Understanding Linux as an operating system; Navigating the file system; Basic shell navigation commands; Directory hierarchy structure
+Essential Linux Commands,Core command-line utilities; Command syntax; Viewing command paths; Using command help and manuals
+File and Directory Management,Creating and deleting files and directories; Moving files and folders; Copying and renaming files; Understanding file locations
+Editing Files in Linux,Editing text files using terminal editors; Working with Vim; Working with Nano
+Shell Basics and Environment,"Shell concepts; Environment variables; Redirecting output and input; Standard input, output, and error streams; Using superuser privileges"
+Working with Files and Permissions,Linux file permissions; Ownership concepts; Managing permissions; Soft links and hard links
+Archiving and Compression,Creating archives; Compressing files; Extracting archived data
+Text Processing Utilities,"Processing text streams using standard input and output; Tools such as cut, paste, sort, head, tail, join, split, pipe, tee, nl, wc, expand, unexpand, uniq, grep, awk, and tr"
+Process Management Fundamentals,Understanding processes; Background and foreground processes; Listing and finding running processes
+Advanced Process Control,Process signals; Killing processes; Process priorities; Process forking
+System Monitoring and Server Review,Checking system uptime and load; Reviewing authentication logs; Inspecting running services; Monitoring memory and disk usage
+User and Group Management,"Creating, deleting, and updating users; Managing groups; Assigning permissions"
+Service Management with systemd,Managing services using systemd; Creating new services; Starting and stopping services; Checking service status; Viewing service logs
+Package Management,"Understanding package repositories; Finding and installing packages; Listing installed packages; Installing, removing, and upgrading software; Using Snap packages"
+Disk and Filesystem Management,Understanding inodes; Filesystem concepts; Mounting filesystems; Managing swap space
+Advanced Storage Management,Adding new disks; Logical Volume Manager (LVM) basics
+Linux Boot Process,Boot sequence overview; Boot loaders; System logs during boot
+Networking Fundamentals,TCP/IP stack basics; Subnetting concepts; Ethernet fundamentals; ARP and RARP
+Network Configuration and Services,DHCP concepts; IP routing basics; DNS resolution process
+Network Security and Access,Using Netfilter; Secure remote access with SSH; File transfer methods
+Shell Scripting Basics,Shell script structure; Literals and variables; Loops; Conditional statements; Debugging shell scripts
+System Troubleshooting,Diagnosing network issues; Using ICMP and ping; Traceroute; Netstat usage; Packet analysis basics
+Containerization Concepts,Understanding containerization; Resource limits with ulimits; Control groups; Container runtimes
+Containers with Docker,Running containers using Docker; Relationship between Linux and container technologies
+Learning Continuation Paths,"Next steps with DevOps, Docker, Kubernetes, and Backend development roadmaps"
