@@ -1,0 +1,31 @@
+Module Name,Module Contents
+Game Development Foundations,Overview of game development; Client-side versus server-side responsibilities; Core areas of game creation
+Game Mathematics Basics,Linear algebra foundations; Vectors and matrices; Geometry concepts; Linear and affine transformations; Affine spaces
+Orientation and Transform Mathematics,Object orientation concepts; Quaternions; Euler angles; Rotation handling
+Curves and Interpolation,Curve fundamentals; Splines; Hermite curves; Bezier curves; Catmull-Rom splines
+Projection Techniques,Perspective projection; Orthographic projection; Viewing transformations
+Game Physics Fundamentals,Dynamics principles; Linear and angular velocity; Acceleration; Forces and restitution; Friction; Buoyancy
+Rigid Body Physics,Center of mass; Moment of inertia; Joint constraints
+Collision Detection Basics,Broad phase collision detection; Narrow phase collision detection; Continuous collision detection
+Collision Shapes and Geometry,Convex and concave shapes; Convex hulls; Convex decomposition
+Collision Algorithms,Intersection tests; Separating axis theorem; GJK algorithm; EPA algorithm
+Bounding Volumes and Spatial Partitioning,Axis-aligned bounding boxes; Oriented bounding boxes; Bounding volumes; Sort and sweep; Dynamic bounding volume trees; BVH structures
+Game Engines Overview,"Role of game engines; Comparing Unity, Unreal Engine, Godot, and native engines"
+Programming Languages for Games,C# for Unity; C and C++ for performance-critical systems; GDScript for Godot; Rust and Python use cases
+Computer Graphics Foundations,Rasterization; Ray tracing; Graphics pipeline stages; Sampling techniques
+Shaders and Rendering Basics,Shader concepts; Rendering equation; Reflection models
+Surface and Texture Mapping,Texture mapping; Diffuse and specular components; Bump mapping; Parallax mapping; Horizon mapping
+Color and Visual Perception,Color theory; Visual perception principles; Tone reproduction
+Lighting and Shadow Techniques,"Light types; Directional, point, spot, and infinite lights; Shadow mapping; Cascaded shadow maps"
+Visibility and Scene Optimization,Visibility determination; Occlusion culling; Clipping; Frustum concepts
+Geometric Rendering Elements,Polygons and polyhedrons; Stencil shadows
+Graphics APIs and Shader Languages,DirectX; OpenGL; Vulkan; WebGL; OpenGL ES; Metal; HLSL; GLSL; SPIR-V
+Game Animation Fundamentals,Basic animation concepts; Transform animations; Visual continuity
+Game AI Foundations,Purpose of game AI; Decision-making systems; Movement logic
+Decision-Making Models,Decision trees; Finite state machines; Behavior trees; Fuzzy logic; Markov systems; Goal-oriented behavior
+Strategic and Board Game AI,Minimax algorithm; Alpha-beta pruning; Monte Carlo tree search
+Game AI Learning Techniques,Naive Bayes classifiers; Decision learning; Reinforcement learning; Deep learning approaches
+Neural Networks for Games,Artificial neural networks; Learning-based game behaviors
+Advanced Rendering Concepts,Physically based rendering; Energy conservation; Metallicity; Microsurface scattering; Transparency and translucency
+Real-Time Ray Tracing,DirectX ray tracing; Vulkan ray tracing; NVIDIA OptiX
+Professional Growth and Next Steps,Exploring backend development; API design for games; Deepening specialization areas

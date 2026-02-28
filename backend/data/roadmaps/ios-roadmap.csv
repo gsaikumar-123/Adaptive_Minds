@@ -1,0 +1,34 @@
+Module Name,Module Contents
+iOS Development Foundations,Overview of iOS development; Apple ecosystem basics; iOS platform structure
+Choosing a Programming Language,Swift language overview; History and motivation behind Swift; Advantages over Objective-C; Objective-C basics; Using Swift and Objective-C together
+iOS System Architecture,Core OS layer; Core Services layer; Media layer; Cocoa Touch layer
+Core Programming Concepts,Object-oriented programming principles; Functional programming concepts; Memory management; Error handling strategies; Concurrency models using GCD and async/await
+Development Environment Setup,Installing Xcode; Managing preferences; Creating a new project; Understanding Xcode interface
+Xcode Navigation and Tools,Toolbar usage; Navigators; Editors; Managing project files and groups
+Debugging with Xcode,Using breakpoints; Debug navigator; Step-through debugging techniques
+Interface Builder Basics,Using Interface Builder; IBOutlets and IBActions; Auto Layout fundamentals
+UIKit Fundamentals,Views and view controllers; UI components; Handling user interactions; Storyboards and XIBs
+SwiftUI Fundamentals,Declarative UI approach; SwiftUI components; State management; Data binding; Building simple interfaces
+Building User Interfaces,Creating views and modifiers; Navigation structures; View transitions
+Navigation and View Management,Navigation controllers; Segues; Navigation stacks; Presenting and dismissing views; Modal navigation
+Human Interface Guidelines,Apple UI design principles; Designing intuitive and consistent interfaces
+Animation and Visual Effects,Core Animation basics; Creating animations; Lottie animation usage
+Application Architecture Patterns,MVC; MVP; MVVM; MVVM-C; TCA; VIPER
+Reactive Programming,Reactive concepts; Combine framework; Publishers and subscribers; Operators and pipelines; Using Combine with MVVM; RxSwift fundamentals
+Delegation and Callback Patterns,Delegate pattern usage; Callbacks; Closures; Memory management with closures; Avoiding callback complexity
+Concurrency and Asynchronous Programming,Async and await; Multithreading concepts; Operation queues
+Data Persistence and Storage,Core Data usage; User Defaults; Keychain storage; File system access; SQLite databases
+Data Formats and Parsing,Working with JSON and XML; Parsing and serializing data
+Networking Fundamentals,HTTP and HTTPS basics; REST APIs; GraphQL; Networking with URLSession; Alamofire library
+Dependency Management,Using CocoaPods; Carthage; Swift Package Manager
+Frameworks and Libraries,XCFrameworks; Static libraries; Dynamic libraries
+Accessibility Practices,Accessibility Inspector; VoiceOver support; Dynamic Type
+Apple Service Frameworks,ARKit; HealthKit; GameKit; MapKit; Core ML
+Code Quality and Linting,SwiftLint; Tailor; SwiftFormat
+Profiling and Debugging Tools,Xcode debugger; Instruments profiling
+Testing Strategies,Unit testing; UI testing; XCTest; XCUITest; Test plans and coverage
+Application Distribution,Using Fastlane; TestFlight distribution; App Store submission process
+CI/CD for iOS,Continuous integration tools; Jenkins; CircleCI; GitHub Actions; GitLab; Azure DevOps
+App Store Optimization,Improving app visibility; ASO fundamentals
+Continuous Learning,Staying updated with WWDC; Latest Swift versions; New iOS SDK releases
+Related Development Paths,Exploring Android; Flutter; React Native

@@ -1,0 +1,23 @@
+Module Name,Module Contents
+Dart Language Foundations,Overview of Dart language; Using DartPad; Variables and data types; Built-in types; Functions and lambdas; Operators; Control flow statements
+Development Environment Setup,"Flutter SDK and CLI usage; Flutter Version Management; IDE setup with VS Code, Android Studio, and IntelliJ IDEA"
+Flutter Widget Fundamentals,Widget-based UI concept; Stateless widgets; Stateful widgets; Responsive widgets; Inherited widgets; Styled widgets
+Platform-Specific Widgets,Material design widgets; Cupertino style widgets
+Asset and Resource Management,Using fonts; Managing images; Handling other asset file types
+Version Control and Collaboration,Using Git for source control; Hosting repositories on GitHub
+Design Principles and Architecture,Object-oriented programming concepts; SOLID principles; Common design patterns; Dependency injection basics
+Package and Dependency Management,Using pub.dev; Flutter pub; Dart pub workflows
+API Integration,Working with RESTful services; JSON serialization and deserialization; WebSocket communication; GraphQL basics
+Local and Cloud Storage,SQLite databases; Shared preferences; Firebase storage solutions
+Firebase Platform Integration,User authentication; Cloud Firestore; Push notifications; Remote configuration; Cloud functions
+Advanced Dart Concepts,Core Dart libraries; Lists and collections; Streams and futures; Asynchronous programming; Isolates; Functional programming concepts
+State Management Techniques,ChangeNotifier and ValueNotifier; Provider; Riverpod; Redux; BLoC; GetX
+Reactive Programming,Reactive concepts; Using RxDart
+Animations and Motion,Animation controllers; Animated widgets; Animated builder; Curved animations; Hero animations; Opacity transitions
+Testing Practices,Unit testing; Widget testing; Integration testing; Test-driven development; Behavior-driven development
+Developer Tools and Debugging,Flutter Inspector; Flutter Outline; Memory allocation analysis
+Flutter Internals,"Render objects; Widget, element, and render trees; Immutability concepts"
+Continuous Integration and Delivery,Automated pipelines; Fastlane; Codemagic; Bitrise; GitHub Actions; Firebase App Distribution
+Analytics and Monitoring,Using Segment; Mixpanel; Firebase Analytics; Google Analytics
+Application Deployment,Deployment guidelines; Publishing to App Store and Play Store; iOS and Android deployment considerations
+Learning Continuation Paths,"Related learning tracks such as React Native, Android, and iOS development"
