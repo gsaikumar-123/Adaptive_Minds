@@ -9,7 +9,6 @@ import Navbar from "./components/Navbar.jsx";
 import { useAssessment } from "./state/useAssessment.js";
 import { AuthProvider, useAuth } from "./context/AuthContext.jsx";
 
-// Lazy-loaded pages
 const TopicResourcesPage = lazy(() => import("./pages/TopicResourcesPage.jsx"));
 const LoginPage = lazy(() => import("./pages/LoginPage.jsx"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage.jsx"));
@@ -167,7 +166,6 @@ export default function App() {
   return (
     <AuthProvider>
       <div className="min-h-screen bg-slate-950 text-slate-100 relative overflow-hidden font-sans flex flex-col">
-        {/* Ambient background glows for the whole app (rendered conditionally to avoid stacking in dashboard) */}
         {!isDashboard && (
           <>
             <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-emerald-900/20 blur-[120px] pointer-events-none animate-pulse-slow z-0" />

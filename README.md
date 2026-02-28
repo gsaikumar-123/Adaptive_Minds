@@ -38,6 +38,17 @@ The project consists of a decoupled frontend and backend, orchestrated as follow
 - **Validation**: Zod (Input validation)
 - **Data Format**: CSV parsing and generation for easy roadmap portability.
 
+## Deployment
+
+### Backend
+- Deploy backend to Render.com, AWS, or your preferred hosting platform
+- Update `.env` with production database URL and Groq API key
+
+### Frontend
+- Configure `VITE_API_URL` environment variable to point to your backend deployment
+- See `frontend/.env.example` for configuration template
+- Keep deployment URLs private - do not expose in public repositories
+
 ## Project Structure
 
 ```text
