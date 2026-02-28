@@ -1,0 +1,50 @@
+Module Name,Module Contents
+Spring Ecosystem Introduction,Overview of Spring framework; Why Spring is used; Where Spring Boot fits in backend development
+Core Spring Concepts,Spring terminology; Inversion of Control; Dependency Injection principles
+Spring Architecture Basics,High-level Spring architecture; Core container responsibilities
+Spring Configuration Methods,Java-based configuration; XML configuration; Annotation-based configuration
+Dependency Injection Techniques,Constructor injection; Setter injection; Field injection
+Spring IOC Container,Bean creation lifecycle; ApplicationContext vs BeanFactory
+Aspect Oriented Programming,Cross-cutting concerns; Aspects; Join points; Advice; Pointcuts
+Spring MVC Fundamentals,Model View Controller pattern; Request handling flow
+Spring MVC Components,Controllers; View resolvers; DispatcherServlet
+Spring Annotations Overview,Commonly used Spring annotations; Stereotype annotations
+Spring Bean Scopes,Singleton; Prototype; Request; Session scopes
+Spring Security Foundations,Security concepts in Spring; Why Spring Security is needed
+Authentication Mechanisms,User authentication flow; Authentication providers
+Authorization Concepts,Role-based access; Permission-based authorization
+OAuth2 Integration,OAuth2 concepts; Authorization server; Resource server
+JWT Based Security,JSON Web Tokens; Stateless authentication
+Spring Boot Overview,What Spring Boot is; Benefits over traditional Spring
+Spring Boot Starters,Purpose of starters; Common starter dependencies
+Auto Configuration,How auto-configuration works; Conditional configuration
+Spring Boot Actuators,Monitoring endpoints; Health checks; Metrics
+Embedded Server Setup,Using embedded Tomcat; Jetty; Undertow
+Database Integration with Hibernate,ORM basics; Entity mapping; Session management
+Database Transactions,Transaction management; ACID properties
+Entity Relationships,One-to-one; One-to-many; Many-to-many mappings
+Entity Lifecycle Management,Entity states; Persistence context
+Spring Data Overview,Simplifying data access with Spring Data
+Spring Data JPA,Repository pattern; CRUD operations
+Spring Data MongoDB,Working with MongoDB repositories
+Spring Data JDBC,JDBC-based data access
+Microservices with Spring,Microservice architecture concepts
+Spring Cloud Overview,Distributed system support with Spring Cloud
+Spring Cloud Gateway,API gateway concepts; Routing
+Centralized Configuration,Spring Cloud Config server and clients
+Resilience Patterns,Circuit breaker concepts
+Spring Cloud Circuit Breaker,Fault tolerance in microservices
+Service Communication,Declarative REST clients with OpenFeign
+Service Discovery,Service registration and discovery
+Eureka Service Registry,Using Eureka for service discovery
+Metrics and Monitoring,Collecting metrics with Micrometer
+Servlet Fundamentals,Servlet API basics; Request and response lifecycle
+JSP Basics,Java Server Pages fundamentals
+Spring MVC Advanced Architecture,MVC internals; Request processing pipeline
+Spring MVC Components Deep Dive,Controllers; Filters; Interceptors
+Testing Spring Applications,Importance of testing in Spring
+JPA Testing,Testing JPA repositories
+Mock MVC Testing,Testing controllers without full server
+Spring Boot Integration Testing,Using @SpringBootTest
+Mocking Dependencies,Using @MockBean annotation
+Learning Continuation Paths,Related Java; Backend; System Design; DevOps roadmaps

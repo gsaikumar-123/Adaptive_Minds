@@ -1,0 +1,64 @@
+Module Name,Module Contents
+Swift Language Introduction,What Swift is; Why Swift is used; Swift compared to Objective-C; Common use cases; Installing and setting up Swift
+Swift Language Basics,Constants and variables; Comments; Type annotations; Semicolons; Printing output; String interpolation
+Core Swift Data Types,Integers; Floats and doubles; Strings; Tuples; Booleans; Optionals and nil
+Type System Fundamentals,Type safety; Type inference; Type casting; Memory safety
+Operators in Swift,Arithmetic operators; Logical operators; Comparison operators; Nil-coalescing operator
+Control Flow Constructs,if and else statements; switch and case; loops
+Looping Techniques,for loops; while loops; repeat-while loops; continue and break
+Error Handling in Swift,Throwing errors; Propagating errors; Catching errors
+Functions Fundamentals,Basic functions; Parameters; Return types
+Advanced Functions,Function types; Nested functions; Trailing closures
+Closures in Swift,Closures syntax; Capturing values
+Enumerations,Creating and using enums
+Structures and Classes,Defining structures; Defining classes
+Inheritance and Methods,Inheritance concepts; Defining methods
+Initialization and Properties,Initializers; Stored and computed properties; Property observers
+Optional Handling,Optional chaining
+Subscripts and Extensions,Using subscripts; Extending existing types
+Generics,Writing reusable generic code
+Access Control,Access levels and visibility
+Automatic Reference Counting,ARC basics and memory management
+Concurrency Foundations,Asynchronous functions; Async sequences
+Task Management,Tasks; Task groups; Unstructured concurrency
+Actors and Safety,Actors; Strict concurrency checking
+Swift Packages,Using packages; Creating packages; Plugins
+Package Management,Swift Package Manager; Swift Package Index
+Swift for Server Development,Using Swift for backend services
+Server Frameworks,Vapor; Hummingbird
+Database Libraries,MongoKitten
+Networking Libraries,Alamofire; Moya; Swift-NIO; Pulse
+Testing Fundamentals,XCTest; Swift Testing; Testing strategies
+Debugging and Logging,Xcode debugging; SwiftUI Inspector; swift-log; CocoaLumberjack
+Documentation Tools,DocC
+Data Visualization,Swift Charts
+Learning and Experimentation,Swift Playgrounds
+Cross Platform Tooling,Static Linux SDK; SDKs for WebAssembly
+UIKit vs SwiftUI,Differences between UIKit and SwiftUI
+SwiftUI Overview,What SwiftUI is; Why SwiftUI is used
+SwiftUI Core Views,Views; Text; Image; Button; List; Form
+View Styling,font; cornerRadius; padding; background
+State Management Basics,@State; @ObservedObject; @EnvironmentObject
+Implicit Animations,Implicit animations; Transitions
+User Interface Controls,UI controls
+Gestures and Interaction,Gestures; Drag and drop
+Data Persistence Options,UserDefaults; AppStorage; CloudKit; Databases
+SwiftUI Layout System,Layout basics; View hierarchy
+Layout Containers,HStack; VStack; ZStack; Grid; GeometryReader
+Navigation in SwiftUI,NavigationView; NavigationStack; NavigationPath; TabView; NavigationLink
+View Modifiers and Builders,View modifiers; ViewBuilder
+Advanced State Handling,@StateObject; @Binding
+Explicit Animations,Explicit animations; Animation customization
+User Interaction Enhancements,User interaction handling
+Localization and Accessibility,Localization support; Accessibility features
+Persistent Storage,FileManager; Firebase; Realm; GRDB
+App Architecture Patterns,MVVM; Clean architecture
+Dependency Management,Dependency injection
+Advanced Animations,Animatable protocol
+Advanced SwiftUI,SwiftUI with async and await
+Data Frameworks,Core Data; SwiftData
+App Lifecycle,Understanding app lifecycle
+Testing UI Applications,XCUITest
+Developer Tooling,Xcode; VS Code; Emacs; Neovim
+Beyond Apple Ecosystem,Using Swift beyond Apple platforms
+Related Learning Paths,iOS; Android; Kotlin; React Native; Flutter roadmaps

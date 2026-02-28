@@ -1,0 +1,55 @@
+Module Name,Module Contents
+React Native Introduction,What React Native is; Why React Native is used; Benefits and limitations; React Native alternatives
+Prerequisites for React Native,"JavaScript fundamentals; CSS basics; Core React concepts including components, state, props, and JSX"
+React Native Ecosystem Overview,"Relationship with React, JavaScript, Flutter, and Frontend development"
+Environment Setup Options,Choosing Expo or React Native CLI; Understanding tradeoffs
+Expo Tooling,Using Expo; create-expo-app; Expo Snack; Advantages and limitations of Expo
+React Native CLI Setup,Installing React Native CLI; Metro bundler overview
+Running Apps on Devices,Running apps on emulators and physical devices
+Development Workflow,Development cycle; Hot reload and fast refresh
+Debugging Fundamentals,Debugging techniques; In-app developer menu; LogBox; Source maps; DevTools
+Core UI Components Overview,Understanding core building blocks of React Native UI
+Text and Input Components,Text; TextInput
+Basic UI Elements,Button; Image; ImageBackground; Switch
+Feedback and Status Components,ActivityIndicator; StatusBar
+Overlay and Interaction Components,Modal; Pressable
+Layout Containers,View; SafeAreaView; KeyboardAvoidingView
+Scrolling and Lists,ScrollView; FlatList; SectionList; ListViews
+Refresh and Pagination,RefreshControl
+Platform-Specific Code,Writing code for specific platforms
+Platform Module Usage,Using Platform module
+File Extensions Strategy,Using platform-specific file extensions
+Web Support,Using react-native-web
+Styling Fundamentals,Styling approaches in React Native
+Stylesheets and Layout,Using StyleSheet API; Flexbox layouts
+Accessibility Practices,Building accessible mobile apps
+Networking Basics,Handling network requests
+Connectivity Management,Monitoring connectivity status
+WebSockets Communication,Real-time communication with WebSockets
+Data Fetching,Using Fetch API
+User Interactions,Touchables; Gesture handling
+Navigation and Motion,Screen navigation; Animations
+Deep Linking,Handling deep links
+Push Notifications,Implementing push notifications
+Security Foundations,Security best practices
+Authentication Techniques,User authentication methods
+Secure Networking,Protecting network communication
+Data Storage Basics,Local and secure data storage
+Async Storage,Using react-native-async-storage
+Expo Storage Solutions,expo-secure-store; expo-file-system; expo-sqlite
+Alternative Storage Options,Other storage approaches
+Testing Fundamentals,Importance of testing
+Unit and Component Testing,Jest; Component tests; React Test Renderer; React Native Testing Library
+End-to-End Testing,Detox; Appium
+Performance Fundamentals,Understanding frame rates
+Performance Issues,Identifying common performance problems
+Build Optimization,Speeding up builds
+List Optimization,Optimizing FlatList configurations
+Memory Optimization,RAM bundles; Inline requires
+Performance Profiling,Profiling React Native apps
+Using Native Modules,Integrating native modules
+Platform Native Modules,Native modules for iOS and Android
+Publishing Mobile Apps,Preparing apps for release
+iOS App Publishing,Publishing to Apple App Store
+Android App Publishing,Publishing to Google Play Store
+Next Learning Paths,Related React and Flutter roadmaps

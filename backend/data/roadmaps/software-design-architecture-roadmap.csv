@@ -1,0 +1,55 @@
+Module Name,Module Contents
+Clean Code Fundamentals,Writing readable and maintainable code; Consistent formatting; Meaningful naming instead of comments; Proper indentation and style
+Code Simplicity and Maintainability,"Keeping methods, classes, and files small; Writing pure functions; Reducing cyclomatic complexity"
+Clean Code Best Practices,Avoiding nulls and boolean flags; Separating framework code; Using appropriate language constructs
+Testable Code Design,Writing fast and independent tests; Structuring code around actors; Command-query separation
+Refactoring Mindset,Keeping designs simple; Continuous refactoring habits
+Programming Paradigms Overview,Understanding different ways to structure programs
+Structured Programming,Sequential execution; Control flow structures
+Functional Programming,Immutability; Pure functions; Function composition
+Object-Oriented Programming Basics,Core OOP mindset and modeling concepts
+OOP Core Concepts,Inheritance; Polymorphism; Abstraction; Encapsulation
+OOP Building Blocks,Abstract classes; Concrete classes; Interfaces; Scope and visibility
+Domain Modeling Concepts,Model-driven design; Domain models; Domain language
+Object Model Variants,Anemic models; Rich domain models; Class variants
+Layered Architecture Concepts,Separating concerns using layers
+Design Principles Overview,Guidelines for flexible and maintainable software
+Core Design Principles,Composition over inheritance; Encapsulate what changes; Program to abstractions
+Behavioral Principles,"Hollywood principle; Law of Demeter; Tell, don’t ask"
+Foundational Principles,SOLID principles; DRY; YAGNI
+Design Patterns Overview,Reusable solutions to common design problems
+GoF Design Patterns,Creational; Structural; Behavioral patterns
+Pattern-Oriented Software Architecture,PoSA pattern families
+Architectural Principles Overview,High-level system design guidelines
+Component Design Principles,Separating policy from detail; Managing coupling and cohesion; Defining boundaries
+Architectural Styles Overview,Common system organization styles
+Messaging Architectures,Message-based communication models
+Event-Driven Architectures,Event-based system interaction
+Publish-Subscribe Model,Decoupled message distribution
+Distributed Systems,Systems running across multiple nodes
+Client-Server Architecture,Request–response based systems
+Peer-to-Peer Architecture,Decentralized communication models
+Structural Architectures,Component-based; Monolithic; Layered structures
+Architectural Patterns Overview,Common high-level solution templates
+Domain-Driven Design,Aligning software design with business domains
+Model View Controller,Separating concerns for UI-driven systems
+Microservices Architecture,Independently deployable services
+Blackboard Pattern,Shared knowledge-based problem solving
+Microkernel Architecture,Extensible core systems
+Serverless Architecture,Event-driven cloud-native systems
+Messaging Patterns,Message queues and stream processing
+Event Sourcing,Persisting state changes as events
+Service-Oriented Architecture,Service-based system design
+Command Query Responsibility Segregation,Separating reads and writes
+Enterprise Application Patterns,Common enterprise-level design solutions
+Data Transfer Objects,Simple data carriers between layers
+Identity Mapping,Managing object identity
+Use Case Modeling,Application behavior definitions
+Repository Pattern,Abstracting data access
+Data Mappers,Separating domain logic from persistence
+Transaction Script,Procedural business logic handling
+Command and Query Models,Separating commands from queries
+Value Objects,Immutable domain values
+Entities,Objects with identity
+Object Relational Mappers,Mapping objects to relational databases
+Continued Learning Paths,Backend development roadmap; System design roadmap
