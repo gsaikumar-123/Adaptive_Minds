@@ -1,0 +1,84 @@
+Module Name,Module Contents
+System Design Foundations,Meaning of system design; Why system design matters; High-level thinking for scalable systems
+Approaching System Design,Structured approach to system design interviews and real-world problems
+Performance and Scalability,Understanding trade-offs between performance and scalability
+Latency and Throughput,Differences between response time and request handling capacity
+Availability and Consistency,Balancing system uptime with data correctness
+CAP Theorem Overview,"Understanding consistency, availability, and partition tolerance"
+CAP Variants,AP systems; CP systems
+Consistency Models,Weak consistency; Eventual consistency; Strong consistency
+Availability Techniques,Failover strategies; Active-active setups; Active-passive setups
+Replication Strategies,Master-slave replication; Master-master replication
+Measuring Availability,Understanding availability percentages like three nines and four nines
+Availability Calculations,Parallel vs sequential system availability
+Background Processing,Background job concepts
+Job Execution Models,Event-driven jobs; Schedule-driven jobs
+Result Delivery Patterns,Returning results asynchronously
+Domain Name System,How DNS works in distributed systems
+Content Delivery Networks,Purpose and benefits of CDNs
+CDN Models,Push-based CDNs; Pull-based CDNs
+Load Balancing Basics,Why load balancers are used
+Load Balancer vs Reverse Proxy,Differences and use cases
+Load Balancing Algorithms,Common load balancing strategies
+Layer 4 Load Balancing,Transport-level load balancing
+Layer 7 Load Balancing,Application-level load balancing
+Horizontal Scaling,Scaling systems by adding more machines
+Application Layer Design,Designing scalable application layers
+Microservices Architecture,Breaking applications into independent services
+Service Discovery,Finding services dynamically
+Database Fundamentals,Role of databases in system design
+SQL vs NoSQL,Choosing the right database type
+Database Replication,Replicating data for availability
+Sharding Techniques,Distributing data across nodes
+Federation,Splitting databases by function
+Denormalization,Optimizing reads by duplicating data
+SQL Performance Tuning,Optimizing relational database queries
+Relational Databases,Traditional RDBMS concepts
+Key Value Stores,Simple key-value databases
+Document Databases,Schema-flexible document stores
+Wide Column Stores,Column-oriented storage systems
+Graph Databases,Relationship-focused databases
+Caching Fundamentals,Why caching improves performance
+Cache Write Strategies,Write-through; Write-behind
+Cache Refresh Strategies,Refresh-ahead
+Cache Aside Pattern,Application-managed caching
+Caching Locations,Client caching; CDN caching; Web server caching; Database caching; Application caching
+Asynchronous Processing,Decoupling slow operations
+Back Pressure Handling,Preventing system overload
+Task Queues,Managing background tasks
+Message Queues,Asynchronous message processing
+Communication Protocols,HTTP; TCP; UDP
+Idempotent Operations,Safe retryable operations
+Remote Communication Models,RPC; REST; gRPC; GraphQL
+Performance Anti-Patterns,Busy database; Busy frontend; Chatty I/O; Extraneous fetching
+More Performance Pitfalls,Improper instantiation; Monolithic persistence; No caching
+Failure Patterns,Noisy neighbor; Synchronous I/O; Retry storms
+Monitoring Fundamentals,Why monitoring is critical
+Health Monitoring,Checking system health
+Availability Monitoring,Tracking uptime
+Performance Monitoring,Measuring system performance
+Security Monitoring,Detecting security issues
+Usage Monitoring,Understanding system usage
+Instrumentation,Collecting metrics and traces
+Visualization and Alerts,Dashboards and alerting systems
+Cloud Design Patterns Overview,Introduction to cloud-native design patterns
+Messaging Patterns,Sequential convoy; Publisher subscriber; Priority queue; Pipes and filters
+Advanced Messaging Patterns,Competing consumers; Choreography; Claim check; Async request reply
+Data Management Patterns,Valet key; Static content hosting; Sharding; Materialized view
+Data Optimization Patterns,Index table; Event sourcing; CQRS; Cache aside
+Design and Implementation Patterns,Strangler fig; Sidecar; Gateway routing
+Gateway Patterns,Gateway offloading; Gateway aggregation
+Configuration Management,External configuration stores
+Compute Optimization,Compute resource consolidation
+Frontend Integration,Backends for frontend
+System Isolation,Anti-corruption layer
+Service Mediation,Ambassador pattern
+Reliability Patterns,Availability and resiliency strategies
+High Availability Techniques,Deployment stamps; Geodes; Health endpoint monitoring
+Traffic Control,Queue-based load leveling; Throttling
+Fault Isolation,Bulkhead pattern
+Failure Recovery,Circuit breaker; Retry mechanisms
+Transactional Safety,Compensating transactions
+Leadership Coordination,Leader election
+Security Patterns,Federated identity; Gatekeeper; Valet key
+Related Learning Paths,Backend; Software architecture; DevOps roadmaps

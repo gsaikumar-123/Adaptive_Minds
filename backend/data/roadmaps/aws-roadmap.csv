@@ -1,0 +1,21 @@
+Module Name,Module Contents
+Cloud Computing Fundamentals,"Meaning of cloud computing; Differences between infrastructure, platform, and software services; Public, private, and hybrid cloud models"
+AWS Global Concepts,Overview of AWS worldwide infrastructure; Regions and availability zones; Shared responsibility between AWS and customers; Core principles of the AWS Well-Architected Framework
+Getting Started with AWS,Introduction to AWS platform; Understanding the AWS service ecosystem; Choosing essential services for beginners
+Identity and Access Management,Access control fundamentals; Users and user groups; Roles and role assumption; Identity-based and resource-based policies; Instance profiles
+Networking with VPC,Virtual private cloud concepts; CIDR addressing; Public and private subnets; Route tables; Internet gateways; NAT gateways; Network security groups
+Compute with EC2,Virtual server concepts; Instance families and sizing; CPU credit systems; Storage volumes; Key pair authentication; Elastic IPs; Startup scripts; Pricing and purchasing models
+Storage with S3,Object storage fundamentals; Buckets and objects; Storage classes; Lifecycle rules; Data durability and availability
+Email and Messaging Services,Email sending concepts; SES sandbox limitations; Identity verification; DKIM configuration; Feedback handling; Sender reputation management
+DNS and Traffic Routing,Domain name system concepts; Hosted zones; Routing policies; Health checks
+Monitoring and Observability,Metrics collection; Event tracking; Log aggregation; Monitoring application health
+Content Delivery Networks,Global content delivery concepts; Distribution configuration; Caching policies; Content invalidation
+Auto Scaling and Load Balancing,Machine image concepts; Launch templates; Auto scaling groups; Scaling rules; Load balancing strategies
+Relational Databases with RDS,Managed database concepts; Database instances; Storage options; Backup and recovery; Performance tuning
+NoSQL Databases with DynamoDB,Table-based data modeling; Keys and indexes; Capacity modes; Streams; Local development; Backup and restore
+In-Memory Caching,Caching concepts; Redis and Memcached usage; Performance optimization
+Container Services,Container orchestration basics; ECS clusters and services; Task definitions; Container registry concepts
+Kubernetes on AWS,Managed Kubernetes fundamentals; Cluster management; Containerized workloads
+Serverless Computing,Event-driven architecture; Function creation and invocation; Runtime customization; Versioning and aliases; Scheduling and event triggers; Cold start considerations
+API and Edge Services,API management concepts; Edge computing basics; Integrating APIs with serverless workloads
+Learning and Deployment Practices,Building simple applications; Deploying using AWS services; Iterative learning through hands-on projects
