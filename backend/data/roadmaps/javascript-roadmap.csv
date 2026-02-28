@@ -1,0 +1,26 @@
+Module Name,Module Contents
+JavaScript Fundamentals Overview,What JavaScript is; History and evolution; Different JavaScript versions; Ways to run JavaScript in browsers and servers
+Variables and Declarations,"Variable concepts; var, let, and const usage; Hoisting behavior; Naming rules; Block, function, and global scope"
+Data Types in JavaScript,"Primitive types such as string, number, boolean, null, undefined, bigint, and symbol; Objects and reference types"
+Objects and Prototypes,Object creation; Prototype chain; Prototypal inheritance; Using the typeof operator; Built-in object types
+Type Conversion and Casting,Type conversion vs type coercion; Explicit type casting; Implicit type conversion
+Data Structures,"Keyed collections including Map, WeakMap, Set, and WeakSet; Indexed collections like arrays and typed arrays; Structured data using JSON"
+Equality and Comparisons,Loose vs strict equality; Object.is comparison; Equality algorithms such as SameValue and SameValueZero
+Loops and Iterations,for loops; while and do-while loops; for...in and for...of loops; break and continue usage
+Control Flow and Error Handling,"Conditional statements; switch cases; Exception handling with try, catch, finally; throw statements; Error objects"
+Expressions and Operators,Assignment operators; Comparison operators; Arithmetic operators; Bitwise operators; Logical operators; BigInt operators; String operators; Unary and conditional operators
+Functions and Execution Context,Function declarations; Parameters and arguments; Arrow functions; Immediately-invoked functions; Scope and call stack; Built-in functions
+Advanced Function Concepts,Default parameters; Rest parameters; Recursion; Lexical scoping; Closures
+Strict Mode and This Keyword,"Strict mode behavior; Using this in methods, functions, event handlers, arrow functions, and global context"
+Function Reuse and Binding,"Function borrowing; Explicit binding; call, apply, and bind methods"
+Asynchronous JavaScript,Event loop; Timers with setTimeout and setInterval; Callbacks; Callback hell; Promises; async and await
+Working with APIs,Fetching data using Fetch API; Using XMLHttpRequest
+JavaScript Modules,CommonJS modules; ES Modules; Import and export patterns
+"Iterators, Generators, and Classes",Iterator protocol; Generator functions; Class syntax and usage
+JavaScript Design Patterns,Singleton pattern; Factory pattern; Observer pattern; Module pattern; Revealing module pattern; Prototype pattern
+Memory Management,Memory lifecycle; Garbage collection basics
+DOM and Browser APIs,Using DOM APIs; Interacting with browser features
+Debugging and Developer Tools,Using browser developer tools; Debugging issues; Finding memory leaks; Performance debugging
+Performance Optimization,Code optimization techniques; Lazy loading; Debouncing and throttling; Memoization; Web workers for parallel processing
+Modern JavaScript Features,Optional chaining; Nullish coalescing; Dynamic imports; Top-level await; Private class fields
+Ecosystem and Next Steps,Using JavaScript with frontend frameworks; Node.js basics; Related learning paths
