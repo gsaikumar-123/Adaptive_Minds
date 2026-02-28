@@ -1,0 +1,16 @@
+Module Name,Module Contents
+Mathematical Foundations for AI,Core linear algebra concepts; Differential and integral calculus essentials; Mathematical reasoning used in machine learning
+Statistical Reasoning and Experimentation,Fundamentals of descriptive statistics; Central limit behavior and sampling distributions; Probability theory and random sampling methods; Statistical hypothesis formulation and testing workflows; Controlled experimentation principles; Online experimentation and A/B testing methods; Experiment design best practices; Improving experiment sensitivity; Minimum detectable effect estimation; Variance reduction techniques; Covariate-based adjustment methods; Stratification strategies in experiments; Ratio-based evaluation metrics; Analytical techniques for ratio metrics
+Econometric Modeling and Time Analysis,Econometric prerequisites; Regression modeling techniques; Time series analysis fundamentals; Distribution fitting methods; Forecasting approaches and evaluation
+Programming for Data Science,Python programming fundamentals; Algorithmic problem solving; Data structures implementation; Relational database querying using SQL
+Data Wrangling and Preprocessing,Data cleaning techniques; Handling missing values; Outlier detection and treatment; Data transformation; Feature scaling and normalization; Encoding categorical variables
+Feature Engineering,Creating new features from existing data; Domain knowledge application; Feature selection methods; Dimensionality reduction techniques; Automated feature engineering
+Exploratory Data Investigation,Data comprehension workflows; Exploratory statistical analysis; Visualization techniques; Pattern discovery using Python data libraries
+Machine Learning Techniques,Supervised learning methods; Unsupervised learning approaches; Ensemble-based models; Neural network fundamentals
+Model Evaluation and Validation,Cross-validation techniques; Performance metrics for classification and regression; Bias-variance tradeoff; Overfitting and underfitting; Model selection strategies
+Hyperparameter Tuning and Optimization,Grid search; Random search; Bayesian optimization; AutoML approaches; Model interpretability and explainability
+Deep Learning Systems,Fully connected neural networks; Convolutional architectures; Recurrent sequence models; Transformer-based architectures; Transfer learning strategies
+Big Data Technologies,Distributed computing frameworks; Apache Spark fundamentals; PySpark for data processing; Dask for parallel computing; Working with large-scale datasets
+Cloud Platforms for Data Science,Cloud computing basics; AWS SageMaker; Google Cloud AI Platform; Azure Machine Learning; Cloud-based data warehouses; Scalable compute resources
+Model Monitoring and Maintenance,Model performance monitoring; Data drift detection; Model retraining strategies; A/B testing for models; Production debugging
+Production ML and Operations,Model deployment strategies; Automation pipelines; Continuous integration and delivery practices for machine learning systems; Containerization with Docker; Kubernetes for ML workloads
