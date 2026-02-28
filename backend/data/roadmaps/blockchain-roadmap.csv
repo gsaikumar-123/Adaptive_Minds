@@ -1,0 +1,26 @@
+Module Name,Module Contents
+Blockchain Fundamentals,Definition of blockchain technology; Purpose and real-world relevance; Decentralization concepts; Reasons blockchain systems matter; Core application areas
+Blockchain Structure and Operations,Block composition; Chain linking mechanisms; Basic blockchain operations; Transaction lifecycle; Storage concepts
+Core Blockchain Concepts,Mining mechanisms; Incentive and reward models; Trustless systems versus centralized trust; Blockchain forks; Cryptocurrencies and digital assets; Crypto wallets
+Cryptography and Consensus,Cryptographic foundations; Hashing and signatures; Consensus algorithms; Security guarantees; Blockchain interoperability
+Blockchain Networks and Ecosystems,Public blockchain networks; EVM-based chains; TVM-based chains; Layer-2 blockchains; Cross-chain compatibility
+Smart Contract Foundations,Purpose of smart contracts; Hybrid smart contract models; Oracle integration; Decentralized oracle networks
+Smart Contract Development,Programming languages for contracts; Solidity basics; Vyper usage; Rust for blockchain; Development environments and IDEs
+Smart Contract Testing and Quality,Unit testing strategies; Integration testing; Code coverage practices; Testing frameworks
+Smart Contract Deployment and Maintenance,Contract deployment workflows; Monitoring deployed contracts; Upgrade strategies; Token standards
+Blockchain Development Frameworks,Smart contract frameworks; Local development tools; Deployment utilities
+Blockchain Security Practices,Common vulnerability patterns; Randomness-related attacks; Fuzz testing; Static analysis methods
+Security Tooling,Automated security tools; Vulnerability scanners; Smart contract analyzers
+Open-Source and Management Platforms,Reusable contract libraries; Management platforms; Security-focused contract standards
+Version Control and Collaboration,Source control fundamentals; Git usage; Repository hosting services
+Decentralized Applications,Concept of dApps; Architecture of decentralized applications; Client and backend interactions
+Supporting Programming Languages,JavaScript for dApps; Python integrations; Go-based tooling
+Frontend Development for Web3,Frontend frameworks for dApps; UI integration with blockchain
+Client Libraries and SDKs,Blockchain client libraries; Interacting with smart contracts
+Blockchain Nodes and Clients,Running blockchain nodes; Execution clients; Development-focused node implementations
+Node Infrastructure Services,Node-as-a-service platforms; Managed blockchain infrastructure
+Blockchain Use Cases,Decentralized finance; DAOs; NFTs; Payments; Insurance solutions
+Scaling Blockchain Systems,State channels; Payment channels; Optimistic rollups; Zero-knowledge rollups; Sidechains; On-chain scaling
+Next-Generation Blockchain Evolution,Protocol upgrades; Ethereum 2.0 concepts
+Building and Maintaining Blockchain Systems,Application testing; Deployment strategies; Maintenance workflows; Security considerations
+Learning Paths and Ecosystem,Related backend technologies; Language ecosystems; Optional learning paths
