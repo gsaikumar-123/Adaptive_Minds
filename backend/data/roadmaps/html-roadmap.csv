@@ -1,0 +1,28 @@
+Module Name,Module Contents
+Web and Markup Language Basics,"Understanding markup languages; Role of HTML in frontend development; Relationship between HTML, CSS, and JavaScript"
+How the Web Operates,Overview of how the web works; HTTP fundamentals; DNS resolution; Domain names; Web browsers; Web hosting concepts; Search engine basics
+Getting Started with HTML,Creating the first HTML file; File structure basics; Case insensitivity rules; Handling whitespace
+Document Structure and Metadata,DOCTYPE declaration; html element; head section; body section; Meta information usage
+Core HTML Elements,Heading elements; Paragraphs; Line breaks; Horizontal rules; Preformatted text
+Text Formatting Elements,Bold and emphasis text; Italics and emphasis alternatives; Marked text; Subscript and superscript
+Links and Navigation,Creating hyperlinks; Relative and absolute links
+Grouping and Container Elements,Using div and span; Grouping text content
+Attributes and Identifiers,Using id and class attributes; Inline style attribute; Data attributes; Standard global attributes
+Lists and List Variations,Ordered lists; Unordered lists; Definition lists; Nested list structures
+Quotation and Reference Elements,Block quotations; Inline quotes; Citations; Definitions; Abbreviations; Address information
+Change Tracking Elements,Inserted text; Deleted text; Strikethrough content
+Layout and Structural Elements,Header; Navigation; Main content; Sections; Articles; Asides; Footer
+Tables and Tabular Data,"Table structure; Rows, headers, and cells; Table use cases"
+Embedding Media Content,Images; Audio; Video; Iframes; Media embedding strategies
+Image Handling Best Practices,Image element usage; Figure and caption patterns; Priority hints
+Forms and User Input,Creating forms; Labels and input elements; File uploads; Form validation; Form limitations
+Semantic Markup Principles,Using meaningful HTML elements; Improving document structure
+Styling HTML Content,Inline CSS usage; Internal style blocks; External stylesheets
+Integrating JavaScript,Including JavaScript in HTML documents
+HTML5 APIs and Features,Geolocation API; Drag and drop; Local storage and session storage; Web workers; Service workers; Canvas and SVG; Web components basics
+Progressive Web Features,Manifest files; Offline capabilities; Push notifications; Installation prompts
+Security Considerations,Content security policy basics
+Accessibility Foundations,Accessible HTML practices; Semantic support for assistive technologies
+Search Engine Optimization Basics,SEO-friendly markup; Metadata considerations
+HTML Entities and Special Characters,Using character entities safely
+Learning Continuation Paths,Next steps with frontend and JavaScript roadmaps
