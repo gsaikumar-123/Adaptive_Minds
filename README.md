@@ -40,14 +40,14 @@ The project consists of a decoupled frontend and backend, orchestrated as follow
 
 ## Deployment
 
-### Backend
-- Deploy backend to Render.com, AWS, or your preferred hosting platform
-- Update `.env` with production database URL and Groq API key
+- **Backend API**: [https://adaptive-minds.onrender.com](https://adaptive-minds.onrender.com)
+- **Platform**: Render.com
+- **Frontend Environment**: Configure `VITE_API_URL` to point to the backend deployment
 
-### Frontend
-- Configure `VITE_API_URL` environment variable to point to your backend deployment
-- See `frontend/.env.example` for configuration template
-- Keep deployment URLs private - do not expose in public repositories
+To use the deployed backend, set the frontend environment variable:
+```bash
+VITE_API_URL=https://adaptive-minds.onrender.com
+```
 
 ## Project Structure
 
@@ -96,9 +96,11 @@ adaptive-roadmap/
    Create a `.env` file in the `backend/` directory based on `.env.example`:
    ```env
    PORT=5000
-   MONGODB_URI=your_mongodb_connection_string
+   MONGO_URI=your_mongodb_connection_string
+   MONGO_DB=adaptive_roadmap
    JWT_SECRET=your_jwt_secret
    GROQ_API_KEY=your_groq_api_key
+   FRONTEND_URL=http://localhost:5173
    ```
 
 3. **Frontend Setup**:
@@ -108,7 +110,7 @@ adaptive-roadmap/
    ```
    Create a `.env` file in the `frontend/` directory (if required) for API base configurations:
    ```env
-   VITE_API_BASE_URL=http://localhost:5000/api
+   VITE_API_BASE_URL=http://localhost:5000
    ```
 
 ### Running the Application
