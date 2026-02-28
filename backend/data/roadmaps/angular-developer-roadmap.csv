@@ -1,0 +1,29 @@
+Module Name,Module Contents
+Angular Development Overview,Purpose of the Angular framework; Evolution of Angular; How Angular fits into modern frontend development; Typical responsibilities of an Angular developer
+TypeScript and Project Setup,TypeScript language fundamentals; Strong typing concepts; Setting up a new Angular project; Understanding project structure
+Angular Application Architecture,High-level Angular architecture; Core building blocks; Module-based organization; Dependency relationships
+Components and Component Design,Component structure and anatomy; Metadata configuration; Templates and styles; Component selectors; Encapsulation strategies; Standalone components; View and provider scopes
+Component Interaction and Lifecycle,Parent and child communication; Input and output bindings; ViewChild and ContentChild usage; Component lifecycle phases; Dynamic component rendering
+Modules and Code Organization,Creating and organizing modules; Feature modules; Lazy-loaded modules; Managing dependencies
+Template Syntax and Data Binding,"Interpolation techniques; Template expressions; One-way and two-way data binding; Property, attribute, and event binding"
+Template Control Flow,Conditional rendering; Looping constructs; Switch-style rendering; Template reference variables; Deferred and scoped template blocks
+Pipes and Data Transformation,Using built-in pipes; Pipe execution order; Creating custom pipes; Performance considerations
+Change Detection Strategies,How change detection works; Performance implications; Optimizing change detection behavior
+Directives and DOM Manipulation,Structural directives; Attribute directives; Creating custom directives
+Routing and Navigation,Router configuration; Route definitions; Lazy loading routes; Router outlets; Navigation links; Route guards; Router events
+Services and Dependency Injection,Creating reusable services; Dependency injection principles; Service scopes and providers
+Forms and User Input Handling,Template-driven forms; Reactive forms; Strongly typed forms; Dynamic form generation; Custom validation logic; Control value accessors
+HTTP Communication,Configuring the HTTP client; Sending requests; Handling responses; Interceptors for cross-cutting concerns
+Reactive Programming with RxJS,Observable pattern fundamentals; Observable lifecycle; Comparison with promises; Core operators for transformation and filtering; Combining data streams
+Signals and Modern Reactivity,Signals-based reactivity model; Interoperability with RxJS; Inputs and queries as signals; State modeling with signals
+State Management Approaches,Centralized state concepts; Popular Angular state libraries; Managing global and feature state
+Zones and Change Detection Control,Understanding zones; Performance impact; Building applications without zones
+Developer Tooling and CLI,Angular CLI usage; Local development setup; Environment configurations; Build pipelines; CLI builders; Ahead-of-time compilation
+Libraries and Reusability,Using third-party libraries; Creating reusable Angular libraries
+Server-Side Rendering and Static Generation,Server-side rendering concepts; Static site generation; Frameworks for SSR and SSG
+Application Security,Cross-site scripting prevention; Content sanitization; Trusted value handling; HTTP security risks; CSRF and XSRF protection
+Accessibility Best Practices,Accessible attributes; UI structure; Navigation accessibility; Identifying interactive elements
+Performance Optimization,Deferred rendering techniques; Image optimization; Reducing unnecessary change detection; Managing heavy computations; Hydration strategies
+Testing Strategies,Unit testing services and components; Testing pipes and directives; HTTP request testing; Debugging tests; Code coverage analysis
+Internationalization and Localization,Localization tooling; Locale identifiers; Translation file management; Supporting multiple languages
+Animations and Visual Transitions,Animation triggers and states; Complex animation sequences; Reusable animations; Route-based transitions
