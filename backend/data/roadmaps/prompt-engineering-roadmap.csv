@@ -1,0 +1,30 @@
+Module Name,Module Contents
+Foundations of Prompt Engineering,Overview of prompt engineering; How large language models operate; Purpose of prompting; Why prompt design matters
+Understanding Large Language Models,How LLMs are trained; Tokens and tokenization; Context windows; Model parameters and weights
+What Is a Prompt,Definition of a prompt; Prompt components; User input vs system instructions
+Prompt Engineering Explained,Designing inputs to guide model behavior; Differences between prompting and fine-tuning
+Model Providers Overview,Language models from OpenAI; Google models; Anthropic models; Meta models; xAI models
+Common Prompt Engineering Terminology,Tokens; Context window; Hallucinations; Agents; Prompt injection; Retrieval augmented generation; AI vs AGI
+Prompting vs Fine-Tuning,When to use prompting; When fine-tuning is appropriate; Trade-offs between approaches
+LLM Configuration Basics,Configuring model behavior through parameters
+Sampling Controls,Temperature settings; Top-K sampling; Top-P sampling
+Output Length and Control,Maximum token limits; Stop sequences
+Repetition and Frequency Controls,Repetition penalty; Frequency penalty; Presence penalty
+Structured Output Techniques,"Requesting structured responses such as JSON, XML, Markdown, and CSV"
+Zero-Shot Prompting,Prompting without examples; Use cases and limitations
+One-Shot and Few-Shot Prompting,Using examples to guide output format and behavior
+System Prompting,Setting high-level instructions that guide the model
+Role-Based Prompting,Assigning roles to influence tone and perspective
+Contextual Prompting,Providing background context to improve responses
+Combined Prompting Styles,"Using system, role, and context prompts together"
+Step-Back Prompting,Encouraging high-level reasoning before answering
+Chain of Thought Prompting,Breaking problems into reasoning steps
+Self-Consistency Prompting,Generating multiple reasoning paths and selecting the best
+Tree of Thoughts Prompting,Exploring multiple reasoning branches
+ReAct Prompting,Combining reasoning with action execution
+Automatic Prompt Engineering,Using LLMs to generate and refine prompts
+Prompt Security and Red Teaming,Understanding prompt injection; Defensive prompting strategies
+Prompt Engineering Best Practices,Keeping prompts concise; Clear instructions; Output length control; Using placeholders; Sampling tuning; Sanitizing input; Version tracking; Cost and latency optimization
+Prompt Evaluation and Reliability,Prompt debiasing; Prompt ensembling; Model self-evaluation; Calibration techniques
+Improving Prompt Robustness,Reducing hallucinations; Improving consistency
+Learning Continuation Paths,Next steps with AI engineer; AI agents; MLOps; AI red teaming roadmaps

@@ -1,0 +1,35 @@
+Module Name,Module Contents
+Kotlin Language Overview,"Purpose of Kotlin; History and motivation; Advantages over Java; Typical use cases; Relationship with Android, backend, and multiplatform development"
+Environment Setup and Tooling,Installing Kotlin; Setting up IntelliJ IDEA and Android Studio; Kotlin command-line tools; Kotlin notebooks
+Basic Syntax and Code Structure,Code organization; main function; Comments; Printing output with print and println
+Variables and Data Types,val vs var; Type inference; Integers; Floating-point numbers; Booleans; Characters; Strings; Unsigned types
+String Handling,String templates; String operations; Printing formatted data
+Collections Fundamentals,Lists; Sets; Maps; Read-only vs mutable collections
+Ranges and Progressions,Range expressions; Progressions; Iterating over ranges
+Control Flow Basics,if expressions; when expressions; for loops; while loops; do-while loops; break and continue; labeled loops
+Exception Handling,Throwing exceptions; Catching exceptions; Try-catch-finally blocks
+Functions Fundamentals,Function declarations; Parameters; Return values; Local functions; Member functions; varargs
+Advanced Functions,Lambda expressions; Anonymous functions; Higher-order functions; Tail-recursive functions; Standard library functions
+Extension and Function Types,Extension functions; Function types; Using functions as values
+Collection Operations,Transformations; Filtering; Ordering; Grouping; Aggregation operations; plus and minus operators
+Iterators and Sequences,Iterators; Lazy sequences; Performance considerations
+Classes and Objects Basics,Defining classes; Creating instances; Properties and methods; Constructors
+Inheritance and Interfaces,Inheritance rules; Abstract classes; Interfaces; Visibility modifiers
+Advanced Class Features,Data classes; Sealed classes; Enum classes; Inline classes; Type aliases; Class generics
+Nested and Object Declarations,Nested classes; Inner classes; Object declarations; Companion objects
+Property Delegation,Delegated properties; Common delegation patterns
+Null Safety Concepts,Nullable vs non-nullable types; Safe calls; Elvis operator; Non-null assertions; Safe casts
+Coroutines and Async Programming,What coroutines are; Suspending functions; Coroutine builders; Coroutine behavior; Asynchronous flows; Best practices
+Packages and Imports,Understanding packages; Importing packages; Code modularization
+Standard Library Essentials,Default imports; Core standard library features; Opt-in requirements
+Build Tools and Dependency Management,Gradle basics; Gradle plugins; Maven; Build tool APIs
+Documentation Practices,Writing KDoc; Generating documentation with Dokka
+Testing and CI/CD,Kotlin test libraries; Writing tests; CI/CD tools such as TeamCity
+Input and Output Operations,Reading files; Writing files; Buffered streams; Creating files
+Kotlin Platforms,JVM development; Kotlin/JavaScript; Kotlin/WASM; Kotlin Multiplatform; Kotlin/Native
+Java Interoperability,Calling Java from Kotlin; Using Kotlin from Java; Mixed projects
+Frameworks and Application Development,"Server-side development with Ktor, Spring, Quarkus, Vert.x; Kotlin scripting"
+Android Development with Kotlin,Android SDK basics; Android Studio; Android Jetpack; Compose Multiplatform
+Data and AI Development,Kotlin notebooks; DataFrame usage; Data analysis libraries; AI-related tooling
+Competitive Programming,Using Kotlin for algorithmic problem solving
+Continued Learning Paths,"Related Android, Java, and Full Stack learning tracks"

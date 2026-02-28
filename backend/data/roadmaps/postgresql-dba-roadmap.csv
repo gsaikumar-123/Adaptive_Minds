@@ -1,0 +1,56 @@
+Module Name,Module Contents
+PostgreSQL and Relational Database Foundations,What relational databases are; Core ideas of RDBMS; Benefits and limitations; Comparing PostgreSQL with other RDBMS and NoSQL systems
+Core Relational Database Concepts,"Databases, schemas, tables, rows, and columns; Relational model; Domains, attributes, tuples, and relations; Constraints and NULL handling"
+High-Level Database Internals,ACID principles; MVCC architecture; Transactions; Write-ahead logging; Query processing lifecycle
+PostgreSQL Installation and Setup,Installing PostgreSQL locally; Using Docker; Using package managers; Connecting with psql; Cloud deployment basics
+Managing PostgreSQL Services,Managing PostgreSQL with systemd; Using pg_ctl and pg_ctlcluster
+SQL Foundations,Learning SQL basics; Writing DDL and DML queries
+Schema and Table Management,Creating schemas; Creating and modifying tables; Understanding PostgreSQL data types
+Querying and Modifying Data,Selecting data; Filtering results; Updating records; Deleting data
+Joins and Relationships,Joining tables; Understanding relational joins
+Data Import and Export,Using COPY for bulk import and export
+Transaction Management,Using transactions; Commit and rollback; Isolation behavior
+Advanced Query Techniques,Subqueries; Grouping and aggregation; Common table expressions; Lateral joins; Set operations
+PostgreSQL Configuration Basics,Configuring PostgreSQL; Understanding postgres.conf; Resource usage tuning
+Storage and Maintenance,Write-ahead log behavior; Vacuum processes; Replication fundamentals
+Query Planning and Execution,Query planner behavior; Execution plans; Background writer; Checkpoints
+Logging and Statistics,Logging configuration; Monitoring statistics; Performance insights
+PostgreSQL Extensions,Installing and managing extensions
+Security Fundamentals,Object privileges; Grant and revoke; Default privileges
+Advanced Security Features,Row-level security; SELinux integration
+Authentication Models,Roles; pg_hba.conf configuration; SSL and TLS settings
+Infrastructure and Upgrade Skills,Using pg_upgrade; Logical replication; Simple stateful setups
+High Availability and Clustering,Helm operators; HAProxy; Consul; Keepalived; Etcd
+Monitoring and Observability,Monitoring with Prometheus and Zabbix; check_pgactivity; temBoard
+Backup and Recovery Tools,pg_dump; pg_dumpall; pg_restore; pg_basebackup; barman; WAL-G; pgBackRest; pg_probackup
+Backup Validation,Backup verification procedures
+Connection Pooling,PgBouncer; PgBouncer alternatives
+Replication Strategies,Streaming replication; Logical replication
+Data Anonymization,PostgreSQL Anonymizer
+Upgrade and Migration Procedures,Upgrade planning; Migration strategies
+Cluster Management,Using Patroni; Patroni alternatives
+Kubernetes Deployment,Running PostgreSQL on Kubernetes
+Load Balancing and Discovery,Service discovery and load balancing patterns
+Capacity Planning,Resource usage; Provisioning; Capacity planning
+Automation Skills,Shell scripting; Automating with any programming language
+Configuration Management,Using Ansible; Salt; Puppet; Chef
+Database Migrations,Migration concepts; Migration tools
+Data Processing Patterns,Bulk loading data; Partitioning strategies; Sharding patterns
+Normalization and Data Design,Normalization; Normal forms
+Queue Patterns,Database-based queues; PgQ patterns
+Low-Level PostgreSQL Internals,Process and memory architecture; Vacuum internals; Buffer management; Lock management
+Storage Internals,Physical storage; File layout; System catalog
+Advanced Configuration and Tuning,"Per-user and per-database settings; Storage parameters; Workload-based tuning for OLTP, OLAP, and HTAP"
+Procedural SQL and Advanced Features,PL/pgSQL; Procedures and functions; Triggers; Recursive CTEs; Aggregate and window functions
+Advanced SQL Optimization,Advanced SQL patterns; Query optimization techniques
+Troubleshooting Fundamentals,"Operating system tools; top, sysstat, iotop"
+Profiling and Debugging,Using gdb; strace; eBPF; perf tools; Core dumps
+Log Analysis Tools,pgBadger; pgCluu; awk; grep; sed
+PostgreSQL System Views,pg_stat_activity; pg_stat_statements
+PostgreSQL Utilities,pgcenter and related tools
+Query Analysis Techniques,EXPLAIN usage; Depesz; PEV2; explain.dalibo.com
+Observability Methodologies,USE method; RED method; Golden signals
+Indexing Fundamentals,Index use cases; B-Tree; GiST; Hash; SP-GiST; GIN; BRIN
+Schema and Query Design Patterns,Schema design patterns and anti-patterns; SQL query patterns and anti-patterns
+Community and Contribution,Mailing lists; Reviewing patches; Writing patches
+Related Learning Paths,"Connections to MongoDB, Backend, and DevOps roadmaps"

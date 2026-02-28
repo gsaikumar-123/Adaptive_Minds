@@ -1,0 +1,39 @@
+Module Name,Module Contents
+Foundations of MLOps,"What MLOps means; Why MLOps is needed; How MLOps connects machine learning, software engineering, and operations"
+Programming Basics for MLOps,Core programming concepts; Writing scripts for automation; Understanding how code supports ML workflows
+Programming Languages for MLOps,Python for machine learning workflows; Go for backend and tooling; Bash for automation and scripting
+Version Control Essentials,Why version control matters in ML projects; Tracking code and data changes
+Git and Collaboration Platforms,Using Git for source control; Working with GitHub for collaboration and reviews
+DevOps Foundations,Core DevOps principles; Automation mindset; CI/CD basics
+Cloud Computing Fundamentals,"Understanding cloud computing; Differences between AWS, Azure, and GCP; When to use cloud infrastructure"
+Cloud Platforms for MLOps,"Core services in AWS, Azure, and GCP; Compute, storage, and networking basics"
+Cloud-Native Machine Learning Services,Managed ML services; Training and deploying models using cloud-native tools
+Containerization Basics,Why containers are used in ML systems; Benefits of isolation and portability
+Docker for MLOps,Building Docker images; Running ML workloads in containers
+Kubernetes for MLOps,Orchestrating containers; Managing scalable ML workloads
+Machine Learning Fundamentals,Core ML concepts; Supervised and unsupervised learning; Model training basics
+Data Engineering Fundamentals,Role of data engineering in ML systems; Data flow from source to model
+Data Pipelines,Designing data pipelines; Batch and streaming data processing
+Data Lakes and Warehouses,Centralized data storage concepts; Analytical data storage
+Data Ingestion Architecture,Collecting data from multiple sources; Designing ingestion workflows
+Workflow Orchestration,Scheduling and managing workflows; Directed acyclic graphs
+Apache Airflow,Defining workflows; Scheduling data and ML pipelines
+Distributed Data Processing,Processing large-scale data; Parallel computation concepts
+Apache Spark,Batch and streaming data processing with Spark
+Streaming Systems,Real-time data streaming concepts
+Apache Kafka,Event streaming; Message-based data pipelines
+Stream Processing Engines,Real-time stream processing fundamentals
+Apache Flink,Stateful stream processing
+Core MLOps Principles,Reproducibility; Automation; Scalability; Reliability
+MLOps System Components,Key building blocks of MLOps platforms
+Versioning in MLOps,"Versioning code, data, and models"
+CI/CD for Machine Learning,Automated testing; Continuous training; Continuous deployment
+Pipeline Orchestration,Coordinating ML workflows across systems
+Experiment Tracking,Tracking experiments; Comparing model runs
+Model Registry,Storing and managing trained models
+Data Lineage,Tracking data origins and transformations
+Feature Stores,Centralized feature management; Feature reuse
+Model Training and Serving,Training models at scale; Deploying models for inference
+Monitoring and Observability,Monitoring model performance; Detecting data and concept drift
+Infrastructure as Code,Defining infrastructure using code; Reproducible environments
+Continuous Learning and Growth,"Related paths in AI, data science, DevOps, backend, and cloud engineering"
