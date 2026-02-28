@@ -1,0 +1,29 @@
+Module Name,Module Contents
+C++ Language Overview,Purpose of the C++ programming language; Reasons to use C++; Comparison between C and C++; Typical use cases
+Development Environment Setup,Installing a C++ compiler; Choosing code editors or IDEs; Building and running a first C++ program
+Basic Language Operations,Arithmetic operators; Logical operators; Bitwise operators
+Control Flow Constructs,"Conditional statements; Switch cases; Looping constructs including for, while, and do-while"
+Functions and Static Polymorphism,Function definitions; Function overloading; Operator overloading; Lambda expressions
+Type System and Data Types,Static typing concepts; Dynamic typing features; Runtime type information
+"Pointers, References, and Memory",References; Raw pointers; Memory model basics; Object lifetime management
+Dynamic Memory Management,New and delete operators; Memory leaks; Ownership concepts
+Smart Pointers,Unique ownership pointers; Shared ownership pointers; Weak references
+Code Organization and Structure,Scopes and visibility; Namespaces; Header and source file separation; Forward declarations
+Object-Oriented Programming in C++,Classes and structures; Encapsulation; Inheritance models; Multiple and diamond inheritance
+Object Lifetime Rules,Rule of zero; Rule of three; Rule of five
+Virtual Functions and Polymorphism,Virtual methods; Virtual tables; Dynamic polymorphism
+Exception and Error Handling,Exit codes; Exception handling mechanisms; Access violations
+Core Language Features,Automatic type deduction; Type casting methods; Undefined behavior; Argument-dependent lookup; Name mangling; Preprocessor macros
+Standard Library and STL,Input-output streams; Iterators; Containers; Algorithms; Date and time utilities; Multithreading support
+Templates and Generic Programming,Template basics; Variadic templates; Type traits; Substitution failure concepts; Full and partial specialization
+Common C++ Idioms,RAII principle; Pimpl idiom; Copy-and-swap; Copy-on-write; CRTP; Erase-remove pattern
+C++ Language Standards,"Evolution of the language; Major features in C++11, C++14, C++17, and C++20"
+Debugging Tools and Techniques,Understanding compiler and debugger output; Debug symbols; Debugging tools
+Compilers and Toolchains,Compilation stages; Popular compilers; Compiler features
+Build Systems,Project build automation; Common build tools
+Package Management,Managing third-party dependencies; Popular package managers
+Working with Libraries,Including external libraries; Licensing considerations
+Popular C++ Libraries,"General-purpose libraries; Networking, graphics, testing, logging, and performance libraries"
+Testing and Frameworks,Unit testing libraries; Mocking frameworks; GUI and application frameworks
+Performance and Profiling,Runtime analysis; Profiling tools
+Learning Resources and Ecosystem,Community roadmaps; Reference materials; Continued learning paths

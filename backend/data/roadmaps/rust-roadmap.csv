@@ -1,0 +1,55 @@
+Module Name,Module Contents
+Rust Overview and Motivation,"What Rust is; Where Rust is used; Key goals like safety, speed, and concurrency; Why developers choose Rust"
+Getting Started with Rust,Installing Rust toolchain; Using rustup; Cargo basics; Setting up editors and IDEs
+Rust Playground and Tooling,Using Rust Playground; REPL-style experimentation; Compiler basics
+Rust Syntax Fundamentals,Basic syntax; Statements vs expressions; Semantics overview
+Variables and Constants,Mutable and immutable variables; Data types; Constants and static values
+Control Flow Constructs,if and match expressions; loops; while and for constructs
+Functions and Methods,Defining functions; Method syntax; Associated functions
+Pattern Matching and Destructuring,Using match; if let; while let; Destructuring enums and structs
+Core Language Constructs,Enums; Structs; Traits; Implementations with impl blocks
+Primitive Data Types,Integers; Floating point numbers; Booleans; Characters
+Standard Data Structures,Strings; Tuples; Arrays; Vectors
+Collection Types,HashMap; HashSet; LinkedList; Stack; Queue; BinaryHeap
+Ownership and Memory Model,Ownership rules; Move semantics; Memory safety guarantees
+Borrowing and References,Immutable and mutable references; Slices
+Stack vs Heap,Memory allocation differences; Performance implications
+Advanced Collections,BTreeMap; BTreeSet
+Smart Pointers,Rc; Arc; Interior mutability concepts
+Synchronization Primitives,Mutex; RwLock
+Channels and Messaging,Message passing; Channel-based concurrency
+Error Handling Basics,Option and Result enums
+Error Propagation,Using the ? operator; Propagating errors
+Custom Error Handling,Defining custom errors; Error traits
+Modules and Crates,Organizing code; Namespaces; Visibility rules
+Dependency Management,Using Cargo.toml; Managing dependencies
+Publishing Packages,Publishing crates to crates.io
+Concurrency Fundamentals,Threads; Message passing; Shared state
+Atomic Operations,Atomic types; Memory ordering; Barriers
+Async Programming Model,Futures; async and await syntax
+Testing Fundamentals,Unit testing; Integration testing
+Advanced Testing Techniques,Mocking; Property-based testing
+Traits and Generics Basics,Defining traits; Implementing traits
+Advanced Traits and Generics,Trait bounds; Associated types; Generic constraints
+Lifetimes Fundamentals,Why lifetimes exist; Borrow checker basics
+Lifetime Annotations,Explicit lifetime syntax; Elision rules
+Advanced Lifetime Concepts,Covariant and contravariant lifetimes
+Declarative Macros,macro_rules usage
+Procedural Macros,Custom derive macros; Attribute macros
+Domain Specific Languages,Building DSLs with macros
+Rust Web Development,Web ecosystem overview
+Rust Web Frameworks,Axum; Actix; Rocket; Leptos; Loco
+Async Runtimes,Tokio; async-std; smol
+Networking Libraries,reqwest; hyper; quinn
+Serialization and Data Formats,Serde; JSON; TOML
+Databases and ORMs,Diesel; sqlx; rusqlite
+Cryptography Libraries,rust-crypto; sodiumoxide; ring
+CLI Application Development,clap; structopt; terminal UI basics
+Game Development with Rust,bevy; fyrox; ggez; macroquad; wgpu
+GUI Development,tauri; gtk-rs; relm
+Embedded and Systems Programming,embedded-hal; rppal; nrf-hal
+WebAssembly with Rust,wasm-bindgen; wasm-pack; wasmer
+Debugging Rust Programs,rust-gdb; rust-lldb
+Performance and Profiling,Benchmarking with Criterion; Optimization basics
+Documentation,Generating docs with rustdoc
+Learning Continuation,Related backend; DevOps; Go roadmaps
