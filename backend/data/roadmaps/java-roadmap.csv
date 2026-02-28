@@ -1,0 +1,27 @@
+Module Name,Module Contents
+Java Language Foundations,What Java is used for; How Java programs run; Java platform and ecosystem overview
+Java Syntax and Program Structure,Basic syntax rules; Program entry point; Compilation and execution flow; Math operations
+Core Data Handling,Primitive data types; Variables and scope rules; Type casting; Working with strings and built-in string methods
+Control Flow Basics,Conditional logic; Looping constructs; Working with arrays
+Object-Oriented Programming Basics,Classes and objects; Fields and methods; Access control; Static members; Object lifecycle
+Advanced OOP Concepts,Inheritance; Abstraction; Encapsulation; Interfaces; Method overloading and overriding; Static vs dynamic binding
+Additional Language Features,Final keyword usage; Enums; Records; Nested classes; Method chaining
+Modern Java Features,Sealed classes and interfaces; Pattern matching; Text blocks; Switch expressions; instanceof pattern matching; var keyword for local variables
+Packages and Modular Code,Packages and imports; Initializer blocks; Java modules
+Value Handling and Metadata,Pass by value behavior; Annotations
+Functional Programming in Java,Lambda expressions; Functional interfaces; Higher-order functions; Functional composition; Stream API
+Collections Framework,Arrays vs ArrayList; Set; Map; Queue; Deque; Stack; Iterators; Generic collections
+Optional and Error Handling,Optional usage; Exception handling concepts
+Input and Output Operations,I/O fundamentals; File handling and file operations
+Build and Dependency Management,Build tools overview; Maven; Gradle; Bazel; Dependency injection principles
+Concurrency and Multithreading,Threads; Virtual threads; Java memory model; Volatile keyword
+Security and Utilities,Cryptography basics; Date and time API; Regular expressions
+Networking Fundamentals,Networking concepts in Java; Network-based operations
+Web Frameworks Overview,Spring and Spring Boot basics; Play Framework; Quarkus; Javalin; When to use each
+Reactive Programming,Reactive streams; Project Reactor; RxJava; Backpressure handling; Non-blocking IO
+Microservices Architecture,Microservices design patterns; Service discovery; API gateway pattern; Circuit breakers with Resilience4j
+Database Connectivity,JDBC basics; ORM tools; Hibernate; EBean; Spring Data JPA
+Logging Systems,Logging concepts; Logback; Log4j2; SLF4J; TinyLog
+Testing Foundations,Unit testing principles; Integration testing; Behavior testing
+Java Testing Tools,JUnit; TestNG; REST Assured; JMeter; Cucumber-JVM; Mockito
+Next Learning Steps,Connecting Java skills to backend development; Exploring full backend roadmap

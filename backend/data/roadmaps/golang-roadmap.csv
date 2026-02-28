@@ -1,0 +1,31 @@
+Module Name,Module Contents
+Go Language Overview,"Purpose of the Go programming language; History and evolution of Go; Key use cases; Relationship with backend, DevOps, Docker, Kubernetes, and system design"
+Environment Setup and Tooling,Installing Go; Setting up the workspace; Using the go command; Running a Hello World program
+Language Fundamentals,Variables and constants; var versus short declaration; Zero values; Constants with iota; Scope rules and shadowing
+Primitive Data Types,Boolean values; Numeric types; Signed and unsigned integers; Floating-point numbers; Complex numbers; Runes
+String Handling,String basics; Raw string literals; Interpreted string literals; String iteration
+Type Conversion and Documentation,Explicit type conversion; Using Go documentation and help commands
+Composite Data Types,Arrays; Slices; Capacity and growth; make function; Slice and array conversions; Maps with comma-ok idiom; Structs and struct tags; JSON serialization; Embedded structs
+Control Flow Statements,Conditional logic with if and switch; Looping with for and range; Iterating maps and strings; break and continue usage; goto considerations
+Functions and Function Patterns,Function definitions; Variadic functions; Multiple return values; Anonymous functions; Closures; Named return values; Call-by-value semantics
+Pointers and Memory Basics,"Pointer fundamentals; Using pointers with structs, maps, and slices"
+Memory Management,Garbage collection; Memory allocation overview
+Methods and Interfaces,Methods versus functions; Pointer and value receivers; Interface basics; Empty interfaces; Embedded interfaces; Type assertions; Type switches
+Generics in Go,Purpose of generics; Generic functions; Generic types and interfaces; Type constraints; Type inference
+Error Handling Techniques,Error handling patterns; error interface; Creating errors; Error wrapping and unwrapping; Sentinel errors; panic and recover; Debugging stack traces
+Code Organization and Modules,Go modules; Dependency management; go mod init; go mod tidy; Vendoring; Package structure; Import rules; Using third-party packages; Publishing modules
+Concurrency Fundamentals,Goroutines; Channels; Buffered and unbuffered channels; Select statements; Worker pools
+Synchronization and Context,sync package usage; Mutexes; WaitGroups; context package; Deadlines and cancellation
+Concurrency Patterns,Fan-in and fan-out; Pipelines; Race detection
+Standard Library Essentials,Input and output handling; File operations; Command-line flags; Time utilities; JSON encoding; OS interactions; Buffered IO; Logging; Regular expressions; Embedding files
+Testing and Benchmarking,Testing package basics; Table-driven tests; Mocks and stubs; HTTP testing; Benchmarks; Code coverage
+Ecosystem and Popular Libraries,Building CLIs; Web development with net/http; Optional frameworks; gRPC and protocol buffers; Database access and ORMs; Logging libraries; Real-time communication tools
+Go Toolchain and Commands,"Core commands including go run, build, install, fmt, test, clean, doc, version"
+Code Generation and Build Configuration,go generate; Build tags; Conditional compilation
+Code Quality and Static Analysis,go vet; goimports; Linters; Static analysis tools
+Security Practices,Vulnerability scanning; Secure coding considerations
+Performance and Debugging,Profiling with pprof; Tracing; Race detector
+Deployment and Operations,Building executables; Cross-compilation; Deployment workflows
+Advanced Language Topics,Memory management in depth; Escape analysis; Reflection; Unsafe package; Build constraints; CGO basics; Compiler and linker flags; Plugins and dynamic loading
+Go in DevOps and Cloud,Using Go with Docker; Kubernetes integration; Concurrency-heavy systems
+Learning Continuation Paths,"Related backend, DevOps, Docker, Kubernetes, and system design learning tracks"

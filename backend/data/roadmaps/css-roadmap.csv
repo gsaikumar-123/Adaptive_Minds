@@ -1,0 +1,26 @@
+Module Name,Module Contents
+Introduction to CSS and Frontend Styling,"Role of CSS in frontend development; Relationship between HTML, CSS, and JavaScript; How stylesheets control visual presentation"
+Ways to Apply CSS,Inline styling; Internal style blocks; External stylesheets; Style precedence and cascading order
+CSS Syntax and Fundamentals,Selectors and declarations; Properties and values; Writing rules; Using comments
+CSS Selectors,Element selectors; Class and ID selectors; Universal and grouping selectors; Attribute selectors
+Combinators and Relationships,Descendant selectors; Child selectors; Adjacent sibling selectors; General sibling selectors
+Pseudo Classes and Elements,Interactive pseudo classes; Structural pseudo classes; Pseudo elements for content styling
+Typography and Fonts,Font families; Font sizes; Font styles; Font variants; Shorthand font syntax; Using web fonts
+Text Styling,Text color and direction; Alignment techniques; Text decoration; Text transformation; Spacing and line height; Text shadow effects
+Color Systems in CSS,Named colors; RGB and RGBA; HSL and HSLA; Hexadecimal colors
+Background Styling,Background colors; Images; Gradients; Positioning; Attachment behavior
+Box Model Essentials,Content sizing; Padding; Borders; Margins; Width and height; Outlines; Box shadows
+Display and Visibility,Inline and block elements; Inline-block behavior; Visibility control; Opacity settings
+Positioning and Stacking,"Static, relative, absolute, fixed, and sticky positioning; Z-index and stacking context"
+Layout Techniques,Normal flow layout; Floating elements; Multicolumn layouts; Flexbox layout system; Grid layout system
+Advanced Flexbox and Grid,Flex grow and shrink behavior; Grid template areas; Grid auto-flow; Subgrid; Named grid lines; Implicit vs explicit grid
+"Lists, Tables, and Media",List styling; Table layouts; Image handling; Filters and visual effects
+Transforms and Animations,CSS transforms; Transitions; Keyframe animations; Animation properties
+CSS Units and Functions,Absolute and relative units; Unit-based functions; Calculated values
+CSS Variables,Defining custom properties; Using variables for theming and reuse
+Modern CSS Features,Container queries; Logical properties and values; aspect-ratio property; gap property for flexbox; min() max() clamp() functions; :is() and :where() pseudo-classes
+Responsive Design,Media queries; Container queries; Responsive typography techniques
+Accessibility and Performance,Accessible styling practices; Performance considerations in CSS
+Modern CSS Methodologies,CSS organization strategies; Preprocessors; Post-processing tools; Component-based styling approaches
+Best Practices and Maintainability,Reusable styles; Consistent naming; Scalable CSS architecture
+Learning Paths and Ecosystem,Related frontend roadmaps; Continued learning resources

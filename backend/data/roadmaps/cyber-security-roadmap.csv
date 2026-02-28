@@ -1,0 +1,33 @@
+Module Name,Module Contents
+IT and Computing Fundamentals,Computer hardware components; Connection types and their purposes; General troubleshooting concepts independent of operating systems; Familiarity with common productivity suites
+Operating Systems Fundamentals,"Core concepts of Windows, Linux, and macOS; Installation and configuration; Differences between OS versions; Navigating using graphical and command-line interfaces; File and permission management; Software installation; Basic troubleshooting; Common commands"
+Networking Essentials,Networking basics; OSI model; Common protocols and ports; SSL and TLS fundamentals; Subnetting basics; Public versus private IP addressing; Core IP terminology; Network devices and roles; Network topologies
+Wireless and Communication Technologies,WiFi fundamentals; Bluetooth; NFC; Infrared communication
+Network Services and Protocols,"DNS, DHCP, NAT, NTP, IPAM; VPN concepts; SSH, RDP, FTP, SFTP; HTTP and HTTPS"
+Virtualization and Infrastructure,Virtualization concepts; Hypervisors; Virtual machines; Host and guest operating systems; Popular virtualization platforms
+Troubleshooting and Diagnostic Tools,Network diagnostic commands; Packet sniffers; Protocol analyzers; Port scanning tools
+Authentication and Identity Management,Authentication methods; Authorization concepts; Kerberos; LDAP; RADIUS; Single sign-on; Certificate-based authentication
+Cybersecurity Foundations,CIA triad; Defense-in-depth; Zero Trust concepts; Risk management; Backup and resiliency planning
+Security Operations and Threat Awareness,Threat hunting basics; Vulnerability management fundamentals; Reverse engineering concepts; Cyber kill chain
+Penetration Testing and Ethical Hacking,Rules of engagement; Common hacking tools; Exploit frameworks; Capture-the-flag platforms
+Cryptography Basics,Hashing and salting; Key exchange; Public and private key cryptography; PKI; Obfuscation techniques
+Malware and Attack Techniques,Malware types and behavior; Web-based attacks; OWASP Top 10 vulnerabilities
+Incident Response and Forensics,Incident response lifecycle; Evidence collection tools; Memory and disk analysis; Log analysis
+Security Monitoring and Detection,IDS and IPS concepts; Honeypots; SIEM and SOAR platforms
+Logs and Telemetry,Event logs; System logs; Network flow data; Packet captures; Firewall logs
+System and Network Hardening,Operating system hardening; Network access control; Port blocking; Patch management; Endpoint protection
+Security Technologies and Controls,Firewalls; Next-generation firewalls; Antivirus and antimalware; EDR; DLP; Sandboxing
+Wireless and Endpoint Security,Wireless security standards; Authentication protocols; Encryption methods
+Threat Intelligence and OSINT,Threat intelligence fundamentals; Open-source intelligence sources
+Social Engineering and Human Attacks,Phishing variants; Impersonation attacks; Physical and psychological attack methods
+Network and Application Attacks,Denial-of-service attacks; Man-in-the-middle attacks; Spoofing; DNS poisoning; Replay attacks
+Advanced Exploitation Techniques,Privilege escalation; Buffer overflows; Injection attacks; Credential abuse
+"Governance, Risk, and Compliance",Security standards and frameworks; Compliance roles; Audit processes
+Security Frameworks and Models,MITRE ATT&CK; Diamond model; Kill chain frameworks
+Cloud Security Fundamentals,Security in cloud environments; Cloud deployment models; Shared responsibility concepts
+Cloud Platforms and Services,"Major cloud providers; Cloud storage services; SaaS, PaaS, and IaaS models"
+Programming for Security,Scripting and programming basics for security tasks
+Certifications and Career Path,Beginner and advanced security certifications; Professional growth paths
+Learning Platforms and Practice,Hands-on labs; Practice environments; Community challenges
+Tools and Utilities Awareness,Common security analysis tools; Online scanning and sandbox services
+Continued Learning and Ecosystem,Related roadmaps; Ongoing skill development strategies

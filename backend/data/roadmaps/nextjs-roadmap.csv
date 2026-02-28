@@ -1,0 +1,28 @@
+Module Name,Module Contents
+Web and JavaScript Foundations,JavaScript basics; Why frontend frameworks exist; Reasons for using React; Single-page applications versus server-rendered apps
+Introduction to Next.js,What Next.js is; Why Next.js is used; Comparison with Remix; How Next.js fits into the React ecosystem
+Rendering Models Explained,Client-side rendering; Server-side rendering; Static site generation; Incremental rendering strategies
+Getting Started with Next.js,Using create-next-app; Project structure overview; First application setup
+Routing Concepts in Next.js,Routing terminology; File-based routing; Pages router; App router; When to use each routing approach
+Advanced Routing Patterns,Dynamic routes; Parallel routes; Intercepting routes; Route groups; Route patterns
+"Layouts, Templates, and Navigation",Layouts and nested layouts; Templates; Navigation handling; Structuring routes
+"Loading, Streaming, and Error Handling",Loading UI patterns; Streaming responses; Error boundaries; Handling error states
+API Routes and Backend Logic,Creating API endpoints; Server-side logic; Route handlers
+Middleware and Request Handling,Using middleware; Setting headers; Route matching; Using cookies
+Internationalization,Supporting multiple languages; Locale-based routing
+Working with Data in Next.js,Client and server components; Data fetching locations; Handling sensitive data safely
+Data Fetching Patterns,Parallel versus sequential fetching; Preloading data; Fetch memoization
+Caching and Revalidation,Caching data; React cache; Revalidating cached data; Handling revalidation errors
+Server Actions,Using server actions for mutations; Secure server-side logic
+Rendering Strategies in Practice,Client-rendered components; Server-rendered components; Composition techniques
+Styling in Next.js,Global CSS; CSS modules; Sass; Tailwind CSS; CSS-in-JS approaches
+Assets and Media Handling,Images optimization; Video handling; Fonts; Metadata; Scripts
+Performance Optimizations,Package bundling; Lazy loading; Memory usage optimization
+Analytics and Observability,Analytics integration; Instrumentation; OpenTelemetry usage
+Static Assets and Third-Party Libraries,Managing static assets; Using third-party packages
+Type Safety and Code Quality,Using TypeScript; ESLint; Prettier configuration
+Project Configuration,Environment variables; Markdown and MDX; Custom server setup
+Testing Next.js Applications,Testing strategies; Vitest; Jest; Playwright; Cypress
+Preparing for Production,Production readiness checklist; Build optimization
+Deployment Options,Deploying with Node.js servers; Docker containers; Static export; Adapters
+Next Steps and Related Paths,Connections to JavaScript; Frontend; React; React frameworks roadmaps
