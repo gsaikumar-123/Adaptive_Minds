@@ -1,0 +1,29 @@
+Module Name,Module Contents
+Introduction to Data Analytics,Definition of data analytics; Purpose and value of data analysis; Overview of common analytics workflows
+Types of Data Analytics,Descriptive analytics; Diagnostic analytics; Predictive analytics; Prescriptive analytics
+Core Data Concepts,Data collection principles; Data cleanup fundamentals; Data exploration techniques; Data visualization basics; Statistical analysis concepts; Role of machine learning in analytics
+Excel for Data Analysis,Basic spreadsheet usage; Logical and date functions; Lookup functions; Text manipulation functions; Aggregation functions; Chart creation; Pivot tables
+Programming Foundations for Data Analysis,Learning a programming language; Using Python for analysis; Using R for statistical computing
+Data Manipulation Libraries,Data manipulation with Pandas; Data manipulation with dplyr
+Data Visualization Libraries,Creating visuals with Matplotlib; Advanced plotting with Seaborn; Grammar-of-graphics approach with ggplot2
+Data Sources and Collection Methods,Working with databases; CSV file handling; API-based data access; Web scraping fundamentals
+Data Cleaning Techniques,Handling missing values; Removing duplicate records; Identifying outliers; Transforming data for analysis
+Descriptive Statistics,"Measures of central tendency; Mean, median, mode, and average; Measures of dispersion; Range, variance, standard deviation"
+Distribution Analysis,Understanding data distributions; Skewness and kurtosis; Visualizing distributions
+Statistical Analysis Methods,Generating summary statistics; Hypothesis testing; Correlation analysis; Regression techniques
+Data Visualization Techniques,Bar charts; Line charts; Scatter plots; Funnel charts; Histograms; Stacked charts; Heatmaps; Pie charts
+Business Intelligence Tools,Using Tableau for dashboards; Power BI fundamentals
+Machine Learning Fundamentals,Overview of machine learning; Supervised learning; Unsupervised learning; Reinforcement learning
+Popular Machine Learning Algorithms,Decision trees; Naive Bayes; K-means clustering; K-nearest neighbors; Logistic regression
+Model Evaluation Techniques,Evaluating model performance; Validation strategies
+Big Data Concepts,Introduction to big data; Data storage solutions; Parallel and distributed processing
+Big Data Frameworks,Hadoop ecosystem basics; Apache Spark fundamentals
+Data Processing Techniques,MapReduce concepts; Message passing interface basics
+Deep Learning Basics (Optional),Introduction to neural networks; Convolutional neural networks; Recurrent neural networks
+Deep Learning Frameworks,Using TensorFlow; Using PyTorch
+Applied Deep Learning,Training neural network models; Image recognition basics; Natural language processing fundamentals
+Project-Based Learning,Building analytics projects; Sales trend prediction; Customer segmentation
+Competitions and Practice,Participating in data competitions; Learning through community challenges
+Certifications and Online Learning,Online courses and certifications; Learning platforms for data analytics
+Career Growth and Networking,Staying current with trends; Networking and mentorship; Community engagement
+Related Learning Paths,Connections to AI and data science; SQL learning paths; Python learning paths; Prompt engineering basics

@@ -1,0 +1,44 @@
+Module Name,Module Contents
+Machine Learning Foundations,Definition of machine learning; Role of an ML engineer; Comparison between ML engineer and AI engineer; Typical responsibilities and skills
+Programming Prerequisites,Programming fundamentals; Importance of Python; Relation to Python roadmap and related learning paths
+Mathematical Foundations for ML,"Importance of mathematics in ML; Calculus, linear algebra, probability, and statistics overview"
+Calculus for Machine Learning,Derivatives and partial derivatives; Chain rule; Gradients; Jacobian and Hessian matrices
+Linear Algebra Essentials,"Scalars, vectors, and tensors; Matrix operations; Determinants and inverse matrices; Eigenvalues and diagonalization; Singular value decomposition"
+Probability Fundamentals,Basic probability concepts; Random variables; Probability density functions
+Statistics for Machine Learning,Descriptive statistics; Inferential statistics; Types of distributions; Bayes theorem; Graphs and charts
+Discrete Mathematics Basics,Discrete structures and their relevance to algorithms and machine learning
+Python Programming for ML,Python syntax; Variables and data types; Conditionals; Loops; Functions; Exceptions; Object-oriented programming
+Core Python Libraries,Numerical computing with NumPy; Data handling with Pandas; Visualization with Matplotlib and Seaborn
+Data Sources and Collection,Collecting data from databases; SQL and NoSQL systems; Internet APIs; Mobile applications; IoT devices
+Data Formats,Working with JSON; CSV; Excel; Parquet; Other common data formats
+Data Cleaning and Preparation,Handling missing values; Data preprocessing techniques; Cleaning noisy data
+Feature Engineering,Creating meaningful features; Feature transformation; Feature selection techniques
+Feature Scaling and Normalization,Standardization; Normalization; Importance of scaling in ML models
+Dimensionality Reduction,Reducing feature space; Principal component analysis; Autoencoders
+Introduction to Machine Learning,What machine learning is; Types of machine learning approaches
+Types of Machine Learning,Supervised learning; Unsupervised learning; Semi-supervised learning; Reinforcement learning; Self-supervised learning
+Supervised Learning Concepts,Definition of supervised learning; Labeled data; Common supervised tasks
+Classification Algorithms,Logistic regression; Support vector machines; K-nearest neighbors; Decision trees; Random forests; Gradient boosting methods
+Regression Algorithms,Linear regression; Polynomial regression; Regularization techniques
+Unsupervised Learning Concepts,Definition of unsupervised learning; Pattern discovery
+Clustering Techniques,Exclusive clustering; Overlapping clustering; Hierarchical clustering; Probabilistic clustering
+Reinforcement Learning Foundations,"What reinforcement learning is; Environment, agent, actions, and rewards"
+Reinforcement Learning Algorithms,Q-learning; Deep Q-networks; Policy gradient methods; Actor-critic approaches
+Model Evaluation Fundamentals,Purpose of model evaluation; Importance of validation
+Evaluation Metrics,Accuracy; Precision; Recall; F1-score; ROC-AUC; Log loss; Confusion matrix
+Validation Techniques,Train-test split; K-fold cross validation; Leave-one-out cross validation
+Deep Learning Basics,Neural network fundamentals; Perceptrons; Multi-layer perceptrons
+Neural Network Training,Forward propagation; Backpropagation; Loss functions; Activation functions
+Deep Learning Libraries,Using TensorFlow; Keras; PyTorch; Scikit-learn
+Convolutional Neural Networks,Convolution operations; Padding; Strides; Pooling layers
+Applications of CNNs,Image classification; Image segmentation; Image and video recognition
+Recurrent Neural Networks,RNN fundamentals; GRU; LSTM architectures
+Attention Mechanisms,Self-attention; Multi-head attention; Attention models
+Transformers,Transformer architecture; Encoder-decoder structure
+Autoencoders and GANs,Autoencoder concepts; Generative adversarial networks
+Natural Language Processing,Tokenization; Lemmatization; Stemming; Text embeddings; Attention in NLP
+Explainable AI,Why model explainability matters; Interpreting ML model decisions
+Model Training Workflow,Data preparation; Data loading; Model training; Hyperparameter tuning; Prediction
+Model Selection and Tuning,Choosing the right model; Bias-variance tradeoff
+Advanced ML Concepts,Regularization techniques; ElasticNet; Importance of regularization
+Related Learning Paths,"Connections to AI engineer, MLOps, data scientist, and AI agent roadmaps"
