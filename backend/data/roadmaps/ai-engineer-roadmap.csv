@@ -1,0 +1,23 @@
+Module Name,Module Contents
+AI Engineering Foundations,Role of an AI engineer; Comparison with machine learning roles; How AI systems impact products; Core responsibilities in AI development; Key terminology in applied AI
+Large Language Model Basics,Overview of large language models; Model training versus inference; Knowledge limitations and cut-off dates; Context handling and response limits; Differences between narrow AI and general intelligence concepts
+Using Pretrained AI Models,Purpose of pretrained models; Advantages of reuse; Practical limitations and risks; Overview of widely used commercial and open models; Model selection considerations
+Commercial AI Platforms and APIs,Overview of managed AI platforms; Accessing models through APIs; Text generation endpoints; Prompt construction techniques; Playground-based experimentation; Token usage management; Cost and pricing awareness; Fine-tuning workflows
+Prompt Design Fundamentals,Writing clear and constrained instructions; Structuring prompts for reliability; Managing output formats; Reducing hallucinations through prompt design
+AI Safety and Responsible Usage,Common AI safety challenges; Prompt manipulation risks; Bias and fairness considerations; Data security and privacy concerns; Adversarial testing methods; Content moderation workflows; End-user identification strategies; Safe prompt design practices
+Open Source AI Ecosystem,Open versus closed model approaches; Survey of popular open models; Discovering models via public hubs; Task-based model exploration; Running models locally; Inference tooling and SDK usage
+Embeddings and Representation Learning,Concept of vector representations; Semantic similarity techniques; Classification and anomaly detection use cases; Recommendation system foundations; Practical applications of embeddings
+Embedding Services and Models,Managed embedding APIs; Model options and pricing factors; Open-source embedding alternatives; Sentence-level embedding models; Community-hosted model repositories
+Vector Database Systems,Purpose of vector storage systems; Comparison of popular vector databases; Indexing strategies; Similarity search techniques; Implementing vector-based retrieval
+Retrieval-Augmented Generation Systems,Use cases for retrieval-enhanced generation; Comparing retrieval and fine-tuning approaches; Text chunking strategies; Embedding pipelines; Retrieval workflows; Response generation steps
+Implementing RAG Architectures,End-to-end RAG system design; SDK-based implementations; Framework-assisted approaches; Hosted assistant-based solutions
+AI Agent Concepts,Agent-based system fundamentals; Use cases for autonomous agents; Agents as alternatives to retrieval pipelines; Planning and reasoning patterns
+Building AI Agents,Manual agent construction; Tool and function invocation; Structured reasoning prompts; Assistant-based agent frameworks
+Multimodal AI Foundations,Combining multiple data modalities; Image understanding tasks; Image generation workflows; Video analysis basics; Audio processing fundamentals
+Multimodal AI APIs and Tools,Vision-enabled language models; Image generation services; Speech recognition systems; Text-to-speech pipelines; Multimodal model hosting platforms
+Developing Multimodal Applications,Designing multimodal workflows; Frameworks for multimodal applications; Practical implementation strategies
+Model Fine-Tuning and Customization,Transfer learning fundamentals; Domain adaptation; Instruction tuning; Parameter-efficient fine-tuning; LoRA and adapter methods; Evaluating fine-tuned models
+Model Evaluation and Testing,Benchmark datasets; Evaluation metrics for generation tasks; Human evaluation strategies; A/B testing for AI systems; Regression testing
+Production AI Systems,Model deployment strategies; API design for AI services; Scaling inference; Load balancing; Cost optimization; Model versioning
+Monitoring and Observability,Logging AI system behavior; Performance monitoring; Error tracking; User feedback collection; Drift detection
+AI Development Tooling,AI-assisted code editors; Code completion systems; Productivity tools for AI engineers

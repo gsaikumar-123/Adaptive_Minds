@@ -1,0 +1,26 @@
+Module Name,Module Contents
+Choosing a Programming Language,"Selecting a primary language for problem solving; Options include JavaScript, Java, Go, C#, C++, Python, Rust, and Ruby"
+Programming Foundations,Language syntax basics; Control flow structures; Writing and using functions; Object-oriented programming concepts; Writing pseudocode
+Introduction to Data Structures,Definition of data structures; Importance of data structures in efficient problem solving
+Basic Data Structures,Arrays; Linked lists; Stacks; Queues; Hash tables
+Algorithmic Complexity Analysis,Time complexity versus space complexity; How to calculate complexity; Understanding asymptotic analysis
+Asymptotic Notations,Big-O notation; Big-Theta notation; Big-Omega notation
+Common Time Complexities,Constant time; Logarithmic time; Linear time; Polynomial time; Exponential time; Factorial time
+Sorting Algorithms,Bubble sort; Selection sort; Insertion sort; Merge sort; Quick sort; Heap sort
+Search Algorithms,Linear search; Binary search
+Tree Data Structures,Binary trees; Binary search trees; Self-balancing trees such as AVL; Multi-way trees such as B-Trees
+Tree Traversal Techniques,In-order traversal; Pre-order traversal; Post-order traversal; Breadth-first traversal; Depth-first traversal
+Graph Data Structures,Directed graphs; Undirected graphs; Graph representations
+Graph Traversal Algorithms,Breadth-first search; Depth-first search
+Shortest Path Algorithms,Dijkstra’s algorithm; Bellman-Ford algorithm; A-star search
+Minimum Spanning Tree Algorithms,Prim’s algorithm; Kruskal’s algorithm
+Advanced Data Structures,Trie structures; Segment trees; Fenwick trees; Disjoint set union-find; Suffix trees and suffix arrays
+Complex and Specialized Data Structures,B-Trees and B+ Trees; Skip lists; ISAM structures; 2-3 trees
+Indexing Techniques,Linear indexing methods; Tree-based indexing approaches
+Problem Solving Strategies,Brute force methods; Backtracking techniques; Greedy strategies; Randomized approaches; Divide and conquer
+Dynamic Programming and Recursion,Recursive problem solving; Dynamic programming techniques
+Array and Pointer Techniques,Two-pointer technique; Sliding window technique; Fast and slow pointer approach
+Heap and Interval Techniques,Heap-based problem solving; Two-heaps approach; Kth element problems; Merge intervals
+Graph and Grid Patterns,Island traversal problems; Graph-based pattern recognition
+Practice Platforms,Solving problems on coding practice platforms
+Continued Learning Paths,Connections to computer science fundamentals; System design concepts; Software architecture learning paths

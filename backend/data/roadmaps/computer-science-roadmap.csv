@@ -1,0 +1,34 @@
+Module Name,Module Contents
+Foundations of Computer Science,"Overview of computer science as a discipline; Relationship with software, systems, and data fields; Importance of core theory and practice"
+Programming Language Basics,"Selecting a first programming language; Common choices such as Python, Java, C, C++, C#, Go, and Rust"
+Core Data Structures,Arrays; Linked lists; Stacks; Queues; Hash tables; Heaps; Tries
+Tree Data Structures,"General trees; Binary trees; Binary search trees; Full, complete, balanced, and unbalanced trees; Advanced tree variants"
+Graph Data Structures,Directed and undirected graphs; Spanning trees; Graph representations using adjacency lists and matrices
+Algorithmic Complexity Analysis,"Asymptotic notation; Big O, Big Theta, and Big Omega; Common runtime classes from constant to factorial"
+Recursion Techniques,Recursive problem solving; Tail recursion; Non-tail recursion
+Searching Algorithms,Linear search; Binary search
+Sorting Algorithms,Bubble sort; Selection sort; Insertion sort; Heap sort; Quick sort; Merge sort
+Tree Traversal Algorithms,Pre-order traversal; In-order traversal; Post-order traversal; Breadth-first search; Depth-first search
+Graph Algorithms,Breadth-first search; Depth-first search; Shortest path algorithms; Pathfinding techniques
+Greedy Algorithms,Greedy problem-solving strategy; Classic greedy-based algorithms
+Dynamic and Backtracking Algorithms,Backtracking techniques; Solving combinatorial problems
+String Processing Algorithms,Pattern matching in text; Substring search; Efficient string search methods
+Caching Strategies,Least recently used caching; Least frequently used caching
+Encoding and Data Representation,Character encodings; Unicode and ASCII; Endianness; Floating point representation
+Mathematical Foundations,Probability basics; Combinatorics; Logical reasoning for algorithms
+Computational Complexity Theory,Complexity classes; P versus NP; NP-hard and NP-complete problems
+Classic Computational Problems,Traveling salesman problem; Knapsack problem; Longest path problem
+Advanced Tree Structures,Self-balancing trees; Multi-way search trees
+System Design Fundamentals,Designing scalable systems; Load balancing; Caching strategies; Content delivery networks
+Architectural Styles and APIs,"Monolithic and distributed systems; REST, GraphQL, and gRPC styles"
+Database Systems,Relational and non-relational databases; Schema design; Transactions and consistency models
+Database Internals,Indexes and views; Stored procedures; Replication and sharding
+Networking Fundamentals,OSI and TCP/IP models; DNS; HTTP; Secure communication
+Security Fundamentals,Public key cryptography; Hashing and encryption; Common security risks
+Operating Systems Basics,How computers execute programs; CPU and memory; Processes and threads
+Concurrency and Synchronization,"Multi-core execution; Scheduling algorithms; Locks, mutexes, and semaphores"
+Computer Architecture,CPU execution cycle; Registers; RAM; Caches
+Design Patterns,Common software design patterns; Dependency injection; Structural and behavioral patterns
+UML and Modeling,Class diagrams; Use case diagrams; Sequence diagrams; State and activity diagrams
+Observability and Performance,Measuring performance; Logging and monitoring concepts
+Learning Paths and Resources,Related roadmaps; Interview preparation resources; Continued learning guidance

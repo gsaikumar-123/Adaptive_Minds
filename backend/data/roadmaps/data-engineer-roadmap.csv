@@ -1,0 +1,30 @@
+Module Name,Module Contents
+Data Engineering Foundations,Definition of data engineering; Differences between data engineering and data science; Core responsibilities; Overview of the data engineering lifecycle; Selecting appropriate technologies
+Prerequisite Skills,Python fundamentals; SQL basics; Familiarity with data analyst and data science roles
+Programming and Core Engineering Skills,"Programming basics with Python; Introductory Java, Scala, and Go concepts; Data structures and algorithms; Version control with Git and GitHub; Linux operating system basics; Networking fundamentals; Introduction to distributed systems"
+Data Engineering Lifecycle Overview,Stages of data generation; Data ingestion workflows; Data storage approaches; Data serving concepts
+Data Sources and Generation,Structured and unstructured data sources; Databases; APIs; Application logs; Mobile and IoT data considerations
+Database and Data Storage Fundamentals,Database normalization; Data modeling techniques; CAP theorem; OLTP versus OLAP systems; Slowly changing dimensions; Horizontal and vertical scaling strategies
+Relational Database Systems,"SQL querying; Indexing strategies; Transactions; Popular relational databases including MySQL, PostgreSQL, MariaDB, Oracle, and SQL Server"
+NoSQL Database Technologies,Document databases; Column-oriented stores; Graph databases; Key-value stores; Use cases for each NoSQL category
+Data Warehousing Concepts,Purpose of data warehouses; Warehousing architectures; Data marts; Star and snowflake schemas
+Modern Analytics Storage,Cloud data warehouses; Data lakes; Lakehouse architectures; Data mesh concepts; Alternative data architectures
+Cloud Computing for Data Engineering,Cloud fundamentals; Cloud-native architectures; Overview of major cloud providers
+Cloud Services for Data Workloads,"Compute services; Object storage; Managed databases; ETL and data processing services across AWS, Azure, and Google Cloud"
+Data Ingestion Techniques,Batch ingestion; Streaming ingestion; Hybrid approaches; Real-time data pipelines
+Data Pipeline Design,"ETL workflows; Extract, transform, and load stages; Pipeline orchestration concepts"
+Data Pipeline Tools,Workflow orchestration tools; Transformation frameworks; Scheduling systems
+Cluster and Distributed Computing,Cluster computing concepts; Distributed file systems; Job scheduling fundamentals
+Big Data Ecosystem,Hadoop ecosystem overview; HDFS; MapReduce; YARN; Apache Spark fundamentals
+Containerization and Orchestration,Containers and images; Docker basics; Kubernetes fundamentals; Managed Kubernetes services
+Continuous Integration and Deployment,CI/CD principles; Automated pipelines; Common CI/CD platforms
+Monitoring and Observability,System monitoring; Metrics collection; Logging; Alerting tools
+Testing Data Systems,Unit testing; Integration testing; End-to-end testing; Functional and load testing
+Messaging and Event Streaming,Asynchronous communication concepts; Message queues versus streams; Common messaging tools
+Infrastructure as Code,Declarative versus imperative infrastructure; Environment management; Reusable infrastructure components
+Analytics and Data Serving,Business intelligence concepts; Data serving for analytics; BI tools and dashboards
+Reverse ETL Concepts,Difference between ETL and reverse ETL; Use cases for reverse ETL; Reverse ETL tools
+Security in Data Engineering,Authentication and authorization; Encryption methods; Data masking and obfuscation
+Data Governance and Quality,Data governance principles; Data quality management; Data lineage; Metadata management
+Privacy and Compliance,Data privacy fundamentals; Regulatory considerations including GDPR and related regulations
+Career Growth and Related Paths,"Connections to data analyst, AI, and MLOps roles; Continuous learning strategies"
