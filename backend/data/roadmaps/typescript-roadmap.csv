@@ -1,0 +1,66 @@
+Module Name,Module Contents
+TypeScript Overview and Purpose,What TypeScript is; Why TypeScript exists; How TypeScript improves JavaScript; Where TypeScript is commonly used
+TypeScript vs JavaScript,Key differences between TypeScript and JavaScript; Static typing benefits; Compile-time vs runtime
+TypeScript and JavaScript Interoperability,How TypeScript works with JavaScript codebases; Migrating JS to TS
+Installing and Setting Up TypeScript,Installing TypeScript; Using npm; Global vs local installation
+TypeScript Configuration,Using tsconfig.json; Compiler configuration basics
+Compiler Options Explained,Common compiler options; Strict mode; Output configuration
+Running TypeScript Code,Using tsc; Using ts-node; Compiling vs executing
+TypeScript Playground,Using the online playground for experimentation
+Understanding TypeScript Types,Overview of TypeScript type system
+Primitive Types,boolean; number; string; void; undefined; null
+Object and Structured Types,Objects; Interfaces; Classes; Enums; Arrays; Tuples
+Top-Level Types,any; unknown; object
+Bottom Types,never
+Type Assertions,Type casting with as; as const usage; as any risks
+Non-Null Assertions,Using non-null assertion operator
+Satisfies Keyword,Ensuring object shape compliance with satisfies
+Type Inference,Automatic type inference by the compiler
+Type Compatibility,Structural typing; Assignability rules
+Combining Types,Union types; Intersection types
+Type Aliases,Creating reusable type definitions
+Keyof Operator,Extracting property keys from types
+Type Guards and Narrowing,Refining types safely at runtime
+Using instanceof,Narrowing types using instanceof
+Using typeof,Type narrowing with typeof
+Equality Narrowing,Using equality checks for type narrowing
+Truthiness Narrowing,Narrowing based on truthy and falsy checks
+Custom Type Predicates,Writing user-defined type guards
+Typing Functions,Function parameter and return typing
+Function Overloading,Multiple function signatures
+Interfaces in TypeScript,Defining contracts using interfaces
+Types vs Interfaces,Differences and use cases
+Extending Interfaces,Interface inheritance and extension
+Interface Declarations,Declaration merging
+Hybrid Types,Combining callable and object types
+Classes in TypeScript,Defining classes; Class-based typing
+Constructor Parameters,Typing constructor parameters
+Constructor Overloading,Multiple constructor signatures
+Access Modifiers,public; private; protected
+Abstract Classes,Defining abstract behavior
+Inheritance and Polymorphism,Extending classes; Polymorphic behavior
+Method Overriding,Overriding base class methods
+Generics Overview,Writing reusable generic code
+Generic Types,Generic functions and interfaces
+Generic Constraints,Restricting generic types
+Utility Types Overview,Built-in helper types
+Common Utility Types,Partial; Pick; Omit; Readonly; Record; Exclude; Extract
+Advanced Utility Types,NonNullable; Parameters; ReturnType; InstanceType; Awaited
+Decorators,Using decorators for meta-programming
+Advanced Type Features,Complex typing capabilities
+Mapped Types,Transforming types programmatically
+Conditional Types,Types based on conditions
+Literal Types,Exact value types
+Template Literal Types,String pattern-based types
+Recursive Types,Self-referencing types
+TypeScript Modules,Organizing code with modules
+Namespaces,Using namespaces for grouping
+Ambient Modules,Typing external libraries
+External Modules,Importing and exporting modules
+Namespace Augmentation,Extending existing namespaces
+Global Augmentation,Extending global scope
+Formatting Tools,Code formatting tools for TypeScript
+Linting Tools,Linting for code quality
+Useful TypeScript Packages,Helpful libraries in the TS ecosystem
+Build Tools,Using build tools with TypeScript
+Related Learning Paths,Frontend; Backend; Node.js roadmaps

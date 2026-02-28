@@ -1,0 +1,25 @@
+Module Name,Module Contents
+Containerization Fundamentals,"Definition of containers; Problems containers solve; Comparison between bare metal, virtual machines, and containers; Real-world use cases"
+Docker and Open Container Standards,Purpose of Docker; Role of OCI standards; How container standards ensure portability
+Linux and System Prerequisites,Linux operating system basics; Package management concepts; Users and groups permissions; File system basics
+Shell and Command Line Skills,Common shell commands; Command-line utilities; Shell scripting fundamentals
+Programming and Application Basics,Programming language familiarity; Web development basics; Application architecture concepts
+Core Container Technologies,Namespaces for isolation; Control groups for resource limits; Union file systems; High-level understanding of these internals
+Installing Docker,Docker Desktop installation on Windows; macOS installation; Linux installation; Verifying setup
+Docker Engine Essentials,Docker Engine architecture; Running Docker on Linux; Client-server model
+Working with Container Images,Using third-party images; Pulling images from registries; Image layers; Image reuse concepts
+Container Data Persistence,Ephemeral container file systems; Volume mounts; Bind mounts; Choosing persistence strategies
+Databases in Containers,Running databases in containers; Data persistence considerations; Environment configuration
+Running Containers,Using docker run; Runtime configuration options; Environment variables; Port mappings
+Multi-Container Applications,Using Docker Compose; Defining services; Networking between containers
+Building Container Images,Writing Dockerfiles; Image build process; Efficient layer caching; Reducing image size
+Image Optimization and Security,Minimizing attack surface; Managing image size; Security scanning concepts
+Container Registries,Using Docker Hub; Image tagging strategies; Private and cloud registries; Registry authentication
+Docker Command Line Interface,Managing images; Managing containers; Working with volumes; Managing networks
+Container Networking,Default bridge networking; Custom networks; Container-to-container communication
+Container Security Basics,Image security concepts; Runtime security considerations; Basic hardening practices
+Developer Experience with Docker,Hot reloading; Debugging inside containers; Running tests in containers
+Continuous Integration with Containers,Using containers in CI pipelines; Building and testing images automatically
+Deploying Containers,Platform-as-a-service options; Container deployment strategies
+Container Orchestration Options,Introduction to Kubernetes; Docker Swarm basics; Nomad overview
+Learning Progression and Next Steps,Relationship to Kubernetes roadmap; DevOps roadmap; Backend roadmap

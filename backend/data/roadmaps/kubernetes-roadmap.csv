@@ -1,0 +1,59 @@
+Module Name,Module Contents
+Kubernetes Fundamentals,What Kubernetes is; Problems it solves; Why container orchestration is needed; High-level overview of Kubernetes architecture
+Kubernetes Core Concepts,Cluster concept; Control plane and worker nodes; Declarative configuration; Desired state management; Kubernetes terminology
+Kubernetes vs Alternatives,Comparison with Docker Swarm and other orchestrators; When Kubernetes is the right choice
+Containers and Kubernetes,How containers work; Relationship between containers and Kubernetes; Container images and registries
+Setting Up Kubernetes,Choosing between managed and self-managed clusters; Local cluster setup options; Installing Kubernetes tools
+Deploying Your First Application,Creating a simple application; Writing manifests; Applying configurations; Verifying deployments
+Choosing a Managed Kubernetes Provider,Overview of managed Kubernetes services; Factors to consider when selecting a provider
+Installing a Local Kubernetes Cluster,Local cluster tools; Running Kubernetes locally for learning and testing
+Running Applications in Kubernetes,Understanding workloads; Managing application lifecycles
+Pods and Workload Basics,Pods concept; Single and multi-container pods
+ReplicaSets and Deployments,Ensuring availability; Scaling replicas; Rolling updates
+StatefulSets and Jobs,Managing stateful applications; Batch processing jobs; Cron jobs
+Services and Networking Basics,Service abstraction; Internal communication; Networking model
+Exposing Applications,"ClusterIP, NodePort, and LoadBalancer services; Ingress concepts"
+Load Balancing in Kubernetes,Service-based load balancing; External load balancers
+Pod-to-Pod Networking,Networking fundamentals; CNI plugins; Network communication between pods
+Configuration Management,Separating configuration from code; Managing application settings
+ConfigMaps Usage,Injecting configuration into pods; Environment variables and mounted files
+Secrets Management,Handling sensitive data; Secure configuration practices
+Resource Management Fundamentals,Understanding CPU and memory resources; Resource planning
+Resource Requests and Limits,Defining resource boundaries; Preventing resource starvation
+Namespace Quotas,Using namespaces; Applying resource quotas
+Monitoring Resource Usage,Tracking usage; Optimizing resource consumption
+Kubernetes Security Foundations,Security principles; Shared responsibility model
+Role-Based Access Control,"RBAC concepts; Users, roles, and role bindings"
+Network Security,Network policies; Controlling pod communication
+Container and Pod Security,Pod security standards; Runtime security practices
+Monitoring and Logging,Collecting logs; Metrics; Traces
+Observability and Health,Resource health checks; Observability tools
+Autoscaling Fundamentals,Why autoscaling matters; Scaling strategies
+Horizontal Pod Autoscaler,Scaling pods based on metrics
+Vertical Pod Autoscaler,Adjusting resource requests automatically
+Cluster Autoscaling,Scaling worker nodes automatically
+Scheduling Basics,How pods are scheduled; Default scheduler behavior
+Taints and Tolerations,Controlling pod placement
+Topology Spread Constraints,Balancing workloads across nodes
+Pod Priorities and Evictions,Priority classes; Handling resource pressure
+Storage and Volumes,Persistent storage concepts; Volume types
+CSI Drivers,Container Storage Interface; Extending storage options
+Stateful Applications,Managing persistent workloads
+Deployment Strategies,Different deployment patterns
+CI/CD Integration,Integrating Kubernetes with pipelines
+GitOps Practices,Declarative deployments using Git
+Helm Charts,Packaging Kubernetes applications
+Canary Deployments,Gradual rollout strategies
+Blue-Green Deployments,Zero-downtime deployment technique
+Rolling Updates and Rollbacks,Updating applications safely
+Advanced Kubernetes Topics,Extending Kubernetes functionality
+Custom Controllers,Writing controllers to manage resources
+Custom Schedulers and Extenders,Custom scheduling logic
+Custom Resource Definitions,Extending the Kubernetes API
+Kubernetes Extensions and APIs,API extensibility; Admission controllers
+Managing Your Own Cluster,Pros and cons of self-managed clusters
+Control Plane Installation,Installing and managing control plane components
+Worker Node Management,Adding and maintaining worker nodes
+Multi-Cluster Management,Managing multiple clusters
+Cluster Operations,Day-to-day cluster management tasks
+Next Learning Paths,"Related DevOps, Docker, Backend, and System Design roadmaps"
