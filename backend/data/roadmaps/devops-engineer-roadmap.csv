@@ -1,0 +1,27 @@
+Module Name,Module Contents
+Programming Basics for DevOps,"Learning a general-purpose programming language; Scripting with Python; Alternatives such as Ruby, Go, Rust, and JavaScript with Node.js"
+Operating System Fundamentals,"Understanding Unix-like systems; Linux distributions such as Ubuntu, Debian, SUSE, and RHEL; BSD variants; Windows basics for DevOps"
+Command Line and Shell Skills,Using terminal environments; Bash scripting; PowerShell basics; Process monitoring; Performance monitoring; Networking commands; Text processing utilities
+Editors and Productivity Tools,"Using terminal editors such as Vim, Nano, and Emacs"
+Version Control Systems,Source code versioning concepts; Git fundamentals
+Repository Hosting Platforms,Using GitHub; GitLab; Bitbucket for collaboration
+Networking Fundamentals,OSI model; Common networking protocols; DNS; FTP and SFTP; HTTP and HTTPS; SSL and TLS; SSH
+Email and Messaging Protocols,SMTP basics; IMAP and POP3; Domain authentication methods; Email security concepts
+Networking Security Controls,Firewall concepts; Forward and reverse proxies; Load balancers; Caching servers; Whitelisting and greylisting
+Web Servers and Application Servers,Setting up and managing Nginx; Apache; Caddy; Tomcat; IIS
+Container Technologies,Containerization concepts; Docker usage; LXC fundamentals
+Cloud Computing Providers,Overview of cloud platforms; AWS; Azure; Google Cloud; DigitalOcean; Alibaba Cloud; Hetzner; Heroku; Contabo
+Serverless Platforms,Function-as-a-service concepts; AWS Lambda; Azure Functions; Google Cloud Functions; Vercel; Netlify; Cloudflare Workers
+Infrastructure Provisioning,Infrastructure as code concepts; AWS CDK; CloudFormation; Terraform; Pulumi
+Configuration Management,Managing system configuration; Ansible; Chef; Puppet
+Continuous Integration and Deployment,CI/CD concepts; GitHub Actions; GitLab CI; Jenkins; CircleCI; TeamCity; Octopus Deploy
+Secrets and Configuration Security,Managing secrets securely; Sealed secrets; Vault concepts; Standard operating procedures
+Logging and Log Management,Centralized logging concepts; Elastic Stack; Graylog; Splunk; Papertrail; Loki
+Infrastructure Monitoring,Monitoring servers and services; Prometheus; Grafana; Zabbix; Datadog
+Application Monitoring and Tracing,"Application performance monitoring; Distributed tracing; Tools such as Jaeger, New Relic, Datadog, OpenTelemetry"
+Container Orchestration,"Managing container clusters; Kubernetes basics; Managed services such as GKE, EKS, AKS; ECS and Fargate; Docker Swarm"
+Artifact Management,Managing build artifacts; Artifactory; Nexus; CloudSmith
+GitOps Practices,Git-centric deployment workflows; ArgoCD; FluxCD
+Service Mesh Concepts,Service-to-service communication; Istio; Consul; Linkerd; Envoy
+Cloud Architecture Patterns,Designing for availability; Data management strategies; Implementation considerations; Monitoring and operations
+Related Learning Paths,Connections to backend development; Docker; Kubernetes; Linux learning paths
