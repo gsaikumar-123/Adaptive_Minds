@@ -1,0 +1,55 @@
+Module Name,Module Contents
+Relational Database Fundamentals,What relational databases are; Why relational databases are used; Advantages and limitations of RDBMS
+SQL and Database Ecosystem,"Role of SQL in databases; Relationship between SQL, PostgreSQL, and MongoDB; SQL vs NoSQL databases"
+Getting Started with SQL,Purpose of SQL; How SQL works; Where SQL is used
+Basic SQL Syntax,General SQL query structure; Understanding statements and clauses
+SQL Keywords and Data Types,"Common SQL keywords; Numeric, string, date, and boolean data types"
+SQL Operators,Arithmetic operators; Comparison operators; Logical operators
+Basic Data Retrieval,SELECT statements; Retrieving data from tables
+Inserting and Modifying Data,INSERT statements; UPDATE statements; DELETE statements
+Data Definition Language Concepts,Understanding schema definition commands
+Creating Database Tables,CREATE TABLE statements; Defining columns and data types
+Modifying Database Structures,ALTER TABLE usage; Changing table structures
+Removing Database Objects,DROP TABLE usage; Truncating tables
+Data Manipulation Language Concepts,Managing data stored inside tables
+Filtering and Sorting Data,FROM clause; WHERE conditions; ORDER BY sorting
+Grouping and Aggregation,GROUP BY usage; HAVING filters
+Join Fundamentals,Why joins are needed; Joining related tables
+Join Types Overview,INNER JOIN; LEFT JOIN; RIGHT JOIN; FULL OUTER JOIN
+Special Join Types,Self joins; Cross joins
+Aggregate Functions,SUM; COUNT; AVG; MIN; MAX
+Subquery Fundamentals,What subqueries are; Why subqueries are useful
+Types of Subqueries,Scalar subqueries; Column subqueries; Row subqueries; Table subqueries
+Nested and Correlated Subqueries,Nested queries; Correlated subqueries
+Numeric SQL Functions,FLOOR; CEILING; ROUND; ABS; MOD
+String SQL Functions,CONCAT; LENGTH; SUBSTRING; REPLACE; UPPER; LOWER
+Conditional SQL Expressions,CASE statements; NULLIF; COALESCE
+Date and Time Handling,DATE; TIME; TIMESTAMP; DATEPART; DATEADD
+Views in SQL,Purpose of views; Using views to simplify queries
+Managing Views,Creating views; Updating views; Dropping views
+Index Fundamentals,What indexes are; Why indexes improve performance
+Managing Indexes,Creating and removing indexes
+Query Optimization Basics,Understanding how queries are optimized
+Transactions Fundamentals,Why transactions are important; Transaction workflow
+Transaction Commands,BEGIN; COMMIT; ROLLBACK; SAVEPOINT
+ACID Properties,Atomicity; Consistency; Isolation; Durability
+Transaction Isolation Levels,Different isolation levels and their effects
+Data Integrity Concepts,Ensuring accurate and consistent data
+Data Integrity Constraints,Primary key; Foreign key; Unique; NOT NULL; CHECK
+Database Security Basics,Database access control concepts
+Permission Management,GRANT and REVOKE commands
+SQL Security Best Practices,Preventing unauthorized access
+Stored Procedures and Functions,Using stored logic inside databases
+Performance Optimization Concepts,Improving SQL query performance
+Index Usage for Performance,Choosing and using indexes effectively
+Optimizing Joins,Improving join performance
+Reducing Query Cost,Minimizing subqueries; Selective projection
+Query Analysis Techniques,Analyzing query execution plans
+Advanced SQL Concepts,Complex querying techniques
+Recursive Queries,Recursive query structures
+Pivot and Unpivot Operations,Transforming rows into columns and vice versa
+Window Functions Overview,Advanced analytics using window functions
+Window Function Examples,ROW_NUMBER; RANK; DENSE_RANK; LEAD; LAG
+Common Table Expressions,Using CTEs to organize queries
+Dynamic SQL,Building SQL dynamically at runtime
+Learning Continuation Paths,Backend development; PostgreSQL; MongoDB roadmaps
