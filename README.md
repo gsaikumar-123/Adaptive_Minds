@@ -2,7 +2,7 @@
 
 A full-stack intelligent platform that generates dynamic, personalized learning roadmaps based on a user's current knowledge and goals. Leveraging the power of Large Language Models (LLMs) via the Groq API, the system assesses your proficiency through adaptive MCQs and dynamically produces a customized path to mastery.
 
-![Architecture Diagram Placeholder](https://via.placeholder.com/800x400?text=Adaptive+Roadmap+Architecture)
+![Architecture Diagram Placeholder](Architecture.png)
 
 ## Features
 
