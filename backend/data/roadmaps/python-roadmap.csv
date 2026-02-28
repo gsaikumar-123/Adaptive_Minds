@@ -1,0 +1,51 @@
+Module Name,Module Contents
+Python Programming Foundations,"Purpose of Python; Where Python is used; Python versions; How Python fits backend, DevOps, AI, and data science"
+Basic Syntax and Structure,Python syntax rules; Indentation; Comments; Running Python scripts
+Variables and Core Data Types,Variables; Numbers; Strings; Booleans; None type; Type checking
+Type Conversion,Implicit and explicit type casting
+Control Flow Basics,"Conditional statements; if, elif, else"
+Exception Handling,Try and except blocks; finally; Custom exceptions
+Functions and Built-in Utilities,Defining functions; Parameters and return values; Built-in Python functions
+Collections Fundamentals,Lists; Tuples; Sets; Dictionaries
+Loops and Iteration,for loops; while loops; break and continue
+Data Structures Overview,Understanding data structures; When to use which structure
+Arrays and Linked Lists,Array concepts; Linked list fundamentals
+"Stacks, Queues, and Heaps",Stack operations; Queue usage; Heap principles
+Hash Tables,Hashing concepts; Dictionary internals
+Trees and Searching,Binary search trees; Tree traversal
+Recursion Concepts,Recursive functions; Base and recursive cases
+Sorting Algorithms,Common sorting techniques; Performance considerations
+Modules and Packages,Built-in modules; Custom modules; Import patterns
+Functional Programming Tools,"Lambda expressions; Map, filter, reduce"
+Decorators,Function decorators; Use cases
+Iterators and Generators,Iterator protocol; Generator functions
+Regular Expressions,Pattern matching; Regex syntax
+Object Oriented Programming Basics,Classes; Objects; Attributes
+Inheritance and Polymorphism,Extending classes; Method overriding
+Special Methods,Dunder methods; Magic methods
+Package Management,PyPI; pip; Conda; Poetry
+List Comprehensions,Concise list creation
+Generator Expressions,Lazy evaluation concepts
+Programming Paradigms,Procedural; Object-oriented; Functional styles
+Context Managers,with statement; Resource management
+Modern Python Features,Walrus operator; Positional-only and keyword-only parameters; Structural pattern matching; Union type operator; Exception groups
+Type Hints and Static Typing,Type annotations; Generic types; Protocol classes; TypedDict; typing module features
+Frameworks Overview,Why frameworks are used
+Synchronous Frameworks,Pyramid; Plotly Dash
+Asynchronous Frameworks,gevent; aiohttp; Tornado; Sanic
+Hybrid Frameworks,FastAPI; Django; Flask
+Concurrency Fundamentals,Concurrency vs parallelism
+Global Interpreter Lock,Understanding the GIL
+Threading,Multithreading basics
+Multiprocessing,Process-based parallelism
+Asynchronous Programming,Async and await concepts
+Configuration Management,pyproject.toml; Configuration handling
+Environment Management,virtualenv; pyenv; Pipenv
+Static Typing in Python,Type hints; Pydantic; mypy; pyright; pyre
+Performance Optimization,Profiling Python code; Memory optimization; Using Cython; Numba for JIT compilation; Performance best practices
+Modern Packaging Standards,pyproject.toml standards; Build backends; Dependency management best practices; Poetry and PDM
+Code Formatting Tools,ruff; black; yapf
+Documentation Practices,Writing documentation; Sphinx
+Testing Fundamentals,Why testing matters
+Testing Tools,unittest; pytest; doctest; nose; tox
+Next Learning Paths,Backend; DevOps; AI and Data Science roadmaps

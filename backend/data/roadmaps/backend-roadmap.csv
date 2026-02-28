@@ -1,0 +1,27 @@
+Module Name,Module Contents
+Internet and Web Foundations,How the internet functions; HTTP protocol basics; Domain names and DNS resolution; Web hosting concepts; Browser behavior and request handling
+Programming Language Selection,"Choosing a backend language; Options including JavaScript, Python, Java, Go, PHP, Ruby, Rust, and C#"
+Version Control and Collaboration,"Source code management concepts; Git fundamentals; Repository hosting using GitHub, GitLab, and Bitbucket"
+Database Fundamentals,Relational database concepts; SQL-based systems; Database normalization; ACID properties; Transactions and failure handling
+Advanced Database Concepts,Database indexing strategies; Query performance profiling; N+1 query problem; Sharding approaches; Data replication; CAP theorem; Database scaling techniques
+API Fundamentals and Design,Purpose of APIs; REST principles; JSON-based APIs; GraphQL APIs; SOAP services; gRPC communication; HATEOAS concepts; OpenAPI specifications
+Caching Strategies,Client-side caching; Server-side caching; Content delivery networks; In-memory caching tools
+Authentication and Authorization,Authentication fundamentals; Basic authentication; Token-based authentication; JWT usage; OAuth flows; Cookie-based authentication; OpenID and SAML
+Web and API Security,Hashing algorithms; HTTPS and TLS; CORS policies; Content security policies; Common web vulnerabilities; API security best practices
+Testing Practices,Unit testing principles; Integration testing; Functional testing; Test-driven development
+Continuous Integration and Deployment,Automated build pipelines; Continuous integration concepts; Deployment automation
+Software Design Patterns,Gang of Four design patterns; Domain-driven design; Command query responsibility segregation; Event sourcing
+Application Architectures,Monolithic applications; Microservices architecture; Service-oriented architecture; Serverless systems; Service mesh concepts; Twelve-factor application principles
+Messaging and Asynchronous Processing,Message broker concepts; Event-driven systems; Popular messaging platforms
+Containerization and Virtualization,Containers versus virtual machines; Container runtimes; Docker fundamentals; Kubernetes orchestration
+Web Servers and Reverse Proxies,Web server fundamentals; Popular servers; Reverse proxy configuration
+Search Engines,Search engine concepts; Full-text indexing; Distributed search systems
+NoSQL Databases,Key-value stores; Document databases; Graph databases; Time-series databases; Column-oriented databases
+Real-Time Communication,WebSocket communication; Server-sent events; Long polling; Short polling
+Scalability and Resilience,Types of scaling; Graceful degradation; Throttling and backpressure; Load shedding; Circuit breaker patterns; Migration strategies
+Observability and Monitoring,Application metrics; Logging practices; Instrumentation; Monitoring systems; Telemetry collection
+DevOps and Infrastructure Basics,Basic infrastructure knowledge; DevOps culture; Automation principles
+Data Storage and Search Tools,In-memory data stores; Search databases; Realtime databases
+Security and Cryptography Basics,Hashing methods; Encryption concepts; Secure communication practices
+Backend for Scale,Designing systems for growth; Handling high traffic; Reliability strategies
+Learning Paths and Ecosystem,Backend roadmap context; Full-stack alignment; Migration considerations; Alternative learning paths
