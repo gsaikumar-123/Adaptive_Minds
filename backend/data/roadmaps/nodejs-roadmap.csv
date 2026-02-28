@@ -1,0 +1,38 @@
+Module Name,Module Contents
+Node.js Basics and Purpose,What Node.js is; Why Node.js is used; History and evolution of Node.js; Differences between Node.js and browser JavaScript; Running Node.js programs
+JavaScript Prerequisites,Understanding core JavaScript concepts before Node.js; Relationship between JavaScript and Node.js
+Node.js Modules System,What modules are; CommonJS modules; ES Modules; Creating and importing modules; Global keyword usage
+Node Package Manager Fundamentals,"What npm is; Global vs local installations; Installing, updating, and removing packages; Running npm scripts"
+Advanced npm Usage,npm workspaces; Creating and publishing packages; Semantic versioning principles
+Error Handling in Node.js,JavaScript runtime errors; System-level errors; Custom user-defined errors; Assertion errors; Error categories
+Exception and Debugging Basics,Uncaught exceptions; Handling asynchronous errors; Understanding call stacks and stack traces; Using the Node.js debugger
+Using npx,What npx is; Executing packages without installation
+Asynchronous Programming Concepts,Callbacks; Promises; async and await; Writing clean async code
+Timers and Execution Order,setTimeout; setInterval; setImmediate; process.nextTick; Execution priority
+Event-Driven Architecture,Event emitter pattern; Event loop behavior
+Working with Files and Paths,process.cwd; path module; fs module; __dirname and __filename
+File System Utilities,Using glob and globby; fs-extra utilities; File watching with chokidar
+Environment Configuration,Using environment variables; dotenv package; process.env
+Command Line Input Handling,Reading input from process.stdin; Using prompts and Inquirer packages
+Command Line Output Formatting,stdout and stderr; Formatting output with chalk; figlet; cli-progress
+Command Line Arguments,Using process.argv; commander package; Parsing CLI arguments
+Building Command Line Applications,Designing CLI tools; Input-output handling; Exit codes
+HTTP and API Fundamentals,http module basics; Making API calls
+API Client Libraries,Using axios; ky; fetch; got package
+Authentication Basics,Using JSON Web Tokens; passport.js authentication strategies
+Backend Frameworks Overview,Express.js; Fastify; NestJS; Hono; Choosing a framework
+Development Productivity Tools,Watching file changes with --watch; nodemon usage
+Template Engines,Using ejs; pug; marko for server-side rendering
+Database Integration,Working with NoSQL databases; MongoDB with Mongoose; Prisma ORM; Native drivers
+Relational Database Access,Using Knex; Drizzle; TypeORM; Sequelize; Prisma
+Testing Node.js Applications,Vitest; node:test; Jest; Playwright; Cypress
+Security Best Practices,Input validation and sanitization; SQL injection prevention; XSS protection; Helmet.js for security headers; Rate limiting; Secure session management; Environment variables security
+Performance and Scalability,Profiling applications; Memory management; Clustering; Worker threads; Caching strategies; Load balancing; Performance monitoring
+Logging Practices,Using Winston; Morgan for application logging
+Keeping Applications Running,Using pm2 for process management
+Modern Node.js Features,Native test runner; Native fetch API; Web Streams API; AbortController support; Performance hooks; ES2022+ features
+Multithreading and Parallelism,Child processes; Cluster module; Worker threads
+Streams in Node.js,Readable and writable streams; Stream pipelines
+Debugging and Performance,Finding memory leaks; Garbage collection basics; node --inspect; Application performance monitoring
+Built-in Node.js Modules,Overview of commonly used built-in modules
+Learning Continuation,Next steps with backend development roadmap
