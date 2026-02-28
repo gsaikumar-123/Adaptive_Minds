@@ -17,17 +17,21 @@ export function AuthProvider({ children }) {
     useEffect(() => {
         const initAuth = async () => {
             const storedUser = localStorage.getItem("user");
+            const storedToken = localStorage.getItem("token");
 
-            if (storedUser) {
+            if (storedUser && storedToken) {
                 try {
-                    const data = await fetchCurrentUser();
+                    const data = await fetchCurrentUser(storedToken);
                     setUser(data.user);
                     localStorage.setItem("user", JSON.stringify(data.user));
                 } catch {
                     localStorage.removeItem("user");
+                    localStorage.removeItem("token");
                     setUser(null);
                 }
             } else {
+                localStorage.removeItem("user");
+                localStorage.removeItem("token");
                 setUser(null);
             }
             setLoading(false);
@@ -36,14 +40,18 @@ export function AuthProvider({ children }) {
         initAuth();
     }, []);
 
-    const login = (userData) => {
+    const login = (userData, token) => {
         setUser(userData);
         localStorage.setItem("user", JSON.stringify(userData));
+        if (token) {
+            localStorage.setItem("token", token);
+        }
     };
 
     const refreshUser = async () => {
         try {
-            const data = await fetchCurrentUser();
+            const token = localStorage.getItem("token");
+            const data = await fetchCurrentUser(token);
             setUser(data.user);
             localStorage.setItem("user", JSON.stringify(data.user));
         } catch {
@@ -53,6 +61,7 @@ export function AuthProvider({ children }) {
 
     const logout = async () => {
         setUser(null);
+        localStorage.removeItem("token");
         localStorage.removeItem("user");
         try {
             await logoutUser();
