@@ -1,0 +1,18 @@
+Module Name,Module Contents
+API Fundamentals,Concept of application programming interfaces; Purpose of APIs in software systems; How APIs enable communication between services
+Web and Network Basics,HTTP protocol overview; HTTP versions evolution; Request methods and semantics; Status codes and their meaning; Request and response headers; URLs with path and query parameters; Cookies and session concepts; Content negotiation mechanisms; Cross-origin resource sharing; TCP/IP fundamentals; Domain name system basics
+API Design Styles,REST-style APIs; Lightweight JSON-based APIs; SOAP-based services; Graph-based APIs; Remote procedure call APIs
+Designing REST-Based APIs,"Core REST constraints; Resource-oriented URI design; API versioning approaches; Pagination strategies; Rate limiting concepts; Idempotent operations; Hypermedia-driven APIs; Implementing create, read, update, and delete operations; Standardized error responses"
+Authentication Techniques,Basic authentication approach; Token-based authentication; JSON web tokens; OAuth 2.0 authorization flows; Session-based authentication
+Authorization Models,Role-based access control; Attribute-based access control; Permission modeling strategies
+API Key Management,Using API keys for access control; Managing and rotating keys; Usage tracking
+API Documentation Practices,Design-first documentation; OpenAPI specifications; Interactive documentation tools; API testing and collaboration tools
+API Security Principles,Common API attack vectors; Secure API design practices; Protecting endpoints and data
+API Performance Optimization,Performance measurement indicators; Response caching techniques; Load balancing strategies; Request throttling; Profiling and monitoring APIs; Performance testing approaches; Reliability and retry handling
+Integration and Communication Patterns,Synchronous versus asynchronous APIs; Event-driven systems; API gateways; Microservice-based integrations; Webhooks compared to polling; Batch-based data exchange; Message queue concepts
+API Gateway Patterns,Gateway routing; Gateway aggregation; Backend for frontend pattern; Rate limiting at gateway; Authentication at gateway layer
+Service Mesh and API Management,Service mesh concepts; Traffic management; Observability; Security at service mesh layer; API versioning strategies
+API Testing Strategies,Unit-level API testing; Integration testing flows; Functional validation; Load and stress testing; API mocking; Contract-based testing
+Real-Time API Communication,WebSocket-based communication; Server-sent event streams
+API Lifecycle and Governance,Managing APIs across their lifecycle; Version retirement strategies; Monitoring usage and deprecation
+"Standards, Privacy, and Compliance",Data protection regulations; Privacy requirements; Industry compliance standards; Handling personally identifiable information
