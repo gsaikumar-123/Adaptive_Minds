@@ -1,192 +1,226 @@
 # Adaptive Learning Roadmap Generator
 
-A full-stack intelligent platform that generates dynamic, personalized learning roadmaps based on a user's current knowledge and goals. Leveraging the power of Large Language Models (LLMs) via the Groq API, the system assesses your proficiency through adaptive MCQs and dynamically produces a customized path to mastery.
+An intelligent platform that generates personalized learning roadmaps using LLMs and ML. Users define their learning goal, take adaptive assessments, and receive a customized roadmap skipping what they already know.
 
-![Architecture Diagram Placeholder](Architecture.png)
+## Key Features
 
-## Features
+- **LLM-Generated MCQs** (Groq API): Real-time question generation tailored to learning goals
+- **Adaptive Assessment**: Dynamic question selection using information-gain scoring
+- **Skill DNA Engine**: Deterministic scoring with weighted accuracy, confidence, and hard-question risk
+- **Bayesian Knowledge Tracing (BKT)**: Probabilistic learner modeling with forgetting decay
+- **Deep Knowledge Tracing (DKT)**: GRU-based ML model (56% AUC, runs on FastAPI)
+- **Thompson Sampling**: Contextual bandit algorithm for weekly study scheduling
+- **Personalized Roadmaps**: Module-by-module learning paths with prerequisites
 
-- **Personalized Learning Goals**: Define exactly what you want to achieve, from building production MERN applications to mastering advanced data structures.
-- **Dynamic Assessments**: Take a real-time, LLM-generated quiz tailored to your goal. The assessment avoids brittle hardcoded questions, relying instead on multi-concept MCQs created on the fly.
-- **Adaptive Evaluation**: The evaluation engine analyzes your answers, identifies weak topics, and determines any missing prerequisites.
-- **Skill DNA Engine (Custom Algorithm)**: Beyond LLM output, a deterministic scoring engine computes weighted accuracy, module confidence, and a priority index using answer correctness + difficulty weighting + hard-question risk.
-- **Bayesian Knowledge Tracing (ML, Local)**: A built-in learner model forecasts topic mastery, confidence, and immediate priorities from your historical attempts and recency decay. This runs entirely on your backend without third-party ML APIs.
-- **Contextual Bandit Study Policy (New Trend)**: On top of BKT, a local Thompson Sampling policy chooses weekly study actions (explore vs exploit) and estimates time-to-readiness gains.
-- **Deep Knowledge Tracing Service (DL, New)**: A GRU-based DKT model is now available via a production-ready FastAPI microservice. Backend endpoint `/api/progress/forecast-v2` compares baseline BKT vs DKT and gracefully falls back to baseline if the service is unavailable.
-- **Uncertainty-Aware Active Assessment (DL-Guided)**: Assessment now runs in adaptive rounds. After each round, the backend uses DKT (with BKT fallback) to score topic uncertainty and expected information gain, then selects the next best topics and can stop early once confidence is sufficient.
-- **Ablation and Evaluation Pipeline**: Offline scripts compute AUC, LogLoss, Brier score, and Top-K precision proxy for BKT vs DKT reporting.
-- **Custom-Tailored Roadmaps**: Receive a comprehensive, ordered module-by-module roadmap, skipping concepts you already know and highlighting the exact topics you need to focus on.
-- **Interactive UI**: A modern, responsive React + Vanilla CSS frontend offering a premium aesthetic with subtle micro-animations and clear progression tracking.
-- **Progress Tracking**: Resume past roadmaps from your tailored roadmap history dashboard, complete with progress heatmaps and visual milestones.
+## Architecture
 
-## System Architecture
-
-The project consists of a decoupled frontend and backend, orchestrated as follows:
-
-1. **User Request**: The React frontend captures the user's ultimate learning goal.
-2. **Intent Analysis (LLM)**: The Express backend parses the intent and establishes assessment boundaries.
-3. **MCQ Generation (LLM)**: An initial batch of questions is generated covering base concepts.
-4. **Evaluation (LLM)**: Upon submission, the engine pinpoints weak topics and necessary prerequisites.
-5. **Skill DNA Analytics (Algorithmic Layer)**: A local engine ranks module priorities using weighted performance and confidence, producing an interview-friendly readiness score.
-6. **Learning Forecast (ML Layer)**: Bayesian Knowledge Tracing predicts per-topic mastery probability and recommends what to focus on now.
-7. **Policy Optimization (Bandit Layer)**: Contextual Thompson Sampling converts forecast outputs into an adaptive multi-day study schedule.
-8. **Roadmap Synthesis (LLM)**: A finalized, customized CSV roadmap is synthesized, stripping away mastered topics.
-9. **Data Persistence**: All attempts, performance data, and generated roadmaps are stored in MongoDB.
+```
+React Frontend → Express Backend → ML Service (FastAPI) + MongoDB
+                     ↓
+1. User goal → 2. LLM intent analysis → 3. Generate MCQs
+4. Adaptive assessment → 5. Score (Skill DNA) → 6. Forecast (BKT/DKT)
+7. Thompson policy → 8. LLM roadmap synthesis → 9. Store in MongoDB
+```
 
 ## Tech Stack
 
-### Frontend
-- **Framework**: React (Vite)
-- **Styling**: Vanilla CSS, leveraging CSS Variables, Glassmorphism, and modern flex/grid layouts.
-- **Routing**: React Router DOM (v6)
-
-### Backend
-- **Server**: Node.js & Express
-- **Database**: MongoDB (Mongoose ORM)
-- **AI Integration**: Groq API (Llama 3.3 70B & Llama 3.1 8B)
-- **Validation**: Zod (Input validation)
-- **Data Format**: CSV parsing and generation for easy roadmap portability.
-
-## Deployment
-
-- **Backend API**: [https://adaptive-minds.onrender.com](https://adaptive-minds.onrender.com)
-- **Platform**: Render.com
-- **Frontend Environment**: Configure `VITE_API_URL` to point to the backend deployment
-
-To use the deployed backend, set the frontend environment variable:
-```bash
-VITE_API_URL=https://adaptive-minds.onrender.com
-```
+| Layer | Tech |
+|-------|------|
+| **Frontend** | React (Vite), Vanilla CSS, React Router |
+| **Backend** | Node.js, Express, MongoDB, Groq API |
+| **ML Service** | FastAPI, PyTorch (GRU-RNN), Scikit-learn |
+| **Deployment** | Render.com, MongoDB Atlas |
 
 ## Project Structure
 
-```text
-adaptive-roadmap/
-├── frontend/                # React client application
-│   ├── public/
-│   └── src/
-│       ├── components/      # Reusable UI components (Navbar, Sidebar, Heatmap)
-│       ├── pages/           # Route views (Landing, Dashboard, Assessment, History)
-│       ├── services/        # API integration layers
-│       ├── state/           # Global Contexts (Auth)
-│       └── styles/          # Core CSS variables and utilities
-└── backend/                 # Express API server
-    ├── data/
-    │   └── roadmaps/        # Base CSV templates for default content
-    └── src/
-        ├── config/          # Environment & MongoDB configuration
-        ├── controllers/     # Route handlers and business logic
-        ├── models/          # Mongoose schemas (User, Attempt, GeneratedRoadmap)
-        ├── prompts/         # Core LLM system prompts (engineered for Llama 3)
-        ├── routes/          # API route definitions
-        ├── services/        # Service logic (LLM integrations, roadmap parsing)
-        └── utils/           # Helper functions and middlewares
 ```
+adaptive-roadmap/
+├── frontend/                    # React UI (Vite)
+│   └── src/
+│       ├── components/          # UI components
+│       ├── pages/               # Route pages (Assessment, History, Dashboard)
+│       ├── services/            # API client
+│       └── state/               # Auth context
+├── backend/                     # Express API
+│   └── src/
+│       ├── controllers/         # Route handlers
+│       ├── services/            # Business logic (Skill DNA, BKT, DKT)
+│       ├── prompts/             # LLM system prompts
+│       ├── models/              # MongoDB schemas
+│       └── routes/              # API endpoints
+└── ml-service/                  # FastAPI ML microservice
+    ├── src/
+    │   ├── app/                 # FastAPI server
+    │   ├── training/            # DKT training scripts
+    │   └── inference.py         # Model inference
+    └── artifacts/               # dkt_model.pt + metadata.json
+```
+
+## Core Services
+
+### 1. Skill DNA Engine
+Deterministic learner scoring:
+- Weighted accuracy: `difficulty_weight × correctness`
+- Hard-question risk: `weighted_misses_on_hard / total_hard`
+- Confidence: `√(attempts) × 11 + (weighted_attempts/10) × 8`
+- Priority Index: `(100 − accuracy) × (1 + hard_risk × 0.9) × (1 + (100 − confidence)/200)`
+
+### 2. Learning Forecast Engine
+Bayesian learner model:
+```
+Mastery update: P(mastery | answer) using Bayes rule
+Forgetting: mastery × exp(−0.015 × days_inactive) 
+Recommendations: "Priority Focus" / "Reinforce" / "Maintain"
+```
+
+### 3. Active Assessment Engine
+Adaptive question selection:
+```
+expected_gain = (0.55 × uncertainty + 0.35 × weakness + 0.1 × novelty) / (1 + asked_count × 0.45)
+Stop when: avg_gain < 0.34 AND avg_uncertainty < 0.22
+```
+
+### 4. Deep Knowledge Tracing (ML Service)
+GRU-based RNN with embeddings (Topics + Modules + Difficulty + Temporal gaps)
+
+**Performance vs BKT:**
+- AUC: +3.7% (0.6374 vs 0.5977)
+- LogLoss: -53% (0.6662 vs 1.4222)
+- Brier: -27% (0.2368 vs 0.3261)
 
 ## Getting Started
 
 ### Prerequisites
-- Node.js (v18+)
-- MongoDB instance (local or Atlas)
+- Node.js v18+
+- MongoDB (local or Atlas)
 - Groq API Key
-- Python 3.12 (recommended for `ml-service`)
+- Python 3.12 (for ML training)
 
 ### Installation
 
-1. **Clone the repository** (if applicable) and navigate to the project directory:
-   ```bash
-   cd adaptive-roadmap
-   ```
-
-2. **Backend Setup**:
-   ```bash
-   cd backend
-   npm install
-   ```
-   Create a `.env` file in the `backend/` directory based on `.env.example`:
-   ```env
-   PORT=5000
-   MONGO_URI=your_mongodb_connection_string
-   MONGO_DB=adaptive_roadmap
-   JWT_SECRET=your_jwt_secret
-   GROQ_API_KEY=your_groq_api_key
-   FRONTEND_URL=http://localhost:5173
-   ```
-
-3. **Frontend Setup**:
-   ```bash
-   cd ../frontend
-   npm install
-   ```
-   Create a `.env` file in the `frontend/` directory (if required) for API base configurations:
-   ```env
-   VITE_API_BASE_URL=http://localhost:5000
-   ```
-
-### Running the Application
-
-To run the application locally, you will need two terminal windows:
-
-Terminal 1 (Backend):
+**Backend:**
 ```bash
 cd backend
-npm run dev
+npm install
 ```
 
-Terminal 2 (Frontend):
+**Frontend:**
 ```bash
 cd frontend
-npm run dev
+npm install
 ```
 
-The frontend will typically be available at `http://localhost:5173`, and the backend API will run on `http://localhost:5000`.
-
-### Optional: Run Advanced ML Service (DKT)
-
-The repository includes a deployable `ml-service/` package with training, evaluation, and serving code.
-
+**ML Service (Optional):**
 ```bash
 cd ml-service
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
-
-# Export sequence data from MongoDB
-python -m src.training.export_from_mongo --mongo-uri "mongodb://localhost:27017" --db-name adaptive_roadmap --output artifacts/sequences.jsonl
-
-# Train DKT and generate artifacts
-python -m src.training.train_dkt --data artifacts/sequences.jsonl --artifacts artifacts
-
-# Run ablation report (BKT vs DKT)
-python -m src.training.evaluate_ablation --data artifacts/sequences.jsonl --artifacts artifacts --report reports/latest_ablation.md
-
-# Start ML inference service
-uvicorn src.app.main:app --host 0.0.0.0 --port 8001
 ```
 
-Configure backend `.env` values:
+### Running Locally
 
+**Terminal 1 - Backend:**
+```bash
+cd backend
+npm run dev
+# http://localhost:5000
+```
+
+**Terminal 2 - Frontend:**
+```bash
+cd frontend
+npm run dev
+# http://localhost:5173
+```
+
+**Terminal 3 - ML Service:**
+```bash
+cd ml-service
+.venv\Scripts\activate
+uvicorn src.app.main:app --port 8001
+```
+
+### Environment Variables
+
+**Backend** (`.env`):
 ```env
-ML_FORECAST_URL=http://localhost:8001
+PORT=5000
+MONGO_URI=mongodb+srv://user:pwd@cluster.mongodb.net/adaptive_roadmap
+MONGO_DB=adaptive_roadmap
+GROQ_API_KEY=your_key
+JWT_SECRET=your_secret
+FRONTEND_URL=http://localhost:5173
+ML_FORECAST_URL=https://adaptive-minds-ml-service.onrender.com
 ML_FORECAST_API_KEY=change_me
-ML_FORECAST_TIMEOUT_MS=3500
+ML_FORECAST_TIMEOUT_MS=5000
 ```
 
-When enabled, frontend forecast panels automatically consume `/api/progress/forecast-v2` and display advanced model outputs.
+**Frontend** (`.env`):
+```env
+VITE_API_URL=http://localhost:5000
+```
 
-### Generate Reviewer Proof Bundle (With vs Without DL)
+## Deployment
 
-From `backend/`:
+| Service | Platform | URL |
+|---------|----------|-----|
+| Backend API | Render | https://adaptive-minds.onrender.com |
+| ML Service | Render | https://adaptive-minds-ml-service.onrender.com |
+| Database | MongoDB Atlas | Cloud-hosted |
+
+## Validation Scripts
 
 ```bash
+cd backend
+
+# Test 1: Compare ML forecast vs baseline
+npm run proof:compare
+
+# Test 2: Test on real curricula
+npm run proof:roadmap
+
+# Test 3: Full system ablation (DKT vs BKT)
 npm run proof:showcase
 ```
 
-Output files:
-- `ml-service/results/proof_showcase_report.md`
-- `ml-service/results/proof_showcase_report.json`
+Results saved to `ml-service/results/`
 
-## Architecture & Scalability Notes
-- **Prompt Engineering**: This engine utilizes separated, highly tuned prompts for intent, generation, and synthesis, ensuring the LLM doesn't experience "context confusion."
-- **Rate-Limiting**: The architecture is designed to manage Groq API limits by strictly batching MCQs and minimizing round-trip API calls per user action.
-- **Stateless API**: The Express layer is largely stateless (outside of the database), allowing for horizontal scaling if needed.
+## Training DKT Model
+
+```bash
+cd ml-service
+
+# Export sequences
+python -m src.training.export_from_mongo \
+  --mongo-uri "mongodb+srv://user:pwd@cluster.mongodb.net" \
+  --db-name adaptive_roadmap
+
+# Train DKT
+python -m src.training.train_dkt \
+  --data artifacts/sequences.jsonl \
+  --artifacts artifacts \
+  --epochs 20
+
+# Generate ablation report
+python -m src.training.evaluate_ablation \
+  --data artifacts/sequences.jsonl \
+  --artifacts artifacts
+```
+
+## Key Endpoints
+
+| Method | Endpoint | Purpose |
+|--------|----------|---------|
+| POST | `/api/assessment/start` | Begin assessment |
+| POST | `/api/assessment/submit-answer` | Submit MCQ |
+| GET | `/api/progress/forecast` | BKT forecast |
+| GET | `/api/progress/forecast-v2` | BKT + DKT comparison |
+| GET | `/api/roadmap/history` | Past roadmaps |
+
+## Performance
+
+- Cold start (Render): ~10 sec
+- Model size: 0.49 MB
+- Response time: ~500ms (BKT), ~800ms (DKT)
+- Daily limit: 3 assessments/user

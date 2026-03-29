@@ -193,7 +193,7 @@ def evaluate(model: nn.Module, loader: DataLoader, device: str) -> dict:
             gather_idx = (batch["target_topic_ids"] - 1).clamp(min=0).unsqueeze(-1)
             selected_logits = torch.gather(logits, dim=2, index=gather_idx).squeeze(-1)
 
-            valid = batch["mask"] > 0
+            valid = (batch["mask"] > 0) & (batch["target_topic_ids"] > 0)
             if valid.sum().item() == 0:
                 continue
 
@@ -281,7 +281,7 @@ def train(args) -> None:
             gather_idx = (batch["target_topic_ids"] - 1).clamp(min=0).unsqueeze(-1)
             selected_logits = torch.gather(logits, dim=2, index=gather_idx).squeeze(-1)
 
-            valid = batch["mask"] > 0
+            valid = (batch["mask"] > 0) & (batch["target_topic_ids"] > 0)
             if valid.sum().item() == 0:
                 continue
 

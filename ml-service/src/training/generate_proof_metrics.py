@@ -5,6 +5,9 @@ import json
 from pathlib import Path
 
 from src.training.evaluate_ablation import (
+    bkt_predictions,
+    calibration_report,
+    dkt_predictions,
     evaluate_bkt,
     evaluate_dkt,
     load_sequences,
@@ -33,6 +36,12 @@ def main() -> None:
 
     bkt = evaluate_bkt(sequences)
     dkt = evaluate_dkt(sequences, Path(args.artifacts))
+    bkt_labels, bkt_probs = bkt_predictions(sequences)
+    dkt_labels, dkt_probs = dkt_predictions(sequences, Path(args.artifacts))
+
+    bkt_calibration = calibration_report(bkt_labels, bkt_probs, bins=10)
+    dkt_calibration = calibration_report(dkt_labels, dkt_probs, bins=10)
+
     topk = topk_precision_estimate(sequences)
 
     auc_delta = round(to_float(dkt.get("auc")) - to_float(bkt.get("auc")), 5)
@@ -62,6 +71,24 @@ def main() -> None:
             "topk_precision_proxy": topk.get("topk_precision_proxy"),
             "verdict": verdict,
             "decision_rule": "DKT is considered better if it wins at least 2/3 core metrics (AUC up, LogLoss down, Brier down).",
+        },
+        "calibration": {
+            "baseline": {
+                "name": "BKT",
+                "ece": bkt_calibration.get("ece"),
+                "mce": bkt_calibration.get("mce"),
+                "reliabilityCurve": bkt_calibration.get("bins", []),
+            },
+            "candidate": {
+                "name": "DKT",
+                "ece": dkt_calibration.get("ece"),
+                "mce": dkt_calibration.get("mce"),
+                "reliabilityCurve": dkt_calibration.get("bins", []),
+            },
+            "delta": {
+                "ece_reduction_bkt_minus_dkt": round(to_float(bkt_calibration.get("ece")) - to_float(dkt_calibration.get("ece")), 6),
+                "mce_reduction_bkt_minus_dkt": round(to_float(bkt_calibration.get("mce")) - to_float(dkt_calibration.get("mce")), 6),
+            },
         },
     }
 
@@ -97,6 +124,20 @@ DKT is considered better if it wins at least 2 of 3 core metrics:
 ## Verdict
 - {verdict}
 - Wins: {wins}/3 core metrics
+
+## Calibration (Interview-grade)
+- BKT ECE: {bkt_calibration.get('ece')}
+- DKT ECE: {dkt_calibration.get('ece')}
+- ECE Reduction (BKT-DKT): {round(to_float(bkt_calibration.get('ece')) - to_float(dkt_calibration.get('ece')), 6)}
+- BKT MCE: {bkt_calibration.get('mce')}
+- DKT MCE: {dkt_calibration.get('mce')}
+- MCE Reduction (BKT-DKT): {round(to_float(bkt_calibration.get('mce')) - to_float(dkt_calibration.get('mce')), 6)}
+
+### Reliability Curve (DKT, 10 bins)
+{chr(10).join([f"- Bin {row['bin']} [{row['range'][0]}, {row['range'][1]}): count={row['count']}, conf={row['mean_confidence']}, acc={row['empirical_accuracy']}, gap={row['gap']}" for row in dkt_calibration.get('bins', [])])}
+
+### Reliability Curve (BKT, 10 bins)
+{chr(10).join([f"- Bin {row['bin']} [{row['range'][0]}, {row['range'][1]}): count={row['count']}, conf={row['mean_confidence']}, acc={row['empirical_accuracy']}, gap={row['gap']}" for row in bkt_calibration.get('bins', [])])}
 """
 
     out_md.write_text(md, encoding="utf-8")

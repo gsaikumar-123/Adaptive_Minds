@@ -17,7 +17,8 @@ DIFFICULTY_TO_ID = {"easy": 1, "medium": 2, "hard": 3}
 
 
 class ArtifactStore:
-    def __init__(self) -> None:
+    def __init__(self, domain: str | None = None) -> None:
+        self.domain = _normalize(domain or "")
         self._loaded = False
         self.model: DKTGRU | None = None
         self.metadata: dict = {}
@@ -30,11 +31,27 @@ class ArtifactStore:
         if self._loaded:
             return
 
-        artifact_dir = Path(os.getenv("ML_MODEL_ARTIFACT_DIR", "./artifacts"))
-        metadata_path = artifact_dir / "metadata.json"
-        model_path = artifact_dir / "dkt_model.pt"
+        artifact_root = Path(os.getenv("ML_MODEL_ARTIFACT_DIR", "./artifacts"))
 
-        if not metadata_path.exists() or not model_path.exists():
+        slug = self.domain.replace(" ", "-")
+        candidates = []
+        if slug:
+            candidates.append(artifact_root / slug)
+            candidates.append(artifact_root / slug.replace("-", "_"))
+            candidates.append(artifact_root / self.domain.replace(" ", "_"))
+        candidates.append(artifact_root)
+
+        metadata_path = None
+        model_path = None
+        for candidate in candidates:
+            current_meta = candidate / "metadata.json"
+            current_model = candidate / "dkt_model.pt"
+            if current_meta.exists() and current_model.exists():
+                metadata_path = current_meta
+                model_path = current_model
+                break
+
+        if metadata_path is None or model_path is None:
             raise FileNotFoundError("Missing artifacts: expected metadata.json and dkt_model.pt")
 
         with metadata_path.open("r", encoding="utf-8") as fp:
@@ -47,7 +64,10 @@ class ArtifactStore:
         config = DKTConfig(**self.metadata["model_config"])
         model = DKTGRU(config)
 
-        state = torch.load(model_path, map_location=self.device)
+        try:
+            state = torch.load(model_path, map_location=self.device, weights_only=True)
+        except TypeError:
+            state = torch.load(model_path, map_location=self.device)
         model.load_state_dict(state)
         model.eval()
         model.to(self.device)
@@ -56,7 +76,18 @@ class ArtifactStore:
         self._loaded = True
 
 
-ARTIFACTS = ArtifactStore()
+class ArtifactRegistry:
+    def __init__(self) -> None:
+        self._stores: Dict[str, ArtifactStore] = {}
+
+    def for_domain(self, domain: str) -> ArtifactStore:
+        key = _normalize(domain or "") or "default"
+        if key not in self._stores:
+            self._stores[key] = ArtifactStore(domain=key)
+        return self._stores[key]
+
+
+ARTIFACTS = ArtifactRegistry()
 
 
 def _normalize(text: str) -> str:
@@ -124,9 +155,8 @@ def _to_event_tensors(req: ForecastRequest, store: ArtifactStore) -> Tuple[torch
 
         gap_bucket_ids.append(_bucket_gap(gap_days))
 
-        now = datetime.now(tz=timezone.utc)
-        recency = max(0.0, (now - current_ts).total_seconds() / (60 * 60 * 24))
-        recency_days.append(min(recency, 365.0) / 365.0)
+        # Keep this aligned with training where recency is modeled from inter-event gap.
+        recency_days.append(min(gap_days, 365.0) / 365.0)
 
     if not topic_ids:
         topic_ids = [0]
@@ -165,6 +195,28 @@ def _module_index(roadmap_modules: List[dict]) -> Dict[str, int]:
     return {_normalize(item.get("moduleName", "")): idx for idx, item in enumerate(roadmap_modules)}
 
 
+def _clamp_prob(value: float) -> float:
+    return float(max(0.02, min(0.98, value)))
+
+
+def _fallback_unknown_probability(
+    module_name: str,
+    module_prob_index: Dict[str, float],
+    global_model_prob: float,
+    learner_success_prior: float,
+    evidence_count: int,
+    correct_count: int,
+) -> float:
+    module_prior = module_prob_index.get(_normalize(module_name), global_model_prob)
+    blended = 0.5 * module_prior + 0.35 * learner_success_prior + 0.15 * global_model_prob
+
+    if evidence_count > 0:
+        evidence_prior = (correct_count + 1.0) / (evidence_count + 2.0)
+        blended = 0.55 * evidence_prior + 0.45 * blended
+
+    return _clamp_prob(blended)
+
+
 def _apply_prereq_rerank(topic_rows: List[dict], roadmap_modules: List[dict]) -> List[dict]:
     module_idx = _module_index(roadmap_modules)
 
@@ -194,8 +246,8 @@ def _apply_prereq_rerank(topic_rows: List[dict], roadmap_modules: List[dict]) ->
 
 
 def run_inference(req: ForecastRequest) -> dict:
-    ARTIFACTS.load()
-    store = ARTIFACTS
+    store = ARTIFACTS.for_domain(req.domain)
+    store.load()
     assert store.model is not None
 
     tensors = _to_event_tensors(req, store)
@@ -207,29 +259,61 @@ def run_inference(req: ForecastRequest) -> dict:
 
     completed = {_normalize(topic) for topic in req.completedTopics}
     evidence_by_topic: Dict[str, int] = {}
+    correct_by_topic: Dict[str, int] = {}
     last_seen_by_topic: Dict[str, float] = {}
     now = datetime.now(tz=timezone.utc)
 
     for event in req.questionEvents:
         topic = _normalize(_topic_from_event(event))
         evidence_by_topic[topic] = evidence_by_topic.get(topic, 0) + 1
+        correct_by_topic[topic] = correct_by_topic.get(topic, 0) + (1 if event.isCorrect else 0)
         ts = event.createdAt or now
         days = max(0.0, (now - ts).total_seconds() / (60 * 60 * 24))
         if topic not in last_seen_by_topic or days < last_seen_by_topic[topic]:
             last_seen_by_topic[topic] = days
+
+    global_model_prob = _clamp_prob(sum(probs) / max(1, len(probs)))
+    total_events = len(req.questionEvents)
+    total_correct = sum(1 for event in req.questionEvents if event.isCorrect)
+    learner_success_prior = _clamp_prob((total_correct + 1.0) / (total_events + 2.0))
+
+    module_prob_samples: Dict[str, List[float]] = {}
+    for module in req.roadmapModules:
+        module_key = _normalize(module.moduleName)
+        for topic_name in module.topics:
+            topic_id = store.topic_to_id.get(_normalize(topic_name))
+            if topic_id and topic_id > 0:
+                module_prob_samples.setdefault(module_key, []).append(float(probs[topic_id - 1]))
+    module_prob_index = {
+        key: _clamp_prob(sum(values) / len(values))
+        for key, values in module_prob_samples.items()
+        if values
+    }
 
     topics = []
     for module in req.roadmapModules:
         for topic_name in module.topics:
             key = _normalize(topic_name)
             topic_id = store.topic_to_id.get(key)
-            raw_prob = probs[topic_id - 1] if topic_id and topic_id > 0 else 0.5
+            evidence_count = evidence_by_topic.get(key, 0)
+            correct_count = correct_by_topic.get(key, 0)
+
+            if topic_id and topic_id > 0:
+                raw_prob = float(probs[topic_id - 1])
+            else:
+                raw_prob = _fallback_unknown_probability(
+                    module_name=module.moduleName,
+                    module_prob_index=module_prob_index,
+                    global_model_prob=global_model_prob,
+                    learner_success_prior=learner_success_prior,
+                    evidence_count=evidence_count,
+                    correct_count=correct_count,
+                )
 
             if key in completed:
                 raw_prob = max(raw_prob, 0.76)
 
             mastery_score = int(max(0.0, min(100.0, raw_prob * 100.0)))
-            evidence_count = evidence_by_topic.get(key, 0)
             latest_days = last_seen_by_topic.get(key, 999.0)
             confidence = _confidence(evidence_count, latest_days)
             recommendation = _recommendation(mastery_score, confidence)
@@ -292,6 +376,7 @@ def run_inference(req: ForecastRequest) -> dict:
                 "Sequence model predicts topic mastery from learner interaction history.",
                 "Topic recommendations are re-ranked by prerequisite-aware module ordering.",
                 "Confidence combines evidence volume with recency.",
+                "Unknown topics use a blended prior from learner signal, module context, and observed evidence.",
             ],
         },
         "summary": {
