@@ -34,6 +34,7 @@ function AssessmentPage() {
     questions,
     answers,
     result,
+    selectorMeta,
     loadDomains,
     beginAssessment,
     selectAnswer,
@@ -48,6 +49,10 @@ function AssessmentPage() {
   useEffect(() => {
     loadDomains();
   }, []);
+
+  useEffect(() => {
+    setSubmitted(false);
+  }, [questions.length]);
 
   const start = () => {
     if (!domainId || goal.trim().length < 5) return;
@@ -67,6 +72,8 @@ function AssessmentPage() {
   };
 
   const answeredCount = Object.keys(answers).length;
+  const round = attempt?.round || 1;
+  const progress = attempt?.progress || null;
 
   return (
     <div className="mx-auto max-w-6xl relative z-10 animate-fade-in w-full pb-16">
@@ -114,11 +121,25 @@ function AssessmentPage() {
       {questions.length > 0 && (
         <section className="mt-12 space-y-6 animate-slide-up">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold text-slate-100">Adaptive MCQ Assessment</h2>
+            <h2 className="text-2xl font-bold text-slate-100">
+              Adaptive MCQ Assessment {round > 1 ? `(Round ${round})` : ""}
+            </h2>
             <div className="px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-sm font-medium text-emerald-400">
               Answered {answeredCount}/{questions.length}
             </div>
           </div>
+          {progress && (
+            <div className="rounded-xl border border-cyan-500/20 bg-cyan-500/10 p-3 text-sm text-cyan-200">
+              Total answered: {progress.answeredCount} | Remaining budget: {progress.remainingQuestions}
+            </div>
+          )}
+          {selectorMeta?.nextTopics?.length > 0 && (
+            <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/10 p-3 text-sm text-emerald-200">
+              Next topics selected by {selectorMeta.source === "dkt-service" ? "DKT" : "BKT"}:
+              {" "}
+              {selectorMeta.nextTopics.join(", ")}
+            </div>
+          )}
           <div className="grid gap-5">
             {questions.map((q, i) => (
               <QuestionCard
@@ -136,7 +157,13 @@ function AssessmentPage() {
               disabled={loading || submitted || answeredCount !== questions.length}
               className="rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-400 px-8 py-3 text-base font-bold text-slate-950 hover:from-cyan-400 hover:to-cyan-300 hover:shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-0.5 disabled:opacity-50 transition-all duration-300 ease-out"
             >
-              {loading ? "Evaluating..." : submitted ? "Submitted" : "Submit Assessment"}
+              {loading
+                ? "Evaluating..."
+                : submitted
+                ? "Submitted"
+                : round > 1
+                ? "Submit Round"
+                : "Submit Assessment"}
             </button>
           </div>
         </section>
