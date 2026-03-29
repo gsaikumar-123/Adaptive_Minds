@@ -44,7 +44,6 @@ __pycache__/
 
 # ML service local artifacts
 ml-service/.venv/
-ml-service/artifacts/
 ml-service/results/
 ml-service/**/__pycache__/
 ml-service/reports/latest_ablation.md
