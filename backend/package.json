@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "node src/index.js",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "proof:compare": "node scripts/compareForecastEndpoints.mjs",
+    "proof:roadmap": "node scripts/proofFromBackendRoadmap.mjs",
+    "proof:showcase": "node scripts/proofShowcase.mjs"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
