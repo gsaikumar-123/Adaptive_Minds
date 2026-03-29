@@ -1,3 +1,5 @@
+import SkillDnaPanel from "./SkillDnaPanel.jsx";
+
 export default function ResultSummary({ result }) {
   if (!result) return null;
 
@@ -7,6 +9,8 @@ export default function ResultSummary({ result }) {
 
   return (
     <div className="space-y-6">
+      <SkillDnaPanel skillDna={result.skillDna} />
+
       <div className="rounded-2xl border border-slate-700/50 bg-slate-900/60 backdrop-blur-md p-6 shadow-xl shadow-black/20 animate-slide-up">
         <h3 className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">Diagnostic Summary</h3>
         <p className="mt-3 text-base text-slate-300 leading-relaxed">{result.summary || "Assessment completed successfully."}</p>
