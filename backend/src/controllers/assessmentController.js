@@ -5,6 +5,12 @@ import { analyzeIntent } from "../services/assessmentEngine.js";
 import { generateMcqs } from "../services/mcqGenerator.js";
 import { evaluateResults } from "../services/evaluationEngine.js";
 import { generateAdaptiveRoadmap } from "../services/adaptiveRoadmap.js";
+import { buildSkillDna } from "../services/skillDnaEngine.js";
+import {
+  buildAdaptiveAssessmentSignals,
+  selectTopicsForNextRound,
+  shouldStopAdaptiveAssessment,
+} from "../services/activeAssessmentEngine.js";
 import { Attempt } from "../models/Attempt.js";
 import { Question } from "../models/Question.js";
 import { Answer } from "../models/Answer.js";
@@ -24,10 +30,13 @@ const submitSchema = z.object({
       questionId: z.string().min(1),
       selectedIndex: z.number().int().min(0).max(3),
     })
-  ),
+  ).min(1, "At least one answer is required"),
 });
 
 const unique = (items) => Array.from(new Set(items));
+const normalize = (text) =>
+  typeof text === "string" ? text.trim().toLowerCase() : "";
+const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
 /**
  * Helper: get IST date string for daily prompt limit comparisons.
@@ -97,6 +106,46 @@ const checkAndIncrementPromptLimit = async (userId) => {
   return { allowed: false, user };
 };
 
+const getAssessmentTopics = ({ intentTopics, roadmapModules }) => {
+  const roadmapTopics = (roadmapModules || []).flatMap((moduleItem) =>
+    Array.isArray(moduleItem.topics) ? moduleItem.topics : []
+  );
+  return unique([...(intentTopics || []), ...roadmapTopics]).slice(0, 30);
+};
+
+const buildAskedTopicCounts = (questions) => {
+  const counts = new Map();
+  questions.forEach((question) => {
+    const tags = Array.isArray(question.tags) ? question.tags : [];
+    const modules = Array.isArray(question.modules) ? question.modules : [];
+    const candidateTopics = tags.length ? tags : modules;
+
+    candidateTopics.forEach((topic) => {
+      const key = normalize(topic);
+      if (!key) return;
+      counts.set(key, (counts.get(key) || 0) + 1);
+    });
+  });
+  return counts;
+};
+
+const buildQuestionEvents = ({ answers, questionMap }) => {
+  return answers
+    .map((answer) => {
+      const question = questionMap.get(answer.questionId.toString());
+      if (!question) return null;
+      return {
+        isCorrect: !!answer.isCorrect,
+        difficulty: question.difficulty || "medium",
+        modules: question.modules || [],
+        tags: question.tags || [],
+        createdAt: answer.createdAt,
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+};
+
 export const startAssessment = async (req, res, next) => {
   try {
     const { domainId, goal } = startSchema.parse(req.body);
@@ -117,20 +166,31 @@ export const startAssessment = async (req, res, next) => {
     }
 
     const intent = await analyzeIntent({ domainId, goal, roadmap });
-    const assessmentTopics = unique(intent.assessmentTopics || []).slice(0, 30);
+    const assessmentTopics = getAssessmentTopics({
+      intentTopics: intent.assessmentTopics || [],
+      roadmapModules: roadmap.modules,
+    });
     const targetModules = unique(intent.targetModules || []);
     const learnerLevel = intent.learnerLevel || "intermediate";
     const includeFullRoadmap = intent.includeFullRoadmap || false;
-    const questionCount =
-      intent.recommendedQuestionCount ||
-      Math.min(30, assessmentTopics.length || 15);
+    const boundedMaxQuestions = clamp(
+      Number(intent.recommendedQuestionCount) || Math.min(20, assessmentTopics.length || 12),
+      8,
+      30
+    );
+    const minQuestions = clamp(Math.floor(boundedMaxQuestions * 0.6), 6, 12);
+    const initialQuestionCount = Math.min(6, boundedMaxQuestions);
+    const initialTopics = assessmentTopics.slice(
+      0,
+      Math.min(assessmentTopics.length, Math.max(initialQuestionCount * 2, initialQuestionCount))
+    );
 
     const mcqPayload = await generateMcqs({
       domainId,
       goal,
-      assessmentTopics,
+      assessmentTopics: initialTopics,
       roadmapModules: roadmap.modules,
-      maxQuestions: questionCount,
+      maxQuestions: initialQuestionCount,
       learnerLevel,
     });
 
@@ -142,6 +202,10 @@ export const startAssessment = async (req, res, next) => {
       modulesToTest: targetModules,
       assessedDepth: intent.assessmentDepth || 0,
       learnerLevel,
+      assessmentTopics,
+      maxQuestions: boundedMaxQuestions,
+      minQuestions,
+      adaptiveRound: 1,
       includeFullRoadmap,
     });
 
@@ -159,8 +223,16 @@ export const startAssessment = async (req, res, next) => {
     );
 
     res.json({
+      status: "in_progress",
       attemptId: attempt._id,
       intent,
+      round: 1,
+      progress: {
+        answeredCount: 0,
+        maxQuestions: boundedMaxQuestions,
+        minQuestions,
+        remainingQuestions: boundedMaxQuestions,
+      },
       questions: questions.map((q) => ({
         id: q._id,
         prompt: q.prompt,
@@ -196,37 +268,179 @@ export const submitAssessment = async (req, res, next) => {
     }
 
     const questions = await Question.find({ attemptId: attempt._id });
-    const questionMap = new Map(questions.map((q) => [q._id.toString(), q]));
+    if (!questions.length) {
+      return res.status(400).json({ error: "No questions found for this attempt" });
+    }
 
-    const answerDocs = answers.map((a) => {
-      const q = questionMap.get(a.questionId);
-      const isCorrect = q ? q.correctIndex === a.selectedIndex : false;
+    const existingAnswers = await Answer.find({ attemptId: attempt._id })
+      .select("questionId")
+      .lean();
+    const answeredQuestionIds = new Set(
+      existingAnswers.map((item) => item.questionId.toString())
+    );
+
+    const pendingQuestions = questions.filter(
+      (question) => !answeredQuestionIds.has(question._id.toString())
+    );
+    if (!pendingQuestions.length) {
+      return res
+        .status(409)
+        .json({ error: "No pending questions left in this assessment round" });
+    }
+
+    const pendingQuestionMap = new Map(
+      pendingQuestions.map((question) => [question._id.toString(), question])
+    );
+
+    const submittedQuestionIds = answers.map((item) => item.questionId);
+    const submittedIdSet = new Set(submittedQuestionIds);
+    if (submittedIdSet.size !== submittedQuestionIds.length) {
+      return res.status(400).json({ error: "Duplicate question answers are not allowed" });
+    }
+
+    if (submittedQuestionIds.length !== pendingQuestions.length) {
+      return res.status(400).json({
+        error: "You must answer all current round questions before continuing.",
+      });
+    }
+
+    const invalidQuestionId = submittedQuestionIds.find(
+      (questionId) => !pendingQuestionMap.has(questionId)
+    );
+    if (invalidQuestionId) {
+      return res.status(400).json({ error: "One or more submitted questions are invalid" });
+    }
+
+    const answerDocs = answers.map((answer) => {
+      const question = pendingQuestionMap.get(answer.questionId);
       return {
         attemptId: attempt._id,
-        questionId: a.questionId,
-        selectedIndex: a.selectedIndex,
-        isCorrect,
+        questionId: answer.questionId,
+        selectedIndex: answer.selectedIndex,
+        isCorrect: question.correctIndex === answer.selectedIndex,
       };
     });
-
     await Answer.insertMany(answerDocs);
+
+    const roadmap = getRoadmapById(attempt.domain);
+    if (!roadmap) {
+      return res.status(404).json({ error: "Domain not found" });
+    }
+
+    const allAnswers = await Answer.find({ attemptId: attempt._id }).lean();
+    const questionMap = new Map(questions.map((question) => [question._id.toString(), question]));
+    const questionEvents = buildQuestionEvents({
+      answers: allAnswers,
+      questionMap,
+    });
+    const askedTopicCounts = buildAskedTopicCounts(questions);
+
+    const maxQuestions = clamp(Number(attempt.maxQuestions) || 12, 8, 30);
+    const minQuestions = clamp(Number(attempt.minQuestions) || 8, 6, maxQuestions);
+    const answeredCount = allAnswers.length;
+    const configuredTopics =
+      Array.isArray(attempt.assessmentTopics) && attempt.assessmentTopics.length
+        ? attempt.assessmentTopics
+        : getAssessmentTopics({
+            intentTopics: [],
+            roadmapModules: roadmap.modules,
+          });
+
+    const adaptiveSignals = await buildAdaptiveAssessmentSignals({
+      learnerId: req.user.id,
+      domain: attempt.domain,
+      roadmapModules: roadmap.modules,
+      assessmentTopics: configuredTopics,
+      questionEvents,
+      completedTopics: [],
+      askedTopicCounts,
+      seedKey: `${req.user.id}:${attempt.domain}:${new Date()
+        .toISOString()
+        .slice(0, 10)}:adaptive`,
+    });
+
+    const stopDecision = shouldStopAdaptiveAssessment({
+      answeredCount,
+      maxQuestions,
+      minQuestions,
+      topicScores: adaptiveSignals.topicScores,
+    });
+    const remainingBudget = Math.max(0, maxQuestions - answeredCount);
+
+    if (!stopDecision.stop && remainingBudget > 0) {
+      const nextQuestionCount = Math.min(4, remainingBudget);
+      const nextTopics = selectTopicsForNextRound({
+        topicScores: adaptiveSignals.topicScores,
+        batchSize: nextQuestionCount,
+      });
+
+      if (nextTopics.length > 0) {
+        const nextRoundPayload = await generateMcqs({
+          domainId: attempt.domain,
+          goal: attempt.goal,
+          assessmentTopics: nextTopics,
+          roadmapModules: roadmap.modules,
+          maxQuestions: nextQuestionCount,
+          learnerLevel: attempt.learnerLevel || "intermediate",
+        });
+
+        const nextQuestions = await Question.insertMany(
+          (nextRoundPayload.questions || []).map((question) => ({
+            attemptId: attempt._id,
+            prompt: question.prompt,
+            options: question.options,
+            correctIndex: question.correctIndex,
+            explanation: question.explanation,
+            tags: question.tags,
+            modules: question.modules,
+            difficulty: question.difficulty,
+          }))
+        );
+
+        attempt.adaptiveRound = (attempt.adaptiveRound || 1) + 1;
+        await attempt.save();
+
+        return res.json({
+          status: "in_progress",
+          attemptId: attempt._id,
+          round: attempt.adaptiveRound,
+          selector: {
+            source: adaptiveSignals.source,
+            stopReason: stopDecision.reason,
+            averageUncertainty: stopDecision.averageUncertainty,
+            averageExpectedGain: stopDecision.averageExpectedGain,
+            nextTopics,
+          },
+          progress: {
+            answeredCount,
+            maxQuestions,
+            minQuestions,
+            remainingQuestions: Math.max(0, maxQuestions - answeredCount),
+          },
+          questions: nextQuestions.map((question) => ({
+            id: question._id,
+            prompt: question.prompt,
+            options: question.options,
+            difficulty: question.difficulty,
+          })),
+        });
+      }
+    }
 
     const wrongQuestions = [];
     const correctQuestions = [];
 
-    answerDocs.forEach((a) => {
-      const q = questionMap.get(a.questionId);
-      if (!q) return;
+    allAnswers.forEach((answer) => {
+      const question = questionMap.get(answer.questionId.toString());
+      if (!question) return;
       const entry = {
-        prompt: q.prompt,
-        tags: q.tags,
-        modules: q.modules,
+        prompt: question.prompt,
+        tags: question.tags,
+        modules: question.modules,
       };
-      if (a.isCorrect) correctQuestions.push(entry);
+      if (answer.isCorrect) correctQuestions.push(entry);
       else wrongQuestions.push(entry);
     });
-
-    const roadmap = getRoadmapById(attempt.domain);
 
     const evaluation = await evaluateResults({
       domainId: attempt.domain,
@@ -235,6 +449,8 @@ export const submitAssessment = async (req, res, next) => {
       wrongQuestions,
       correctQuestions,
     });
+
+    const skillDna = buildSkillDna({ questions, answers: allAnswers });
 
     const roadmapResult = await generateAdaptiveRoadmap({
       domainId: attempt.domain,
@@ -247,13 +463,14 @@ export const submitAssessment = async (req, res, next) => {
       learnerLevel: attempt.learnerLevel || "intermediate",
     });
 
-    await WeakTopic.insertMany(
-      (evaluation.weakTopics || []).map((t) => ({
-        attemptId: attempt._id,
-        topic: t.topic,
-        reason: t.reason,
-      }))
-    );
+    const weakTopicDocs = (evaluation.weakTopics || []).map((topicItem) => ({
+      attemptId: attempt._id,
+      topic: topicItem.topic,
+      reason: topicItem.reason,
+    }));
+    if (weakTopicDocs.length) {
+      await WeakTopic.insertMany(weakTopicDocs);
+    }
 
     const generatedCsv = roadmapResult.csv || `Module Name,Module Contents\n${(roadmapResult.modules || [])
       .map((m) => `"${m.moduleName}","${(m.topics || []).join("; ")}"`)
@@ -270,14 +487,29 @@ export const submitAssessment = async (req, res, next) => {
     await attempt.save();
 
     res.json({
+      status: "completed",
       summary: evaluation.summary,
       weakTopics: evaluation.weakTopics || [],
       masteredTopics: evaluation.masteredTopics || [],
       prerequisites: evaluation.neededPrerequisites || [],
+      skillDna,
+      selector: {
+        source: adaptiveSignals.source,
+        stopReason: stopDecision.reason,
+        averageUncertainty: stopDecision.averageUncertainty,
+        averageExpectedGain: stopDecision.averageExpectedGain,
+      },
+      progress: {
+        answeredCount,
+        maxQuestions,
+        minQuestions,
+        remainingQuestions: 0,
+      },
       roadmap: {
         id: generated._id,
+        domain: attempt.domain,
         modules: roadmapResult.modules || [],
-        csv: roadmapResult.csv,
+        csv: generatedCsv,
       },
     });
   } catch (err) {
@@ -431,6 +663,10 @@ export const getOriginalRoadmap = async (req, res, next) => {
       modulesToTest: [],
       assessedDepth: 0,
       learnerLevel: "beginner",
+      assessmentTopics: [],
+      maxQuestions: 0,
+      minQuestions: 0,
+      adaptiveRound: 0,
       includeFullRoadmap: true,
       status: "completed",
     });
@@ -449,10 +685,12 @@ export const getOriginalRoadmap = async (req, res, next) => {
     await attempt.save();
 
     res.json({
+      status: "completed",
       summary: "Full roadmap loaded without assessment.",
       weakTopics: [],
       masteredTopics: [],
       prerequisites: [],
+      skillDna: null,
       roadmap: {
         id: generated._id,
         domain: domainId,
