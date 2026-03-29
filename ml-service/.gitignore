@@ -1,0 +1,28 @@
+# Python virtual env
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Environment files
+.env
+
+# Local runtime outputs
+artifacts/
+!artifacts/.gitkeep
+
+# Local proof/output bundles
+results/
+!results/.gitkeep
+
+# Generated reports
+reports/latest_ablation.md
+
+# Model/training temp files
+*.pt
+*.pth
