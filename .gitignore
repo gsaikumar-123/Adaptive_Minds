@@ -35,6 +35,22 @@ yarn-error.log*
 .cache/
 .eslintcache
 
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# ML service local artifacts
+ml-service/.venv/
+ml-service/artifacts/
+ml-service/results/
+ml-service/**/__pycache__/
+ml-service/reports/latest_ablation.md
+
 # OS
 Thumbs.db
 .DS_Store
+
+docs
