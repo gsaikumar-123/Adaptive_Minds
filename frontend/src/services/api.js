@@ -94,6 +94,22 @@ export const fetchHeatmapData = async (token) => {
   return handleResponse(res, "Failed to fetch heatmap data");
 };
 
+export const fetchLearningForecast = async (domain, token) => {
+  const params = new URLSearchParams({ domain });
+  const res = await apiFetch(`${API_URL}/api/progress/forecast?${params}`, {
+    headers: getAuthHeaders(token),
+  });
+  return handleResponse(res, "Failed to fetch learning forecast");
+};
+
+export const fetchLearningForecastV2 = async (domain, token) => {
+  const params = new URLSearchParams({ domain });
+  const res = await apiFetch(`${API_URL}/api/progress/forecast-v2?${params}`, {
+    headers: getAuthHeaders(token),
+  });
+  return handleResponse(res, "Failed to fetch advanced learning forecast");
+};
+
 export const loginUser = async (email, password) => {
   const res = await apiFetch(`${API_URL}/api/auth/login`, {
     method: "POST",
