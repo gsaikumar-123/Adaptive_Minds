@@ -11,6 +11,7 @@ export const useAssessment = () => {
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState({});
   const [result, setResult] = useState(null);
+  const [selectorMeta, setSelectorMeta] = useState(null);
 
   const loadDomains = async () => {
     setLoading(true);
@@ -31,10 +32,16 @@ export const useAssessment = () => {
     try {
       const token = localStorage.getItem("token");
       const data = await startAssessment({ domainId, goal }, token);
-      setAttempt({ id: data.attemptId, intent: data.intent });
+      setAttempt({
+        id: data.attemptId,
+        intent: data.intent,
+        round: data.round || 1,
+        progress: data.progress || null,
+      });
       setQuestions(data.questions);
       setAnswers({});
       setResult(null);
+      setSelectorMeta(data.selector || null);
       if (refreshUser) refreshUser(); // sync prompt limits async
     } catch (err) {
       setError(err.message);
@@ -61,6 +68,23 @@ export const useAssessment = () => {
         }))
       };
       const data = await submitAssessment(payload, token);
+
+      if (data.status === "in_progress") {
+        setAttempt((prev) => ({
+          ...(prev || {}),
+          id: data.attemptId || prev?.id,
+          round: data.round || (prev?.round || 1),
+          progress: data.progress || prev?.progress || null,
+        }));
+        setQuestions(data.questions || []);
+        setAnswers({});
+        setSelectorMeta(data.selector || null);
+        return;
+      }
+
+      setSelectorMeta(data.selector || null);
+      setQuestions([]);
+      setAnswers({});
       setResult(data);
     } catch (err) {
       setError(err.message);
@@ -85,11 +109,13 @@ export const useAssessment = () => {
         summary: "Full roadmap loaded",
         weakTopics: [],
         masteredTopics: [],
-        prerequisites: []
+        prerequisites: [],
+        status: "completed",
       };
       setResult(normalizedResult);
       setQuestions([]);
       setAttempt(null);
+      setSelectorMeta(null);
       if (refreshUser) refreshUser();
     } catch (err) {
       setError(err.message);
@@ -106,6 +132,7 @@ export const useAssessment = () => {
     questions,
     answers,
     result,
+    selectorMeta,
     loadDomains,
     beginAssessment,
     selectAnswer,
