@@ -13,7 +13,6 @@ __pycache__/
 .env
 
 # Local runtime outputs
-artifacts/
 !artifacts/.gitkeep
 
 # Local proof/output bundles
@@ -24,5 +23,4 @@ results/
 reports/latest_ablation.md
 
 # Model/training temp files
-*.pt
 *.pth

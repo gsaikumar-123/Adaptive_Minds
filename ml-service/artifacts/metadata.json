@@ -1,0 +1,44 @@
+{
+  "trainedAt": "2026-03-23T16:56:34.689513Z",
+  "model_config": {
+    "num_topics": 9,
+    "num_modules": 4,
+    "hidden_size": 96,
+    "num_layers": 1,
+    "dropout": 0.15,
+    "topic_embedding_dim": 32,
+    "module_embedding_dim": 16,
+    "difficulty_embedding_dim": 8,
+    "correctness_embedding_dim": 6,
+    "gap_bucket_embedding_dim": 8
+  },
+  "training": {
+    "seed": 42,
+    "epochs": 8,
+    "batch_size": 32,
+    "lr": 0.001,
+    "dropout": 0.15,
+    "best_val_auc": 0.56494,
+    "train_sequences": 48,
+    "val_sequences": 12
+  },
+  "vocab": {
+    "topic_to_id": {
+      "control flow": 1,
+      "decorators": 2,
+      "dictionaries": 3,
+      "fastapi": 4,
+      "functions": 5,
+      "generators": 6,
+      "lists": 7,
+      "sets": 8,
+      "variables": 9
+    },
+    "module_to_id": {
+      "advanced python": 1,
+      "data structures": 2,
+      "python basics": 3,
+      "web": 4
+    }
+  }
+}
