@@ -11,8 +11,17 @@ const apiFetch = async (url, options = {}) => {
 
 const handleResponse = async (res, errorMsg) => {
   if (!res.ok) {
-    const data = await res.json().catch(() => ({}));
-    throw new Error(data.error || errorMsg);
+    const rawText = await res.text().catch(() => "");
+    let data = {};
+    try {
+      data = rawText ? JSON.parse(rawText) : {};
+    } catch {
+      data = {};
+    }
+
+    const backendMessage = typeof data.error === "string" ? data.error.trim() : "";
+    const message = backendMessage || errorMsg;
+    throw new Error(message);
   }
   return res.json();
 };

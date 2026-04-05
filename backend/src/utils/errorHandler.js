@@ -14,11 +14,21 @@ export const errorHandler = (err, req, res, _next) => {
     return res.status(409).json({ error: "Duplicate entry" });
   }
 
-  const statusCode = err.statusCode || 500;
-  const message =
-    process.env.NODE_ENV === "production"
-      ? "An unexpected error occurred"
-      : err.message || "Server error";
+  const statusCode = err.statusCode || err.status || 500;
+  const isProduction = process.env.NODE_ENV === "production";
 
-  res.status(statusCode).json({ error: message });
+  const message = isProduction
+    ? statusCode === 429
+      ? "Too many requests. Please try again shortly."
+      : "An unexpected error occurred"
+    : err.message || "Server error";
+
+  const payload = { error: message };
+
+  if (!isProduction) {
+    payload.statusCode = statusCode;
+    payload.path = `${req.method} ${req.originalUrl}`;
+  }
+
+  res.status(statusCode).json(payload);
 };

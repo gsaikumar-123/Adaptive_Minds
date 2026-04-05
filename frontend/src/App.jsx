@@ -15,6 +15,7 @@ const RegisterPage = lazy(() => import("./pages/RegisterPage.jsx"));
 const LandingPage = lazy(() => import("./pages/LandingPage.jsx"));
 const RoadmapHistory = lazy(() => import("./pages/RoadmapHistory.jsx"));
 const RoadmapPage = lazy(() => import("./pages/RoadmapPage.jsx"));
+const ProgressPage = lazy(() => import("./pages/ProgressPage.jsx"));
 const AppLayout = lazy(() => import("./components/AppLayout.jsx"));
 
 function PageLoader() {
@@ -45,6 +46,8 @@ function AssessmentPage() {
   const [domainId, setDomainId] = useState("");
   const [goal, setGoal] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitUnlockAt, setSubmitUnlockAt] = useState(0);
+  const [currentTimeMs, setCurrentTimeMs] = useState(Date.now());
 
   useEffect(() => {
     loadDomains();
@@ -52,6 +55,26 @@ function AssessmentPage() {
 
   useEffect(() => {
     setSubmitted(false);
+  }, [questions.length]);
+
+  useEffect(() => {
+    if (!questions.length) {
+      setSubmitUnlockAt(0);
+      return;
+    }
+
+    setCurrentTimeMs(Date.now());
+    setSubmitUnlockAt(Date.now() + 20_000);
+  }, [questions]);
+
+  useEffect(() => {
+    if (!questions.length) return;
+
+    const timer = setInterval(() => {
+      setCurrentTimeMs(Date.now());
+    }, 500);
+
+    return () => clearInterval(timer);
   }, [questions.length]);
 
   const start = () => {
@@ -65,15 +88,21 @@ function AssessmentPage() {
     skip(domainId);
   };
 
-  const handleSubmit = () => {
-    if (submitted || loading) return;
+  const handleSubmit = async () => {
+    if (submitted || loading || isRoundLocked) return;
     setSubmitted(true);
-    submit();
+    try {
+      await submit();
+    } finally {
+      setSubmitted(false);
+    }
   };
 
   const answeredCount = Object.keys(answers).length;
   const round = attempt?.round || 1;
   const progress = attempt?.progress || null;
+  const lockRemainingSeconds = Math.max(0, Math.ceil((submitUnlockAt - currentTimeMs) / 1000));
+  const isRoundLocked = questions.length > 0 && lockRemainingSeconds > 0;
 
   return (
     <div className="mx-auto max-w-6xl relative z-10 animate-fade-in w-full pb-16">
@@ -112,7 +141,7 @@ function AssessmentPage() {
           </div>
         </div>
         {error && (
-          <div className="lg:col-span-2 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
+          <div className="lg:col-span-2 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-300 text-sm whitespace-pre-wrap break-words max-h-72 overflow-auto">
             {error}
           </div>
         )}
@@ -140,6 +169,11 @@ function AssessmentPage() {
               {selectorMeta.nextTopics.join(", ")}
             </div>
           )}
+          {isRoundLocked && (
+            <div className="rounded-xl border border-amber-500/20 bg-amber-500/10 p-3 text-sm text-amber-200">
+              Round lock active. You can submit in {lockRemainingSeconds}s.
+            </div>
+          )}
           <div className="grid gap-5">
             {questions.map((q, i) => (
               <QuestionCard
@@ -154,11 +188,13 @@ function AssessmentPage() {
           <div className="pt-4 flex justify-end">
             <button
               onClick={handleSubmit}
-              disabled={loading || submitted || answeredCount !== questions.length}
+              disabled={loading || submitted || isRoundLocked || answeredCount !== questions.length}
               className="rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-400 px-8 py-3 text-base font-bold text-slate-950 hover:from-cyan-400 hover:to-cyan-300 hover:shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-0.5 disabled:opacity-50 transition-all duration-300 ease-out"
             >
               {loading
                 ? "Evaluating..."
+                : isRoundLocked
+                ? `Wait ${lockRemainingSeconds}s`
                 : submitted
                 ? "Submitted"
                 : round > 1
@@ -212,6 +248,7 @@ export default function App() {
               <Route path="/dashboard" element={<ProtectedRoute><AppLayout /></ProtectedRoute>}>
                 <Route index element={<RoadmapHistory />} />
                 <Route path="new" element={<AssessmentPage />} />
+                <Route path="progress" element={<ProgressPage />} />
                 <Route path="roadmap/:id" element={<RoadmapPage />} />
                 <Route path="resources/:topic" element={<TopicResourcesPage />} />
               </Route>
