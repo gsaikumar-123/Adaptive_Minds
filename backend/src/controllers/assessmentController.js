@@ -37,6 +37,33 @@ const unique = (items) => Array.from(new Set(items));
 const normalize = (text) =>
   typeof text === "string" ? text.trim().toLowerCase() : "";
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+const VALID_DIFFICULTIES = new Set(["easy", "medium", "hard"]);
+const MAX_ADAPTIVE_ROUNDS = 4;
+
+const buildForecastComparison = (baseline, advanced) => {
+  const baselineReadiness = baseline?.summary?.readinessScore ?? 0;
+  const advancedReadiness = advanced?.summary?.readinessScore ?? baselineReadiness;
+
+  const baselinePriority = (baseline?.recommendations?.priorityNow || []).slice(0, 8);
+  const advancedPriority = (advanced?.recommendations?.priorityNow || []).slice(0, 8);
+
+  const baselineSet = new Set(
+    baselinePriority.map((item) => `${normalize(item.moduleName)}::${normalize(item.topic)}`)
+  );
+  const advancedSet = new Set(
+    advancedPriority.map((item) => `${normalize(item.moduleName)}::${normalize(item.topic)}`)
+  );
+
+  const overlap = Array.from(advancedSet).filter((key) => baselineSet.has(key)).length;
+  const overlapRate = advancedSet.size ? Math.round((overlap / advancedSet.size) * 100) : 0;
+
+  return {
+    readinessDelta: advancedReadiness - baselineReadiness,
+    priorityOverlapRate: overlapRate,
+    baselineTopK: baselinePriority.length,
+    advancedTopK: advancedPriority.length,
+  };
+};
 
 /**
  * Helper: get IST date string for daily prompt limit comparisons.
@@ -146,6 +173,32 @@ const buildQuestionEvents = ({ answers, questionMap }) => {
     .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
 };
 
+const normalizeQuestionDoc = (question, attemptId) => {
+  const options = Array.isArray(question?.options)
+    ? question.options.map((opt) => String(opt ?? "").trim())
+    : [];
+
+  const safeOptions = options.length >= 2 ? options.slice(0, 4) : ["Option A", "Option B", "Option C", "Option D"];
+  while (safeOptions.length < 4) {
+    safeOptions.push(`Option ${String.fromCharCode(65 + safeOptions.length)}`);
+  }
+
+  const rawCorrect = Number.isInteger(question?.correctIndex) ? question.correctIndex : 0;
+  const correctIndex = clamp(rawCorrect, 0, safeOptions.length - 1);
+  const difficultyRaw = normalize(question?.difficulty);
+
+  return {
+    attemptId,
+    prompt: String(question?.prompt || "Question prompt unavailable").trim(),
+    options: safeOptions,
+    correctIndex,
+    explanation: String(question?.explanation || "No explanation provided.").trim(),
+    tags: Array.isArray(question?.tags) ? question.tags.filter(Boolean).map(String) : [],
+    modules: Array.isArray(question?.modules) ? question.modules.filter(Boolean).map(String) : [],
+    difficulty: VALID_DIFFICULTIES.has(difficultyRaw) ? difficultyRaw : "medium",
+  };
+};
+
 export const startAssessment = async (req, res, next) => {
   try {
     const { domainId, goal } = startSchema.parse(req.body);
@@ -179,7 +232,10 @@ export const startAssessment = async (req, res, next) => {
       30
     );
     const minQuestions = clamp(Math.floor(boundedMaxQuestions * 0.6), 6, 12);
-    const initialQuestionCount = Math.min(6, boundedMaxQuestions);
+    const initialQuestionCount = Math.min(
+      boundedMaxQuestions,
+      Math.max(6, Math.ceil(boundedMaxQuestions / MAX_ADAPTIVE_ROUNDS))
+    );
     const initialTopics = assessmentTopics.slice(
       0,
       Math.min(assessmentTopics.length, Math.max(initialQuestionCount * 2, initialQuestionCount))
@@ -210,16 +266,7 @@ export const startAssessment = async (req, res, next) => {
     });
 
     const questions = await Question.insertMany(
-      (mcqPayload.questions || []).map((q) => ({
-        attemptId: attempt._id,
-        prompt: q.prompt,
-        options: q.options,
-        correctIndex: q.correctIndex,
-        explanation: q.explanation,
-        tags: q.tags,
-        modules: q.modules,
-        difficulty: q.difficulty,
-      }))
+      (mcqPayload.questions || []).map((q) => normalizeQuestionDoc(q, attempt._id))
     );
 
     res.json({
@@ -282,45 +329,43 @@ export const submitAssessment = async (req, res, next) => {
     const pendingQuestions = questions.filter(
       (question) => !answeredQuestionIds.has(question._id.toString())
     );
-    if (!pendingQuestions.length) {
-      return res
-        .status(409)
-        .json({ error: "No pending questions left in this assessment round" });
-    }
+    const isRetryFromSavedRound = pendingQuestions.length === 0;
 
-    const pendingQuestionMap = new Map(
-      pendingQuestions.map((question) => [question._id.toString(), question])
-    );
+    if (!isRetryFromSavedRound) {
+      const pendingQuestionMap = new Map(
+        pendingQuestions.map((question) => [question._id.toString(), question])
+      );
 
-    const submittedQuestionIds = answers.map((item) => item.questionId);
-    const submittedIdSet = new Set(submittedQuestionIds);
-    if (submittedIdSet.size !== submittedQuestionIds.length) {
-      return res.status(400).json({ error: "Duplicate question answers are not allowed" });
-    }
+      const submittedQuestionIds = answers.map((item) => item.questionId);
+      const submittedIdSet = new Set(submittedQuestionIds);
+      if (submittedIdSet.size !== submittedQuestionIds.length) {
+        return res.status(400).json({ error: "Duplicate question answers are not allowed" });
+      }
 
-    if (submittedQuestionIds.length !== pendingQuestions.length) {
-      return res.status(400).json({
-        error: "You must answer all current round questions before continuing.",
+      if (submittedQuestionIds.length !== pendingQuestions.length) {
+        return res.status(400).json({
+          error: "You must answer all current round questions before continuing.",
+        });
+      }
+
+      const invalidQuestionId = submittedQuestionIds.find(
+        (questionId) => !pendingQuestionMap.has(questionId)
+      );
+      if (invalidQuestionId) {
+        return res.status(400).json({ error: "One or more submitted questions are invalid" });
+      }
+
+      const answerDocs = answers.map((answer) => {
+        const question = pendingQuestionMap.get(answer.questionId);
+        return {
+          attemptId: attempt._id,
+          questionId: answer.questionId,
+          selectedIndex: answer.selectedIndex,
+          isCorrect: question.correctIndex === answer.selectedIndex,
+        };
       });
+      await Answer.insertMany(answerDocs);
     }
-
-    const invalidQuestionId = submittedQuestionIds.find(
-      (questionId) => !pendingQuestionMap.has(questionId)
-    );
-    if (invalidQuestionId) {
-      return res.status(400).json({ error: "One or more submitted questions are invalid" });
-    }
-
-    const answerDocs = answers.map((answer) => {
-      const question = pendingQuestionMap.get(answer.questionId);
-      return {
-        attemptId: attempt._id,
-        questionId: answer.questionId,
-        selectedIndex: answer.selectedIndex,
-        isCorrect: question.correctIndex === answer.selectedIndex,
-      };
-    });
-    await Answer.insertMany(answerDocs);
 
     const roadmap = getRoadmapById(attempt.domain);
     if (!roadmap) {
@@ -328,6 +373,11 @@ export const submitAssessment = async (req, res, next) => {
     }
 
     const allAnswers = await Answer.find({ attemptId: attempt._id }).lean();
+    if (!allAnswers.length) {
+      return res.status(400).json({
+        error: "No saved answers found yet for this attempt. Please submit the current round once.",
+      });
+    }
     const questionMap = new Map(questions.map((question) => [question._id.toString(), question]));
     const questionEvents = buildQuestionEvents({
       answers: allAnswers,
@@ -367,8 +417,15 @@ export const submitAssessment = async (req, res, next) => {
     });
     const remainingBudget = Math.max(0, maxQuestions - answeredCount);
 
-    if (!stopDecision.stop && remainingBudget > 0) {
-      const nextQuestionCount = Math.min(4, remainingBudget);
+    const currentRound = attempt.adaptiveRound || 1;
+    const roundsLeft = Math.max(0, MAX_ADAPTIVE_ROUNDS - currentRound);
+    const canOpenAnotherRound = roundsLeft > 0;
+
+    if (!stopDecision.stop && remainingBudget > 0 && canOpenAnotherRound) {
+      const nextQuestionCount = Math.min(
+        remainingBudget,
+        Math.max(4, Math.ceil(remainingBudget / roundsLeft))
+      );
       const nextTopics = selectTopicsForNextRound({
         topicScores: adaptiveSignals.topicScores,
         batchSize: nextQuestionCount,
@@ -385,16 +442,9 @@ export const submitAssessment = async (req, res, next) => {
         });
 
         const nextQuestions = await Question.insertMany(
-          (nextRoundPayload.questions || []).map((question) => ({
-            attemptId: attempt._id,
-            prompt: question.prompt,
-            options: question.options,
-            correctIndex: question.correctIndex,
-            explanation: question.explanation,
-            tags: question.tags,
-            modules: question.modules,
-            difficulty: question.difficulty,
-          }))
+          (nextRoundPayload.questions || []).map((question) =>
+            normalizeQuestionDoc(question, attempt._id)
+          )
         );
 
         attempt.adaptiveRound = (attempt.adaptiveRound || 1) + 1;
@@ -476,10 +526,24 @@ export const submitAssessment = async (req, res, next) => {
       .map((m) => `"${m.moduleName}","${(m.topics || []).join("; ")}"`)
       .join("\n")}`;
 
+    const forecastSnapshot = {
+      source: adaptiveSignals.source,
+      warning: adaptiveSignals.warning || null,
+      baselineForecast: adaptiveSignals.baselineForecast,
+      dktForecast: adaptiveSignals.dktForecast,
+      effectiveForecast: adaptiveSignals.effectiveForecast,
+      comparison: buildForecastComparison(
+        adaptiveSignals.baselineForecast,
+        adaptiveSignals.effectiveForecast
+      ),
+      generatedAt: new Date().toISOString(),
+    };
+
     const generated = await GeneratedRoadmap.create({
       attemptId: attempt._id,
       csv: generatedCsv,
       modules: (roadmapResult.modules || []).map((m) => m.moduleName),
+      forecastSnapshot,
     });
 
     attempt.status = "completed";
@@ -510,6 +574,7 @@ export const submitAssessment = async (req, res, next) => {
         domain: attempt.domain,
         modules: roadmapResult.modules || [],
         csv: generatedCsv,
+        forecastSnapshot,
       },
     });
   } catch (err) {
@@ -545,6 +610,7 @@ export const getHistory = async (req, res, next) => {
         date: a.createdAt,
         status: a.status,
         roadmapId: road ? road._id : null,
+        forecastSource: road?.forecastSnapshot?.source || null,
       };
     });
 
@@ -628,6 +694,7 @@ export const getGeneratedRoadmap = async (req, res, next) => {
         domain: attempt.domain,
         modules,
         csv: roadmap.csv,
+        forecastSnapshot: roadmap.forecastSnapshot || null,
       },
     });
   } catch (err) {
@@ -679,6 +746,7 @@ export const getOriginalRoadmap = async (req, res, next) => {
       attemptId: attempt._id,
       csv,
       modules: roadmap.modules.map((m) => m.moduleName),
+      forecastSnapshot: null,
     });
 
     attempt.roadmapId = generated._id;

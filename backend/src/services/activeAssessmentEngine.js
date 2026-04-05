@@ -84,6 +84,7 @@ export const buildAdaptiveAssessmentSignals = async ({
 
   let dktForecast = null;
   let source = "baseline-bkt";
+  let warning = null;
 
   try {
     dktForecast = await fetchDktForecast({
@@ -97,8 +98,9 @@ export const buildAdaptiveAssessmentSignals = async ({
     if (dktForecast) {
       source = "dkt-service";
     }
-  } catch (_error) {
+  } catch (error) {
     source = "baseline-bkt-fallback";
+    warning = `Advanced ML service unavailable. Returned baseline forecast. (${error?.message || "unknown-error"})`;
   }
 
   const effectiveForecast = dktForecast || baselineForecast;
@@ -118,6 +120,7 @@ export const buildAdaptiveAssessmentSignals = async ({
 
   return {
     source,
+    warning,
     topicScores,
     baselineForecast,
     dktForecast,
