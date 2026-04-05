@@ -7,7 +7,7 @@ const badgeStyles = {
   Maintain: "border-emerald-500/40 bg-emerald-500/10 text-emerald-300",
 };
 
-export default function LearningForecastPanel({ domain }) {
+export default function LearningForecastPanel({ domain, snapshot = null }) {
   const [forecast, setForecast] = useState(null);
   const [comparison, setComparison] = useState(null);
   const [source, setSource] = useState("baseline-only");
@@ -17,6 +17,16 @@ export default function LearningForecastPanel({ domain }) {
 
   useEffect(() => {
     if (!domain) return;
+
+    if (snapshot) {
+      setForecast(snapshot.effectiveForecast || snapshot.baselineForecast || null);
+      setComparison(snapshot.comparison || null);
+      setSource(snapshot.source || "baseline-only");
+      setWarning(snapshot.warning || null);
+      setError(null);
+      setLoading(false);
+      return;
+    }
 
     const loadForecast = async () => {
       setLoading(true);
@@ -46,7 +56,7 @@ export default function LearningForecastPanel({ domain }) {
     };
 
     loadForecast();
-  }, [domain]);
+  }, [domain, snapshot]);
 
   if (!domain) return null;
 

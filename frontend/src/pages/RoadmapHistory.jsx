@@ -46,8 +46,8 @@ export default function RoadmapHistory() {
 
 
     return (
-        <div className="mx-auto max-w-6xl animate-fade-in w-full pb-16">
-            <header className="mb-10 space-y-2">
+        <div className="mx-auto max-w-6xl animate-fade-in w-full pb-16 space-y-8">
+            <header className="mb-12 space-y-3">
                 <h1 className="text-3xl font-bold tracking-tight text-slate-100">My Roadmaps</h1>
                 <p className="text-slate-400">View and resume your previously generated learning paths.</p>
             </header>
@@ -69,7 +69,7 @@ export default function RoadmapHistory() {
                     </Link>
                 </div>
             ) : (
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
                     {history.map((attempt) => {
                         const isCompleted = attempt.status === "completed" && attempt.roadmapId;
                         const CardWrapper = isCompleted ? Link : "div";
@@ -79,12 +79,12 @@ export default function RoadmapHistory() {
                             <CardWrapper
                                 key={attempt.id}
                                 {...wrapperProps}
-                                className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-700/50 p-6 backdrop-blur-sm transition-all duration-300 ${isCompleted
+                                className={`group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-slate-700/50 p-7 backdrop-blur-sm transition-all duration-300 ${isCompleted
                                     ? "bg-slate-800/30 hover:-translate-y-1 hover:border-emerald-500/30 hover:shadow-xl hover:shadow-emerald-900/20 cursor-pointer"
                                     : "bg-slate-900/50 opacity-75 cursor-not-allowed"
                                     }`}
                             >
-                                <div>
+                                <div className="space-y-3">
                                     <div className="mb-4 flex items-center justify-between">
                                         <span className="rounded-full bg-slate-900/80 px-3 py-1 text-xs font-semibold text-emerald-400 border border-emerald-500/20">
                                             {attempt.domainName}
@@ -99,6 +99,11 @@ export default function RoadmapHistory() {
                                     <p className="text-sm text-slate-400">
                                         Status: <span className="capitalize">{attempt.status}</span>
                                     </p>
+                                    {attempt.forecastSource && (
+                                        <p className="mt-1 text-xs text-cyan-300/80">
+                                            Forecast: {attempt.forecastSource === "dkt-service" ? "DKT" : "BKT"}
+                                        </p>
+                                    )}
                                 </div>
 
                                 <div className="mt-6 flex items-center justify-end">

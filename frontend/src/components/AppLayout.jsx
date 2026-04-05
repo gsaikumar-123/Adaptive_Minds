@@ -39,6 +39,7 @@ export default function AppLayout() {
 
         if (name === "Dashboard") displayName = "My Roadmaps";
         if (name === "New") displayName = "Generator";
+        if (name === "Progress") displayName = "Progress";
 
         const isLast = index === pathnames.length - 1;
 
@@ -149,6 +150,19 @@ export default function AppLayout() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                         </svg>
                         <span className="font-medium">Generator</span>
+                    </Link>
+                    <Link
+                        to="/dashboard/progress"
+                        onClick={closeSidebar}
+                        className={`flex items-center gap-3 rounded-xl px-4 py-3 transition-colors ${location.pathname.includes("/dashboard/progress")
+                            ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+                            : "text-slate-300 hover:bg-slate-800 hover:text-slate-100"
+                            }`}
+                    >
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2m3 2v-4m3 4v-6m2 10H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2z" />
+                        </svg>
+                        <span className="font-medium">Progress</span>
                     </Link>
                 </nav>
 

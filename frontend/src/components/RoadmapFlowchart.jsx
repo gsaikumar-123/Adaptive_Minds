@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
 import { fetchCompletedTopics, toggleTopicCompletion } from "../services/api.js";
-import ProgressHeatmap from "./ProgressHeatmap.jsx";
 import LearningForecastPanel from "./LearningForecastPanel.jsx";
 
 export default function RoadmapFlowchart({ roadmap }) {
@@ -89,8 +88,9 @@ export default function RoadmapFlowchart({ roadmap }) {
 
   return (
     <>
-      {user && <ProgressHeatmap />}
-      {user && roadmap?.domain && <LearningForecastPanel domain={roadmap.domain} />}
+      {user && roadmap?.domain && (
+        <LearningForecastPanel domain={roadmap.domain} snapshot={roadmap.forecastSnapshot || null} />
+      )}
 
       <div className="rounded-2xl border border-slate-700/50 bg-slate-900/60 backdrop-blur-md p-6 shadow-xl w-full mx-auto max-w-4xl mt-8 animate-slide-up" style={{ animationDelay: '100ms' }}>
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
