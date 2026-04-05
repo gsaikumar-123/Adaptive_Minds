@@ -16,7 +16,7 @@ export default function SkillDnaPanel({ skillDna }) {
   };
 
   return (
-    <div className="space-y-6 rounded-2xl border border-cyan-900/40 bg-slate-900/70 p-6 shadow-xl shadow-cyan-950/20 animate-slide-up">
+    <div className="space-y-7 rounded-2xl border border-cyan-900/40 bg-slate-900/70 p-7 shadow-xl shadow-cyan-950/20 animate-slide-up">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h3 className="text-xl font-bold text-cyan-300">Skill DNA Signature</h3>
@@ -29,16 +29,16 @@ export default function SkillDnaPanel({ skillDna }) {
         </div>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-3">
-        <div className="rounded-xl border border-slate-700/70 bg-slate-800/50 p-4">
+      <div className="grid gap-5 sm:grid-cols-3">
+        <div className="rounded-xl border border-slate-700/70 bg-slate-800/50 p-5 min-h-[118px]">
           <p className="text-xs uppercase tracking-wide text-slate-400">Weighted Accuracy</p>
           <p className="mt-2 text-2xl font-bold text-slate-100">{overview.weightedAccuracy}%</p>
         </div>
-        <div className="rounded-xl border border-slate-700/70 bg-slate-800/50 p-4">
+        <div className="rounded-xl border border-slate-700/70 bg-slate-800/50 p-5 min-h-[118px]">
           <p className="text-xs uppercase tracking-wide text-slate-400">Consistency</p>
           <p className="mt-2 text-2xl font-bold text-slate-100">{overview.consistency}%</p>
         </div>
-        <div className="rounded-xl border border-slate-700/70 bg-slate-800/50 p-4">
+        <div className="rounded-xl border border-slate-700/70 bg-slate-800/50 p-5 min-h-[118px]">
           <p className="text-xs uppercase tracking-wide text-slate-400">Readiness Score</p>
           <p className="mt-2 text-2xl font-bold text-cyan-300">{overview.readinessScore}%</p>
         </div>
@@ -50,12 +50,12 @@ export default function SkillDnaPanel({ skillDna }) {
           <span className="text-xs text-slate-500">Top {modules.length} modules</span>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-4">
           {modules.length > 0 ? (
             modules.map((module) => (
               <div
                 key={module.moduleName}
-                className="rounded-xl border border-slate-700/50 bg-slate-800/40 p-4"
+                className="rounded-xl border border-slate-700/50 bg-slate-800/40 p-5"
               >
                 <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
                   <h5 className="text-sm font-semibold text-slate-100">{module.moduleName}</h5>
@@ -84,7 +84,7 @@ export default function SkillDnaPanel({ skillDna }) {
         </div>
       </div>
 
-      <div className="rounded-xl border border-slate-700/50 bg-slate-800/40 p-4">
+      <div className="rounded-xl border border-slate-700/50 bg-slate-800/40 p-5">
         <h4 className="text-sm font-semibold text-slate-200">How This Is Computed</h4>
         <ul className="mt-2 space-y-1 text-xs text-slate-400">
           {(skillDna.signature || []).map((item) => (

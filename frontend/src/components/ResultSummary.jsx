@@ -8,15 +8,15 @@ export default function ResultSummary({ result }) {
   const prerequisites = result.prerequisites || [];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <SkillDnaPanel skillDna={result.skillDna} />
 
-      <div className="rounded-2xl border border-slate-700/50 bg-slate-900/60 backdrop-blur-md p-6 shadow-xl shadow-black/20 animate-slide-up">
+      <div className="rounded-2xl border border-slate-700/50 bg-slate-900/60 backdrop-blur-md p-7 shadow-xl shadow-black/20 animate-slide-up">
         <h3 className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">Diagnostic Summary</h3>
         <p className="mt-3 text-base text-slate-300 leading-relaxed">{result.summary || "Assessment completed successfully."}</p>
       </div>
-      <div className="grid gap-6 md:grid-cols-3">
-        <div className="rounded-2xl border border-rose-900/30 bg-slate-900/60 backdrop-blur-md p-6 shadow-lg hover:border-rose-500/30 transition-colors duration-300 animate-slide-up" style={{ animationDelay: '100ms' }}>
+      <div className="grid gap-7 md:grid-cols-3 items-stretch">
+        <div className="h-full rounded-2xl border border-rose-900/30 bg-slate-900/60 backdrop-blur-md p-7 shadow-lg hover:border-rose-500/30 transition-colors duration-300 animate-slide-up" style={{ animationDelay: '100ms' }}>
           <h4 className="text-base font-bold flex items-center gap-2 text-rose-400">
             <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse-slow"></span>
             Needs Review
@@ -35,7 +35,7 @@ export default function ResultSummary({ result }) {
           </ul>
         </div>
 
-        <div className="rounded-2xl border border-emerald-900/30 bg-slate-900/60 backdrop-blur-md p-6 shadow-lg hover:border-emerald-500/30 transition-colors duration-300 animate-slide-up" style={{ animationDelay: '200ms' }}>
+        <div className="h-full rounded-2xl border border-emerald-900/30 bg-slate-900/60 backdrop-blur-md p-7 shadow-lg hover:border-emerald-500/30 transition-colors duration-300 animate-slide-up" style={{ animationDelay: '200ms' }}>
           <h4 className="text-base font-bold flex items-center gap-2 text-emerald-400">
             <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
             Mastered
@@ -54,7 +54,7 @@ export default function ResultSummary({ result }) {
           </ul>
         </div>
 
-        <div className="rounded-2xl border border-amber-900/30 bg-slate-900/60 backdrop-blur-md p-6 shadow-lg hover:border-amber-500/30 transition-colors duration-300 animate-slide-up" style={{ animationDelay: '300ms' }}>
+        <div className="h-full rounded-2xl border border-amber-900/30 bg-slate-900/60 backdrop-blur-md p-7 shadow-lg hover:border-amber-500/30 transition-colors duration-300 animate-slide-up" style={{ animationDelay: '300ms' }}>
           <h4 className="text-base font-bold flex items-center gap-2 text-amber-400">
             <span className="w-2 h-2 rounded-full bg-amber-500"></span>
             Prerequisites
